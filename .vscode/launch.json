@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node-terminal",
+            "name": "Cucumber: ntg-ticket (@ntg-ticket)",
+            "request": "launch",
+            "command": "npm run test -- --tags @ntg-ticket",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "node-terminal",
+            "name": "Cucumber: ntg-ticket (custom tag)",
+            "request": "launch",
+            "command": "npm run test -- --tags ${input:cucumberTag}",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

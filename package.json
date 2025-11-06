@@ -1,0 +1,29 @@
+{
+  "name": "ntg-ticket-automation",
+  "version": "1.0.0",
+  "description": "API automation tests for ntg-ticket using Playwright + TypeScript + Cucumber",
+  "scripts": {
+    "compile": "tsc --project tsconfig.json --noEmit",
+    "test": "npx playwright-bdd generate && playwright test",
+    "test:ui": "npx playwright-bdd generate && playwright test --ui",
+    "test:headed": "npx playwright-bdd generate && playwright test --headed",
+    "show-report": "playwright show-report",
+    "show-report:port": "playwright show-report --port 9324",
+    "lint": "eslint applications --ext .ts",
+    "generate": "npx playwright-bdd generate"
+  },
+  "keywords": [],
+  "author": "Ahsan Uddin",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.36.1",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "eslint": "^8.47.0",
+    "playwright-bdd": "^7.0.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}

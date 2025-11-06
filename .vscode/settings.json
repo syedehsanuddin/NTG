@@ -1,0 +1,33 @@
+{
+    //Please pass the Feature file path as per the project in VS Code Settings file.
+    "cucumberautocomplete.syncfeatures": "applications/**/*.feature",
+    "cucumberautocomplete.steps": [
+    "applications/**/*.ts"
+    ],
+    "cucumberautocomplete.strictGherkinCompletion": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "explicit"
+    },
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wrappingIndent": "same",
+    "editor.wordWrapColumn": 200,
+    "editor.formatOnSave": false,
+    "editor.rulers": [],
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.format.insertSpaceBeforeFunctionParenthesis": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.preferences.quoteStyle": "double",
+    "cucumberautocomplete.formatConfOverride": {},
+    "cucumberautocomplete.pages": {},
+    "javascript.format.semicolons": "insert",
+    "typescript.format.semicolons": "insert",
+    "json.format.enable": true,
+    "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+    "cucumber.features": [
+      "applications/**/*.feature"
+    ],
+    "cucumber.glue": [
+      "applications/**/*.ts"
+    ]
+}

@@ -1,0 +1,66 @@
+{
+  "applications": [
+    {
+      "apiName": "ntgTicketApi",
+      "resources": [
+        {
+          "name": "getSupportStaff",
+          "path": "/api/{apiVersion}/users/support-staff"
+        },
+        {
+          "name": "getSupportManagers",
+          "path": "/api/{apiVersion}/users/support-managers"
+        },
+        {
+          "name": "getAllUsers",
+          "path": "/api/{apiVersion}/users"
+        },
+        {
+          "name": "getUserById",
+          "path": "/api/{apiVersion}/users/{id}"
+        },
+        {
+          "name": "updateUserById",
+          "path": "/api/{apiVersion}/users/{id}"
+        },
+        {
+          "name": "postTicket",
+          "path": "/api/{apiVersion}/tickets"
+        },
+        {
+          "name": "deleteTicket",
+          "path": "/api/{apiVersion}/tickets/{id}"
+        },
+        {
+          "name": "getTicketById",
+          "path": "/api/{apiVersion}/tickets/{id}"
+        },
+        {
+          "name": "getTickets",
+          "path": "/api/{apiVersion}/tickets"
+        },
+        {
+          "name": "getMyTickets",
+          "path": "/api/{apiVersion}/tickets/my"
+        },
+        {
+          "name": "getAssignedTickets",
+          "path": "/api/{apiVersion}/tickets/assigned"
+        },
+        {
+          "name": "getOverdueTickets",
+          "path": "/api/{apiVersion}/tickets/overdue"
+        },
+        {
+          "name": "getSlaApproaching",
+          "path": "/api/{apiVersion}/tickets/approaching-sla"
+        },
+        {
+          "name": "getSlaBreached",
+          "path": "/api/{apiVersion}/tickets/breached-sla"
+        }
+      ]
+    }
+  ]
+}
+
