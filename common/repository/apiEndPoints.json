@@ -32,6 +32,26 @@
           "path": "/api/{apiVersion}/tickets/{id}"
         },
         {
+          "name": "updateTicketStatus",
+          "path": "/api/{apiVersion}/tickets/{id}/status"
+        },
+        {
+          "name": "updateTicketAssignee",
+          "path": "/api/{apiVersion}/tickets/{id}/assign"
+        },
+        {
+          "name": "postComment",
+          "path": "/api/{apiVersion}/comments"
+        },
+        {
+          "name": "updateComment",
+          "path": "/api/{apiVersion}/comments/{id}"
+        },
+        {
+          "name": "deleteComment",
+          "path": "/api/{apiVersion}/comments/{id}"
+        },
+        {
           "name": "getTicketById",
           "path": "/api/{apiVersion}/tickets/{id}"
         },

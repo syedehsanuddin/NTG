@@ -1,4 +1,4 @@
-@getOverdueTickets
+@getOverdueTickets @regression
 
 Feature: Get Overdue Tickets API Validation
   Validate GET /api/v1/tickets/overdue endpoint with query parameters

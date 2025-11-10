@@ -1,4 +1,4 @@
-@postTicket
+@postTicket @regression
 Feature: Create Ticket API Validation
   Validate POST /api/v1/tickets endpoint
 

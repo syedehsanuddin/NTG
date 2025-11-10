@@ -1,4 +1,4 @@
-@getTickets
+@getTickets @happyflow @regression
 
 Feature: Get Tickets API Validation
   Validate GET /api/v1/tickets endpoint with query parameters

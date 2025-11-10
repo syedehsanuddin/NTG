@@ -1,12 +1,2 @@
 node_modules/
-dist/
-/test-results/
-/playwright-report/
-/playwright/.cache/
-log/
-/traces/
-storage.json
-reports/*.json
-reports/report.html
-testRailFeatures/*.feature
 .env

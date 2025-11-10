@@ -1,4 +1,4 @@
-@getTicketById
+@getTicketById @regression
 
 Feature: Get Ticket By ID API Validation
   Validate GET /api/v1/tickets/{id} endpoint

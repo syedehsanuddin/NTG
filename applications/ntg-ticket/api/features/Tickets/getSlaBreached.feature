@@ -1,4 +1,4 @@
-@getSlaBreached
+@getSlaBreached @regression
 
 Feature: Get SLA Breached Tickets API Validation
   Validate GET /api/v1/tickets/breached-sla endpoint

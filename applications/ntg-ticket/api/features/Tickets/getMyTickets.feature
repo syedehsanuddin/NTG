@@ -1,4 +1,4 @@
-@getMyTickets
+@getMyTickets @regression
 
 Feature: Get My Tickets API Validation
   Validate GET /api/v1/tickets/my endpoint with query parameters

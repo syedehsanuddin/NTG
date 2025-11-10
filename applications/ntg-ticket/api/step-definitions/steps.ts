@@ -12,6 +12,7 @@ interface TestContext {
         headers?: Record<string, string>;
     };
     ticketId?: string;
+    commentId?: string;
 }
 
 const context: TestContext = {};
@@ -86,6 +87,8 @@ When("user creates a ticket with followin payload:", async ({ request }, docStri
     }
     await makePostRequest(request, url, payload);
     
+    context.commentId = undefined;
+
     // Automatically store ticket ID from response
     if (context.response) {
         let data = context.response.data as any;
@@ -104,6 +107,93 @@ When("the user deletes the recently created ticket", async ({ request }) => {
     }
     const url = getEndpointUrl("deleteTicket", { id: context.ticketId });
     await makeDeleteRequest(request, url);
+});
+
+When("the user updates the recently created ticket status:", async ({ request }, docString: string) => {
+    if (!context.ticketId) {
+        throw new Error("Ticket ID is not available. Make sure to store the ticket ID from the response first.");
+    }
+    const url = getEndpointUrl("updateTicketStatus", { id: context.ticketId });
+    let payload: unknown;
+    try {
+        payload = JSON.parse(docString);
+    } catch (err) {
+        throw new Error(`Invalid JSON payload: ${docString}`);
+    }
+    await makePatchRequest(request, url, payload);
+});
+
+When("the user updates the recently created ticket assignee:", async ({ request }, docString: string) => {
+    if (!context.ticketId) {
+        throw new Error("Ticket ID is not available. Make sure to store the ticket ID from the response first.");
+    }
+    const url = getEndpointUrl("updateTicketAssignee", { id: context.ticketId });
+    let payload: unknown;
+    try {
+        payload = JSON.parse(docString);
+    } catch (err) {
+        throw new Error(`Invalid JSON payload: ${docString}`);
+    }
+    await makePatchRequest(request, url, payload);
+});
+
+When("the user adds a comment to the recently created ticket:", async ({ request }, docString: string) => {
+    if (!context.ticketId) {
+        throw new Error("Ticket ID is not available. Make sure to store the ticket ID from the response first.");
+    }
+    const url = getEndpointUrl("postComment");
+    let payload: Record<string, unknown>;
+    try {
+        payload = JSON.parse(docString);
+    } catch (err) {
+        throw new Error(`Invalid JSON payload: ${docString}`);
+    }
+    if (!payload.ticketId) {
+        payload.ticketId = context.ticketId;
+    }
+    if (payload.ticketId !== context.ticketId) {
+        throw new Error("Ticket ID in payload does not match the recently created ticket ID.");
+    }
+    await makePostRequest(request, url, payload);
+
+    if (context.response) {
+        let data = context.response.data as any;
+        if (data && typeof data === "object" && "data" in data) {
+            data = data.data;
+        }
+        if (data && typeof data === "object" && !Array.isArray(data) && data.id) {
+            context.commentId = String(data.id);
+        }
+    }
+});
+
+When("the user updates the recently added comment:", async ({ request }, docString: string) => {
+    if (!context.commentId) {
+        throw new Error("Comment ID is not available. Make sure to store the comment ID from the response first.");
+    }
+    const url = getEndpointUrl("updateComment", { id: context.commentId });
+    let payload: Record<string, unknown>;
+    try {
+        payload = JSON.parse(docString);
+    } catch (err) {
+        throw new Error(`Invalid JSON payload: ${docString}`);
+    }
+    if (!payload.ticketId && context.ticketId) {
+        payload.ticketId = context.ticketId;
+    }
+    if (context.ticketId && payload.ticketId !== context.ticketId) {
+        throw new Error("Ticket ID in payload does not match the recently created ticket ID.");
+    }
+    await makePatchRequest(request, url, payload);
+});
+
+When("the user deletes the recently added comment", async ({ request }) => {
+    if (!context.commentId) {
+        throw new Error("Comment ID is not available. Make sure to store the comment ID from the response first.");
+    }
+    const url = getEndpointUrl("deleteComment", { id: context.commentId });
+    await makeDeleteRequest(request, url);
+    context.commentId = undefined;
 });
 
 Then("the user hits get endpoint with the recently created ticket", async ({ request }) => {
@@ -367,6 +457,7 @@ async function makePostRequest(request: any, url: string, payload: any) {
 async function makeDeleteRequest(request: any, url: string) {
     // Clear context for new request (but keep ticketId)
     const savedTicketId = context.ticketId;
+    const savedCommentId = context.commentId;
     context.response = undefined;
     
     // Prepare HTTP headers
@@ -412,6 +503,7 @@ async function makeDeleteRequest(request: any, url: string) {
     
     // Restore ticketId after clearing context
     context.ticketId = savedTicketId;
+    context.commentId = savedCommentId;
 }
 
 Then("the response status should be {int}", async ({}, expectedStatus: number) => {

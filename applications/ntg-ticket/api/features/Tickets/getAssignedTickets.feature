@@ -1,4 +1,4 @@
-@getAssignedTickets
+@getAssignedTickets @regression
 
 Feature: Get Assigned Tickets API Validation
   Validate GET /api/v1/tickets/assigned endpoint with query parameters

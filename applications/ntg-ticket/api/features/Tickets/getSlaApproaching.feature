@@ -1,4 +1,4 @@
-@getSlaApproaching
+@getSlaApproaching @regression
 
 Feature: Get SLA Approaching Tickets API Validation
   Validate GET /api/v1/tickets/approaching-sla endpoint

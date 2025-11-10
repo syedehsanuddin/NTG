@@ -1,5 +1,5 @@
 
-@patchUserById
+@patchUserById @usersHappyFlow @regression
 Feature: Update User By ID API Validation
   Validate PATCH /api/v1/users/{id} endpoint
 

@@ -1,4 +1,4 @@
-@getSupportStaff
+@getSupportStaff @happyflow @usersHappyFlow @regression
 Feature: Support Staff API Validation
   Validate GET Support Staff endpoint 
 @ntg-ticket

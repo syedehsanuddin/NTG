@@ -1,4 +1,4 @@
-@getUserById
+@getUserById @usersHappyFlow @regression
 
 Feature: Get User By ID API Validation
   Validate GET /api/v1/users/{id} endpoint
