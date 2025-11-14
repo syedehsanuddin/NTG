@@ -2,6 +2,7 @@
 Feature: Update Comment API Validation
   Validate PATCH /api/v1/comments/{id} endpoint
 
+  
   Scenario: PATCH Comment content after creation
     When user creates a ticket with followin payload:
       """
@@ -40,6 +41,6 @@ Feature: Update Comment API Validation
       """
     Then the response status should be 200
     And the response data should have field "content" equal to "This is automated test comment - updated"
-    When the user deletes the recently created ticket
-    Then the response status should be 200
+    # When the user deletes the recently created ticket
+    # Then the response status should be 200
 

@@ -3,7 +3,7 @@ import { test } from "playwright-bdd";
 
 test.describe("Update User By ID API Validation", () => {
 
-  test("Update user with modified data and validate response", { tag: ["@patchUserById"] }, async ({ When, request, Then, And }) => {
+  test("Update user with modified data and validate response", { tag: ["@patchUserById", "@usersHappyFlow", "@regression"] }, async ({ When, request, Then, And }) => {
     await When("I send a PATCH request to endpoint \"updateUserById\" with id \"50711385-db9d-4f1f-a74e-680b7d2ba4db\" and payload \"{\\\"name\\\":\\\"Ahmed Hassan al-Masri as\\\",\\\"email\\\":\\\"ahmed@company.comm\\\",\\\"roles\\\":[\\\"END_USER\\\",\\\"SUPPORT_STAFF\\\",\\\"SUPPORT_MANAGER\\\",\\\"ADMIN\\\"],\\\"isActive\\\":true}\"", null, { request });
     await Then("the response status should be 200");
     await And("the response should have field \"data\"");
@@ -21,7 +21,7 @@ test.describe("Update User By ID API Validation", () => {
     await And("the response data field \"updatedAt\" should be a valid ISO date string");
   });
 
-  test("Revert user to original data and validate response", { tag: ["@patchUserById"] }, async ({ When, request, Then, And }) => {
+  test("Revert user to original data and validate response", { tag: ["@patchUserById", "@usersHappyFlow", "@regression"] }, async ({ When, request, Then, And }) => {
     await When("I send a PATCH request to endpoint \"updateUserById\" with id \"50711385-db9d-4f1f-a74e-680b7d2ba4db\" and payload \"{\\\"name\\\":\\\"Ahmed Hassan al-Masri\\\",\\\"email\\\":\\\"ahmed@company.com\\\",\\\"roles\\\":[\\\"END_USER\\\",\\\"SUPPORT_STAFF\\\"],\\\"isActive\\\":true}\"", null, { request });
     await Then("the response status should be 200");
     await And("the response should have field \"data\"");
@@ -48,6 +48,6 @@ test.use({
 });
 
 const bddFileMeta = {
-  "Update user with modified data and validate response": {"pickleLocation":"8:3","tags":["@patchUserById"]},
-  "Revert user to original data and validate response": {"pickleLocation":"25:3","tags":["@patchUserById"]},
+  "Update user with modified data and validate response": {"pickleLocation":"8:3","tags":["@patchUserById","@usersHappyFlow","@regression"]},
+  "Revert user to original data and validate response": {"pickleLocation":"25:3","tags":["@patchUserById","@usersHappyFlow","@regression"]},
 };

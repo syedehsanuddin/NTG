@@ -3,7 +3,7 @@ import { test } from "playwright-bdd";
 
 test.describe("Delete Comment API Validation", () => {
 
-  test("DELETE Comment after creation", { tag: ["@deleteComment", "@happyflow"] }, async ({ When, request, Then, And }) => {
+  test("DELETE Comment after creation", { tag: ["@deleteComment", "@happyflow", "@regression"] }, async ({ When, request, Then, And }) => {
     await When("user creates a ticket with followin payload:", {"docString":{"content":"{\n  \"title\": \"NTA - Automated Test Ticket - Comment Deletion Flow\",\n  \"description\": \"<p>This ticket is created to test automated comment deletion and will be removed afterwards.</p>\",\n  \"category\": \"63b9e3d4-85a5-4029-a458-2209cf4476a1\",\n  \"subcategory\": \"dfa5af36-b4a1-4657-8076-5df793828222\",\n  \"priority\": \"LOW\",\n  \"impact\": \"MINOR\",\n  \"urgency\": \"LOW\",\n  \"slaLevel\": \"STANDARD\",\n  \"customFields\": {}\n}"}}, { request });
     await Then("the response status should be 201");
     await And("the response data should have field \"id\"");
@@ -27,5 +27,5 @@ test.use({
 });
 
 const bddFileMeta = {
-  "DELETE Comment after creation": {"pickleLocation":"5:3","tags":["@deleteComment","@happyflow"]},
+  "DELETE Comment after creation": {"pickleLocation":"5:3","tags":["@deleteComment","@happyflow","@regression"]},
 };
