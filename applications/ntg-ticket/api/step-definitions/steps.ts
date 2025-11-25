@@ -508,6 +508,7 @@ async function makeDeleteRequest(request: any, url: string) {
 
 Then("the response status should be {int}", async ({}, expectedStatus: number) => {
     if (!context.response) throw new Error("Response is not available in context");
+    // console.log(context.response.status);
     expect(context.response.status).toBe(expectedStatus);
 });
 

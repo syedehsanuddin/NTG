@@ -3,7 +3,7 @@ import { test } from "playwright-bdd";
 
 test.describe("Support Staff API Validation", () => {
 
-  test("GET Support Staff returns successful response with required fields", { tag: ["@getSupportStaff", "@happyflow", "@usersHappyFlow", "@regression", "@ntg-ticket"] }, async ({ When, request, Then, And }) => {
+  test("GET Support Staff returns successful response with required fields", { tag: ["@getSupportStaff", "@happyflow", "@usersHappyFlow", "@regression"] }, async ({ When, request, Then, And }) => {
     await When("I send a GET request to endpoint \"getSupportStaff\"", null, { request });
     await Then("the response status should be 200");
     await And("the response should be a valid JSON array");
@@ -49,7 +49,7 @@ test.use({
 });
 
 const bddFileMeta = {
-  "GET Support Staff returns successful response with required fields": {"pickleLocation":"5:3","tags":["@getSupportStaff","@happyflow","@usersHappyFlow","@regression","@ntg-ticket"],"ownTags":["@ntg-ticket"]},
+  "GET Support Staff returns successful response with required fields": {"pickleLocation":"5:3","tags":["@getSupportStaff","@happyflow","@usersHappyFlow","@regression"]},
   "GET Support Staff response has valid data structure": {"pickleLocation":"15:3","tags":["@getSupportStaff","@happyflow","@usersHappyFlow","@regression"]},
   "GET Support Staff response fields have non-empty values": {"pickleLocation":"24:3","tags":["@getSupportStaff","@happyflow","@usersHappyFlow","@regression"]},
   "GET Support Staff response has valid email format": {"pickleLocation":"31:3","tags":["@getSupportStaff","@happyflow","@usersHappyFlow","@regression"]},

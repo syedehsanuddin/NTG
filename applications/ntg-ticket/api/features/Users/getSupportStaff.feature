@@ -1,7 +1,7 @@
 @getSupportStaff @happyflow @usersHappyFlow @regression
 Feature: Support Staff API Validation
   Validate GET Support Staff endpoint 
-@ntg-ticket
+
   Scenario: GET Support Staff returns successful response with required fields
     When I send a GET request to endpoint "getSupportStaff"
     Then the response status should be 200

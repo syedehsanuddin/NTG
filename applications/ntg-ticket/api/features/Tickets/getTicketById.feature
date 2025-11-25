@@ -9,12 +9,11 @@ Feature: Get Ticket By ID API Validation
       {
         "title": "NTA - Automated Test Ticket - No Action Required",
         "description": "<p>This is an aumtated test ticket for test cycle purpose and will deleted automaticlaly.</p>",
-        "category": "63b9e3d4-85a5-4029-a458-2209cf4476a1",
-        "subcategory": "dfa5af36-b4a1-4657-8076-5df793828222",
+        "category": "fb1ef4eb-1c99-4fe3-9dce-398ca993e763",
+        "subcategory": "bff9c5d7-ad4b-46be-81c4-7103ee2b5825",
         "priority": "LOW",
         "impact": "MINOR",
         "urgency": "LOW",
-        "slaLevel": "STANDARD",
         "customFields": {}
       }
       """

@@ -3,7 +3,7 @@ import { test } from "playwright-bdd";
 
 test.describe("Update Comment API Validation", () => {
 
-  test("PATCH Comment content after creation", { tag: ["@patchComment", "@happyflow", "@regression", "@ahsan"] }, async ({ When, request, Then, And }) => {
+  test("PATCH Comment content after creation", { tag: ["@patchComment", "@happyflow", "@regression"] }, async ({ When, request, Then, And }) => {
     await When("user creates a ticket with followin payload:", {"docString":{"content":"{\n  \"title\": \"NTA - Automated Test Ticket - Comment Update Flow\",\n  \"description\": \"<p>This ticket is created to test automated comment updates and will be removed afterwards.</p>\",\n  \"category\": \"63b9e3d4-85a5-4029-a458-2209cf4476a1\",\n  \"subcategory\": \"dfa5af36-b4a1-4657-8076-5df793828222\",\n  \"priority\": \"LOW\",\n  \"impact\": \"MINOR\",\n  \"urgency\": \"LOW\",\n  \"slaLevel\": \"STANDARD\",\n  \"customFields\": {}\n}"}}, { request });
     await Then("the response status should be 201");
     await And("the response data should have field \"id\"");
@@ -27,5 +27,5 @@ test.use({
 });
 
 const bddFileMeta = {
-  "PATCH Comment content after creation": {"pickleLocation":"6:3","tags":["@patchComment","@happyflow","@regression","@ahsan"],"ownTags":["@ahsan"]},
+  "PATCH Comment content after creation": {"pickleLocation":"6:3","tags":["@patchComment","@happyflow","@regression"]},
 };
