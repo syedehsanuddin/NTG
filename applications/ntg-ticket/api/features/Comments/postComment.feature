@@ -21,8 +21,7 @@ Feature: Create Comment API Validation
       """
       {
         "ticketId": "",
-        "content": "This is automated test comment",
-        "isInternal": false
+        "content": "This is automated test comment" 
       }
       """
     Then the response status should be 201

@@ -35,8 +35,7 @@ Feature: Update Comment API Validation
       """
       {
         "ticketId": "",
-        "content": "This is automated test comment - updated",
-        "isInternal": false
+        "content": "This is automated test comment - updated"
       }
       """
     Then the response status should be 200

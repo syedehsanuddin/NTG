@@ -11,7 +11,7 @@ test.describe("Update Comment API Validation", () => {
     await Then("the response status should be 201");
     await And("the response data should have field \"id\"");
     await And("the response data should have field \"content\" equal to \"This is automated test comment\"");
-    await When("the user updates the recently added comment:", {"docString":{"content":"{\n  \"ticketId\": \"\",\n  \"content\": \"This is automated test comment - updated\",\n  \"isInternal\": false\n}"}}, { request });
+    await When("the user updates the recently added comment:", {"docString":{"content":"{\n  \"ticketId\": \"\",\n  \"content\": \"This is automated test comment - updated\"\n}"}}, { request });
     await Then("the response status should be 200");
     await And("the response data should have field \"content\" equal to \"This is automated test comment - updated\"");
   });
