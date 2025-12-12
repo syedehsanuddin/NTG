@@ -425,6 +425,9 @@ async function makePostRequest(request: any, url: string, payload: any) {
         }
     }
 
+    // Log URL for POST ticket
+    console.log("URL:", url);
+
     // Make POST request using Playwright
     const response = await request.post(url, { 
         headers,
@@ -473,6 +476,7 @@ async function makeDeleteRequest(request: any, url: string) {
         } catch (err: any) {
             // Log error but proceed - might be server issue
             console.error("Auth header fetch failed:", err.message);
+            
         }
     }
 

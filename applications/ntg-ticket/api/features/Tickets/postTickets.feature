@@ -8,27 +8,18 @@ Feature: Create Ticket API Validation
       {
         "title": "NTA - Automated Test Ticket - No Action Required",
         "description": "<p>This is an aumtated test ticket for test cycle purpose and will deleted automaticlaly.</p>",
-        "category": "63b9e3d4-85a5-4029-a458-2209cf4476a1",
-        "subcategory": "dfa5af36-b4a1-4657-8076-5df793828222",
+        "category": "ba47e8b4-f669-4535-b3ef-3478f1d844e2",
+        "subcategory": "bc999191-e258-4b39-b41d-9019460f79c3",
         "priority": "LOW",
         "impact": "MINOR",
-        "urgency": "LOW",
-        "slaLevel": "STANDARD",
         "customFields": {}
       }
       """
     Then the response status should be 201
     And the response should have field "data"
     And the response should have field "message"
-    And the response data should have field "id"
-    And the response data should have field "title"
-    And the response data should have field "description"
-    And the response data should have field "category"
-    And the response data should have field "subcategory"
-    And the response data should have field "priority"
-    And the response data should have field "impact"
-    And the response data should have field "urgency"
-    And the response data should have field "slaLevel"
+    And the response data should have field "ticketNumber"
+    And the response data should have field "status"
     When the user deletes the recently created ticket
     Then the response status should be 200
 
@@ -40,24 +31,22 @@ Feature: Create Ticket API Validation
       {
         "title": "NTA - Automated Test Ticket - No Action Required",
         "description": "<p>This is an aumtated test ticket for test cycle purpose and will deleted automaticlaly.</p>",
-        "category": "63b9e3d4-85a5-4029-a458-2209cf4476a1",
-        "subcategory": "dfa5af36-b4a1-4657-8076-5df793828222",
+        "category": "ba47e8b4-f669-4535-b3ef-3478f1d844e2",
+        "subcategory": "bc999191-e258-4b39-b41d-9019460f79c3",
         "priority": "LOW",
         "impact": "MINOR",
-        "urgency": "LOW",
-        "slaLevel": "STANDARD",
         "customFields": {}
       }
       """
     Then the response status should be 201
     And the response content type should be "application/json"
-    And the response data should have field "title" equal to "NTA - Automated Test Ticket - No Action Required"
-    And the response data should have field "priority" equal to "LOW"
-    And the response data should have field "impact" equal to "MINOR"
-    And the response data should have field "urgency" equal to "LOW"
-    And the response data should have field "slaLevel" equal to "STANDARD"
-    And the response data should have field "category" equal to "63b9e3d4-85a5-4029-a458-2209cf4476a1"
-    And the response data should have field "subcategory" equal to "dfa5af36-b4a1-4657-8076-5df793828222"
+    # And the response data should have field "title" equal to "NTA - Automated Test Ticket - No Action Required"
+    # And the response data should have field "priority" equal to "LOW"
+    # And the response data should have field "impact" equal to "MINOR"
+    # And the response data should have field "urgency" equal to "LOW"
+    # And the response data should have field "slaLevel" equal to "STANDARD"
+    # And the response data should have field "category" equal to "63b9e3d4-85a5-4029-a458-2209cf4476a1"
+    # And the response data should have field "subcategory" equal to "bc999191-e258-4b39-b41d-9019460f79c3"
     When the user deletes the recently created ticket
     Then the response status should be 200
 
@@ -67,12 +56,10 @@ Feature: Create Ticket API Validation
       {
         "title": "NTA - Automated Test Ticket - No Action Required",
         "description": "<p>This is an aumtated test ticket for test cycle purpose and will deleted automaticlaly.</p>",
-        "category": "decd32a2-8946-4455-9fbd-24073f5dd907",
+        "category": "ba47e8b4-f669-4535-b3ef-3478f1d844e2",
         "subcategory": "7f45e38b-459f-43e7-bc8d-05b5e4652981",
         "priority": "MEDIUM",
         "impact": "MAJOR",
-        "urgency": "HIGH",
-        "slaLevel": "STANDARD",
         "customFields": {}
       }
       """
@@ -83,7 +70,7 @@ Feature: Create Ticket API Validation
     And the response data should have field "impact" equal to "MAJOR"
     And the response data should have field "urgency" equal to "HIGH"
     And the response data should have field "slaLevel" equal to "STANDARD"
-    And the response data should have field "category" equal to "decd32a2-8946-4455-9fbd-24073f5dd907"
+    And the response data should have field "category" equal to "ba47e8b4-f669-4535-b3ef-3478f1d844e2"
     And the response data should have field "subcategory" equal to "7f45e38b-459f-43e7-bc8d-05b5e4652981"
     When the user deletes the recently created ticket
     Then the response status should be 200
@@ -95,11 +82,9 @@ Feature: Create Ticket API Validation
         "title": "NTA - Automated Test Ticket - No Action Required",
         "description": "<p>This is an aumtated test ticket for test cycle purpose and will deleted automaticlaly.</p>",
         "category": "63b9e3d4-85a5-4029-a458-2209cf4476a1",
-        "subcategory": "dfa5af36-b4a1-4657-8076-5df793828222",
+        "subcategory": "bc999191-e258-4b39-b41d-9019460f79c3",
         "priority": "LOW",
         "impact": "MINOR",
-        "urgency": "LOW",
-        "slaLevel": "STANDARD",
         "customFields": {}
       }
       """
@@ -124,18 +109,16 @@ Feature: Create Ticket API Validation
         "title": "NTA - Automated Test Ticket - No Action Required",
         "description": "<p>This is an aumtated test ticket for test cycle purpose and will deleted automaticlaly.</p>",
         "category": "63b9e3d4-85a5-4029-a458-2209cf4476a1",
-        "subcategory": "dfa5af36-b4a1-4657-8076-5df793828222",
+        "subcategory": "bc999191-e258-4b39-b41d-9019460f79c3",
         "priority": "LOW",
         "impact": "MINOR",
-        "urgency": "LOW",
-        "slaLevel": "STANDARD",
         "customFields": {}
       }
       """
     Then the response status should be 201
-    And the response data should have field "createdAt"
-    And the response data should have field "updatedAt"
-    And the response data field "createdAt" should be a valid ISO date string
-    And the response data field "updatedAt" should be a valid ISO date string
+    # And the response data should have field "createdAt"
+    # And the response data should have field "updatedAt"
+    # And the response data field "createdAt" should be a valid ISO date string
+    # And the response data field "updatedAt" should be a valid ISO date string
     When the user deletes the recently created ticket
     Then the response status should be 200

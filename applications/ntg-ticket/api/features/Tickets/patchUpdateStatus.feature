@@ -8,8 +8,8 @@ Feature: Update Ticket Status API Validation
       {
         "title": "NTA - Automated Test Ticket - Status Update",
         "description": "<p>This ticket is created for automated status update testing and will be removed afterwards.</p>",
-        "category": "63b9e3d4-85a5-4029-a458-2209cf4476a1",
-        "subcategory": "dfa5af36-b4a1-4657-8076-5df793828222",
+        "category": "ba47e8b4-f669-4535-b3ef-3478f1d844e2",
+        "subcategory": "7f45e38b-459f-43e7-bc8d-05b5e4652981",
         "priority": "LOW",
         "impact": "MINOR",
         "urgency": "LOW",

@@ -21,11 +21,11 @@ Feature: Update Ticket Assignee API Validation
     When the user updates the recently created ticket assignee:
       """
       {
-        "assignedToId": "157fb920-20b3-45c5-9967-09082ddf8e0e"
+        "assignedToId": "d70694fb-e760-4166-b99c-a5c67473117e"
       }
       """
     Then the response status should be 200
-    # And the response data should have field "assignedToId" equal to "157fb920-20b3-45c5-9967-09082ddf8e0e"
+    And the response data should have field "assignedToId" equal to "d70694fb-e760-4166-b99c-a5c67473117e"
     When the user deletes the recently created ticket
     Then the response status should be 200
 

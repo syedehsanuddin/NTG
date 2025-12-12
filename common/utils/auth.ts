@@ -27,7 +27,7 @@ export async function getAuthToken(): Promise<string> {
     let setCookieHeader: string | undefined;
     try {
         const response = await context.post(url, {
-            data: { email, password },
+            data: { email, password, "activeRole":"ADMIN" },
             headers: {
                 "Content-Type": "application/json"
             }

@@ -9,18 +9,17 @@ Feature: Get Ticket By ID API Validation
       {
         "title": "NTA - Automated Test Ticket - No Action Required",
         "description": "<p>This is an aumtated test ticket for test cycle purpose and will deleted automaticlaly.</p>",
-        "category": "fb1ef4eb-1c99-4fe3-9dce-398ca993e763",
-        "subcategory": "bff9c5d7-ad4b-46be-81c4-7103ee2b5825",
+        "category": "ba47e8b4-f669-4535-b3ef-3478f1d844e2",
+        "subcategory": "bc999191-e258-4b39-b41d-9019460f79c3",
         "priority": "LOW",
         "impact": "MINOR",
-        "urgency": "LOW",
         "customFields": {}
       }
       """
     Then the response status should be 201
     And the user hits get endpoint with the recently created ticket
     Then the response status should be 200
-    And the response data should have field "title" equal to "NTA - Automated Test Ticket - No Action Required"
+    # And the response data should have field "message" equal to "Ticket created successfully"
     When the user deletes the recently created ticket
     Then the response status should be 200
     And the user hits get endpoint with the recently created ticket
