@@ -4,7 +4,7 @@ import { test } from "playwright-bdd";
 test.describe("Create Comment API Validation", () => {
 
   test("POST Comment for a newly created ticket returns successful response", { tag: ["@postComment", "@happyflow", "@regression"] }, async ({ When, request, Then, And }) => {
-    await When("user creates a ticket with followin payload:", {"docString":{"content":"{\n  \"title\": \"NTA - Automated Test Ticket - Comment Flow\",\n  \"description\": \"<p>This ticket is created to test automated comment creation and will be removed afterwards.</p>\",\n  \"category\": \"63b9e3d4-85a5-4029-a458-2209cf4476a1\",\n  \"subcategory\": \"dfa5af36-b4a1-4657-8076-5df793828222\",\n  \"priority\": \"LOW\",\n  \"impact\": \"MINOR\",\n  \"urgency\": \"LOW\",\n  \"slaLevel\": \"STANDARD\",\n  \"customFields\": {}\n}"}}, { request });
+    await When("user creates a ticket with followin payload:", {"docString":{"content":"{\n  \"title\": \"NTA - Automated Test Ticket - Comment Flow\",\n  \"description\": \"<p>This ticket is created to test automated comment creation and will be removed afterwards.</p>\",\n  \"category\": \"ba47e8b4-f669-4535-b3ef-3478f1d844e2\",\n  \"subcategory\": \"bc999191-e258-4b39-b41d-9019460f79c3\",\n  \"priority\": \"LOW\",\n  \"impact\": \"MINOR\",\n  \"customFields\": {}\n}"}}, { request });
     await Then("the response status should be 201");
     await And("the response data should have field \"id\"");
     await When("the user adds a comment to the recently created ticket:", {"docString":{"content":"{\n  \"ticketId\": \"\",\n  \"content\": \"This is automated test comment\",\n  \"isInternal\": false\n}"}}, { request });

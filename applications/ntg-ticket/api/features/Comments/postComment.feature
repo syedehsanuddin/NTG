@@ -8,12 +8,10 @@ Feature: Create Comment API Validation
       {
         "title": "NTA - Automated Test Ticket - Comment Flow",
         "description": "<p>This ticket is created to test automated comment creation and will be removed afterwards.</p>",
-        "category": "63b9e3d4-85a5-4029-a458-2209cf4476a1",
-        "subcategory": "dfa5af36-b4a1-4657-8076-5df793828222",
+        "category": "ba47e8b4-f669-4535-b3ef-3478f1d844e2",
+        "subcategory": "bc999191-e258-4b39-b41d-9019460f79c3",
         "priority": "LOW",
         "impact": "MINOR",
-        "urgency": "LOW",
-        "slaLevel": "STANDARD",
         "customFields": {}
       }
       """

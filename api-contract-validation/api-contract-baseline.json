@@ -1,0 +1,624 @@
+{
+  "timestamp": "2025-12-12T10:10:58.318Z",
+  "swaggerUrl": "http://localhost:4000/api/docs-json",
+  "totalEndpoints": 97,
+  "endpoints": [
+    {
+      "path": "/api/v1/admin/config",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/admin/field-config",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/admin/health",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/admin/public-config",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/admin/public-theme-settings",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/admin/stats",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/admin/theme-settings",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/attachments/{id}",
+      "methods": [
+        "DELETE",
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/attachments/{id}/download",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/attachments/ticket/{ticketId}",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/audit-logs",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/audit-logs/stats",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/audit-logs/system",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/audit-logs/ticket/{ticketId}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/audit-logs/user/{userId}/activity",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/auth/login",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/auth/logout",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/auth/me",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/auth/refresh",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/auth/signup",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/auth/supabase/me",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/auth/supabase/refresh",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/auth/supabase/reset-password",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/auth/supabase/signin",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/auth/supabase/signout",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/auth/supabase/signup",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/auth/switch-role",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/auth/users/{userId}/role",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/categories",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/categories/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/categories/active",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/categories/dynamic-fields/{categoryName}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/categories/subcategories/{categoryName}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/comments",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/comments/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/comments/ticket/{ticketId}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/custom-fields",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/custom-fields/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/elasticsearch/aggregations",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/elasticsearch/health",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/elasticsearch/reindex",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/elasticsearch/search",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/elasticsearch/suggestions",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/email-templates",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/email-templates/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/email-templates/{id}/preview",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/email-templates/defaults",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/integrations",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/integrations/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/integrations/{id}/test",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/integrations/{id}/webhook",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/notifications",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/notifications/{id}",
+      "methods": [
+        "DELETE"
+      ]
+    },
+    {
+      "path": "/api/v1/notifications/{id}/read",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/notifications/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/notifications/read-all",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/permissions/all",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/permissions/check/{resource}/{action}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/permissions/role/{role}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/permissions/ticket/{ticketId}/{action}",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/permissions/user/{userId}/{action}",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/reports/export/{type}",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/reports/sla",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/reports/system-metrics",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/reports/tickets",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/reports/user-distribution",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/saved-searches",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/saved-searches/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/saved-searches/{id}/duplicate",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/saved-searches/{id}/execute",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/saved-searches/popular",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/tenants",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/tenants/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/tenants/invitations",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/tenants/invitations/{id}",
+      "methods": [
+        "DELETE"
+      ]
+    },
+    {
+      "path": "/api/v1/tenants/invitations/{id}/resend",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/tenants/invitations/accept",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/tenants/invitations/validate/{token}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/tickets",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/tickets/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/tickets/{id}/assign",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/tickets/{id}/status",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/tickets/bulk-delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/users",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/users/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/users/support-staff",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/workflows",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/workflows/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/workflows/{id}/activate",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/workflows/{id}/deactivate",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/workflows/{id}/set-default",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/v1/workflows/{id}/status-categorization",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/workflows/{id}/statuses",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/workflows/all-statuses",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/workflows/dashboard-stats",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/workflows/default",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/workflows/staff-performance",
+      "methods": [
+        "GET"
+      ]
+    }
+  ]
+}

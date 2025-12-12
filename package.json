@@ -10,7 +10,9 @@
     "show-report": "playwright show-report",
     "show-report:port": "playwright show-report --port 9324",
     "lint": "eslint applications --ext .ts",
-    "generate": "npx playwright-bdd generate"
+    "generate": "npx playwright-bdd generate",
+    "validate-api": "ts-node api-contract-validation/validateApiContract.ts",
+    "validate-api:update": "ts-node api-contract-validation/validateApiContract.ts --update"
   },
   "keywords": [],
   "author": "Ahsan Uddin",
@@ -24,6 +26,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "axios": "^1.6.0",
     "dotenv": "^16.3.1"
   }
 }

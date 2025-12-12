@@ -1,0 +1,10 @@
+{
+  "swaggerUrl": "http://localhost:4000/api/docs-json",
+  "description": "API Contract Validation Configuration",
+  "options": {
+    "updateBaselineOnMatch": false,
+    "failOnMismatch": true,
+    "ignoreDeprecated": false
+  }
+}
+
