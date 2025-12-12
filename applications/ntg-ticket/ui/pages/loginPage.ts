@@ -19,7 +19,7 @@ export class LoginPage {
         this.emailInput = page.locator('input[name="email"], input[type="email"], input[placeholder*="email" i], input[placeholder*="Email" i], #email');
         this.nextButton = page.locator('button:has-text("Next"), button:has-text("NEXT"), button[type="button"]:has-text("Next")');
         this.passwordInput = page.locator('input[name="password"], input[type="password"], #password');
-        this.signInButton = page.locator('button:has-text("Sign In"), button:has-text("SIGN IN"), button[type="submit"]:has-text("Sign In")');
+        this.signInButton = page.locator('//form//button//span//span');
         this.loginButton = page.locator('button[type="submit"], button:has-text("Login"), button:has-text("Sign In")');
         this.errorMessage = page.locator('.error-message, .alert-error, [role="alert"]');
         this.forgotPasswordLink = page.locator('a:has-text("Forgot Password"), a:has-text("Forgot password")');
@@ -47,8 +47,8 @@ export class LoginPage {
         }
         
         // Step 2: Click Next button
-        await this.nextButton.waitFor({ state: 'visible', timeout: 10000 });
-        await this.nextButton.click();
+        // await this.nextButton.waitFor({ state: 'visible', timeout: 10000 });
+        // await this.nextButton.click();
         
         // Step 3: Enter password - wait for password field to appear
         await this.passwordInput.waitFor({ state: 'visible', timeout: 10000 });
@@ -57,17 +57,17 @@ export class LoginPage {
         await this.passwordInput.fill(password);
         
         // Step 4: Click Sign In button
-        await this.signInButton.waitFor({ state: 'visible', timeout: 10000 });
+        // await this.signInButton.waitFor({ state: 'visible', timeout: 10000 });
         await this.signInButton.click();
         
-        // Step 5: Select role (End User) in modal - clicking directly redirects to dashboard
-        await this.roleModal.waitFor({ state: 'visible', timeout: 10000 });
-        await this.endUserRoleOption.waitFor({ state: 'visible', timeout: 10000 });
-        await this.endUserRoleOption.click();
+        // // Step 5: Select role (End User) in modal - clicking directly redirects to dashboard
+        // await this.roleModal.waitFor({ state: 'visible', timeout: 10000 });
+        // await this.endUserRoleOption.waitFor({ state: 'visible', timeout: 10000 });
+        // await this.endUserRoleOption.click();
         
         // Wait for navigation to dashboard after clicking End User
         await this.page.waitForURL(/.*dashboard|.*home|.*tickets/, { timeout: 10000 });
-        await this.page.waitForLoadState('networkidle');
+        // await this.page.waitForLoadState('networkidle');
     }
 
     async isLoggedIn() {

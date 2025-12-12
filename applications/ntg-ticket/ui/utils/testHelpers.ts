@@ -9,7 +9,7 @@ export async function loginAsUser(
     const loginPage = new LoginPage(page);
     await loginPage.goto();
     await loginPage.login(
-        email || process.env.NTG_AUTH_EMAIL || "ahmed@company.com",
+        email || process.env.NTG_AUTH_EMAIL || "user1@ntg-solutions.com",
         password || process.env.NTG_AUTH_PASSWORD || "user123"
     );
     await loginPage.isLoggedIn();
