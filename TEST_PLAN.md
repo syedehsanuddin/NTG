@@ -18,7 +18,7 @@ This document outlines the comprehensive test plan for the NTG Ticket System, co
 - **Test Framework:** Playwright + TypeScript + Cucumber BDD
 
 ### 1.3 Test Environment
-- **API Base URL:** `http://localhost:4000`
+- **API Base URL:** `http://192.168.50.50:4000`
 - **UI Base URL:** `http://192.168.50.50:8080`
 - **Browser:** Desktop Chrome
 - **Viewport:** 1920x1080

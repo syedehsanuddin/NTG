@@ -1,7 +1,7 @@
 @postTicket
 Feature: Create Ticket API Validation
   Validate POST /api/v1/tickets endpoint
-@ahsanjkkk
+@zeeshan123
   Scenario: POST Ticket with valid payload returns successful response
     When user creates a ticket with followin payload:
       """

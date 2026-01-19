@@ -29,7 +29,7 @@ export default defineConfig({
             timeout: 60000, // 1 minute timeout for API tests
             use: { 
                 ...devices["Desktop Chrome"],
-                baseURL: "http://localhost:4000",
+                baseURL: "http://192.168.50.50:4000",
             },
         },
         // UI tests (Standard Playwright)
