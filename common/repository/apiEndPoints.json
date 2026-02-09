@@ -79,8 +79,746 @@
           "name": "getSlaBreached",
           "path": "/api/{apiVersion}/tickets/breached-sla"
         }
+      ],
+      "project": "ntg-ticket",
+      "baseUrl": "http://localhost:4000",
+      "apiVersion": "v1"
+    },
+    {
+      "project": "ntg-rms",
+      "apiName": "ntgRmsApi",
+      "baseUrl": "http://192.168.50.50:8001",
+      "apiVersion": "v1",
+      "resources": [
+        {
+          "name": "getCheck",
+          "path": "/api/{apiVersion}/health"
+        },
+        {
+          "name": "postSignup",
+          "path": "/api/{apiVersion}/auth/signup"
+        },
+        {
+          "name": "postLogin",
+          "path": "/api/{apiVersion}/auth/login"
+        },
+        {
+          "name": "postRefreshToken",
+          "path": "/api/{apiVersion}/auth/refresh"
+        },
+        {
+          "name": "getGoogleAuth",
+          "path": "/api/{apiVersion}/auth/google"
+        },
+        {
+          "name": "getGoogleAuthCallback",
+          "path": "/api/{apiVersion}/auth/google/callback"
+        },
+        {
+          "name": "getMe",
+          "path": "/api/{apiVersion}/auth/me"
+        },
+        {
+          "name": "getProfile",
+          "path": "/api/{apiVersion}/auth/profile"
+        },
+        {
+          "name": "putUpdateProfile",
+          "path": "/api/{apiVersion}/auth/profile"
+        },
+        {
+          "name": "getAssignedBranches",
+          "path": "/api/{apiVersion}/auth/assigned-branches"
+        },
+        {
+          "name": "getRoles",
+          "path": "/api/{apiVersion}/roles"
+        },
+        {
+          "name": "getPermissions",
+          "path": "/api/{apiVersion}/roles/permissions"
+        },
+        {
+          "name": "getRoleById",
+          "path": "/api/{apiVersion}/roles/{id}"
+        },
+        {
+          "name": "getUserRoles",
+          "path": "/api/{apiVersion}/roles/user/{userId}"
+        },
+        {
+          "name": "getUserPermissions",
+          "path": "/api/{apiVersion}/roles/user/{userId}/permissions"
+        },
+        {
+          "name": "getSubscription",
+          "path": "/api/{apiVersion}/subscription"
+        },
+        {
+          "name": "postCreateSubscription",
+          "path": "/api/{apiVersion}/subscription"
+        },
+        {
+          "name": "deleteCancelSubscription",
+          "path": "/api/{apiVersion}/subscription"
+        },
+        {
+          "name": "putUpgradePlan",
+          "path": "/api/{apiVersion}/subscription/upgrade"
+        },
+        {
+          "name": "putDowngradePlan",
+          "path": "/api/{apiVersion}/subscription/downgrade"
+        },
+        {
+          "name": "getUsage",
+          "path": "/api/{apiVersion}/subscription/usage"
+        },
+        {
+          "name": "getInvoices",
+          "path": "/api/{apiVersion}/subscription/invoices"
+        },
+        {
+          "name": "postProcessPayment",
+          "path": "/api/{apiVersion}/subscription/payment"
+        },
+        {
+          "name": "getPlanLimits",
+          "path": "/api/{apiVersion}/subscription/plan-limits/{planId}"
+        },
+        {
+          "name": "getCategories",
+          "path": "/api/{apiVersion}/menu/categories"
+        },
+        {
+          "name": "postCreateCategory",
+          "path": "/api/{apiVersion}/menu/categories"
+        },
+        {
+          "name": "getCategoryById",
+          "path": "/api/{apiVersion}/menu/categories/{id}"
+        },
+        {
+          "name": "putUpdateCategory",
+          "path": "/api/{apiVersion}/menu/categories/{id}"
+        },
+        {
+          "name": "deleteCategory",
+          "path": "/api/{apiVersion}/menu/categories/{id}"
+        },
+        {
+          "name": "postUploadCategoryImage",
+          "path": "/api/{apiVersion}/menu/categories/{id}/upload-image"
+        },
+        {
+          "name": "getFoodItems",
+          "path": "/api/{apiVersion}/menu/food-items"
+        },
+        {
+          "name": "postCreateFoodItem",
+          "path": "/api/{apiVersion}/menu/food-items"
+        },
+        {
+          "name": "getFoodItemById",
+          "path": "/api/{apiVersion}/menu/food-items/{id}"
+        },
+        {
+          "name": "putUpdateFoodItem",
+          "path": "/api/{apiVersion}/menu/food-items/{id}"
+        },
+        {
+          "name": "deleteFoodItem",
+          "path": "/api/{apiVersion}/menu/food-items/{id}"
+        },
+        {
+          "name": "postUploadFoodItemImage",
+          "path": "/api/{apiVersion}/menu/food-items/{id}/upload-image"
+        },
+        {
+          "name": "getAddOnGroups",
+          "path": "/api/{apiVersion}/menu/add-on-groups"
+        },
+        {
+          "name": "postCreateAddOnGroup",
+          "path": "/api/{apiVersion}/menu/add-on-groups"
+        },
+        {
+          "name": "getAddOnGroupById",
+          "path": "/api/{apiVersion}/menu/add-on-groups/{id}"
+        },
+        {
+          "name": "putUpdateAddOnGroup",
+          "path": "/api/{apiVersion}/menu/add-on-groups/{id}"
+        },
+        {
+          "name": "deleteAddOnGroup",
+          "path": "/api/{apiVersion}/menu/add-on-groups/{id}"
+        },
+        {
+          "name": "getAddOns",
+          "path": "/api/{apiVersion}/menu/add-on-groups/{addOnGroupId}/add-ons"
+        },
+        {
+          "name": "postCreateAddOn",
+          "path": "/api/{apiVersion}/menu/add-on-groups/{addOnGroupId}/add-ons"
+        },
+        {
+          "name": "getAddOnById",
+          "path": "/api/{apiVersion}/menu/add-on-groups/{addOnGroupId}/add-ons/{id}"
+        },
+        {
+          "name": "putUpdateAddOn",
+          "path": "/api/{apiVersion}/menu/add-on-groups/{addOnGroupId}/add-ons/{id}"
+        },
+        {
+          "name": "deleteAddOn",
+          "path": "/api/{apiVersion}/menu/add-on-groups/{addOnGroupId}/add-ons/{id}"
+        },
+        {
+          "name": "getMenus",
+          "path": "/api/{apiVersion}/menu/menus"
+        },
+        {
+          "name": "postCreateMenu",
+          "path": "/api/{apiVersion}/menu/menus"
+        },
+        {
+          "name": "getMenuItems",
+          "path": "/api/{apiVersion}/menu/menus/{menuType}/items"
+        },
+        {
+          "name": "postGetMenuItemsForTypes",
+          "path": "/api/{apiVersion}/menu/menus/items/batch"
+        },
+        {
+          "name": "postAssignItemsToMenu",
+          "path": "/api/{apiVersion}/menu/menus/{menuType}/assign-items"
+        },
+        {
+          "name": "putActivateMenu",
+          "path": "/api/{apiVersion}/menu/menus/{menuType}/activate"
+        },
+        {
+          "name": "deleteMenu",
+          "path": "/api/{apiVersion}/menu/menus/{menuType}"
+        },
+        {
+          "name": "getBuffets",
+          "path": "/api/{apiVersion}/menu/buffets"
+        },
+        {
+          "name": "postCreateBuffet",
+          "path": "/api/{apiVersion}/menu/buffets"
+        },
+        {
+          "name": "getBuffetById",
+          "path": "/api/{apiVersion}/menu/buffets/{id}"
+        },
+        {
+          "name": "putUpdateBuffet",
+          "path": "/api/{apiVersion}/menu/buffets/{id}"
+        },
+        {
+          "name": "deleteBuffet",
+          "path": "/api/{apiVersion}/menu/buffets/{id}"
+        },
+        {
+          "name": "postUploadBuffetImage",
+          "path": "/api/{apiVersion}/menu/buffets/{id}/upload-image"
+        },
+        {
+          "name": "getComboMeals",
+          "path": "/api/{apiVersion}/menu/combo-meals"
+        },
+        {
+          "name": "postCreateComboMeal",
+          "path": "/api/{apiVersion}/menu/combo-meals"
+        },
+        {
+          "name": "getComboMealById",
+          "path": "/api/{apiVersion}/menu/combo-meals/{id}"
+        },
+        {
+          "name": "putUpdateComboMeal",
+          "path": "/api/{apiVersion}/menu/combo-meals/{id}"
+        },
+        {
+          "name": "deleteComboMeal",
+          "path": "/api/{apiVersion}/menu/combo-meals/{id}"
+        },
+        {
+          "name": "postUploadComboMealImage",
+          "path": "/api/{apiVersion}/menu/combo-meals/{id}/upload-image"
+        },
+        {
+          "name": "getVariationGroups",
+          "path": "/api/{apiVersion}/menu/variation-groups"
+        },
+        {
+          "name": "postCreateVariationGroup",
+          "path": "/api/{apiVersion}/menu/variation-groups"
+        },
+        {
+          "name": "getVariationGroupById",
+          "path": "/api/{apiVersion}/menu/variation-groups/{id}"
+        },
+        {
+          "name": "putUpdateVariationGroup",
+          "path": "/api/{apiVersion}/menu/variation-groups/{id}"
+        },
+        {
+          "name": "deleteVariationGroup",
+          "path": "/api/{apiVersion}/menu/variation-groups/{id}"
+        },
+        {
+          "name": "getVariations",
+          "path": "/api/{apiVersion}/menu/variation-groups/{variationGroupId}/variations"
+        },
+        {
+          "name": "postCreateVariation",
+          "path": "/api/{apiVersion}/menu/variation-groups/{variationGroupId}/variations"
+        },
+        {
+          "name": "getVariationById",
+          "path": "/api/{apiVersion}/menu/variation-groups/{variationGroupId}/variations/{id}"
+        },
+        {
+          "name": "putUpdateVariation",
+          "path": "/api/{apiVersion}/menu/variation-groups/{variationGroupId}/variations/{id}"
+        },
+        {
+          "name": "deleteVariation",
+          "path": "/api/{apiVersion}/menu/variation-groups/{variationGroupId}/variations/{id}"
+        },
+        {
+          "name": "getFoodItemsWithVariationGroup",
+          "path": "/api/{apiVersion}/menu/variation-groups/{id}/food-items"
+        },
+        {
+          "name": "postCreateTranslations",
+          "path": "/api/{apiVersion}/translations"
+        },
+        {
+          "name": "putUpdateTranslation",
+          "path": "/api/{apiVersion}/translations"
+        },
+        {
+          "name": "getEntityTranslations",
+          "path": "/api/{apiVersion}/translations/entity/{entityType}/{entityId}"
+        },
+        {
+          "name": "getTranslation",
+          "path": "/api/{apiVersion}/translations/translate"
+        },
+        {
+          "name": "getSupportedLanguages",
+          "path": "/api/{apiVersion}/translations/languages"
+        },
+        {
+          "name": "getDefaultLanguage",
+          "path": "/api/{apiVersion}/translations/languages/default"
+        },
+        {
+          "name": "getDeleteEntityTranslations",
+          "path": "/api/{apiVersion}/translations/delete/{entityType}/{entityId}"
+        },
+        {
+          "name": "getCacheStats",
+          "path": "/api/{apiVersion}/translations/cache/stats"
+        },
+        {
+          "name": "postClearExpiredCache",
+          "path": "/api/{apiVersion}/translations/cache/clear"
+        },
+        {
+          "name": "postCreateLanguage",
+          "path": "/api/{apiVersion}/translations/admin/languages"
+        },
+        {
+          "name": "getAllLanguagesAdmin",
+          "path": "/api/{apiVersion}/translations/admin/languages"
+        },
+        {
+          "name": "putUpdateLanguage",
+          "path": "/api/{apiVersion}/translations/admin/languages/{code}"
+        },
+        {
+          "name": "deleteLanguage",
+          "path": "/api/{apiVersion}/translations/admin/languages/{code}"
+        },
+        {
+          "name": "postRetranslate",
+          "path": "/api/{apiVersion}/translations/admin/retranslate"
+        },
+        {
+          "name": "getTenantLanguages",
+          "path": "/api/{apiVersion}/translations/tenant/languages"
+        },
+        {
+          "name": "getAvailableLanguagesForTenant",
+          "path": "/api/{apiVersion}/translations/tenant/languages/available"
+        },
+        {
+          "name": "postEnableLanguageForTenant",
+          "path": "/api/{apiVersion}/translations/tenant/languages/{code}"
+        },
+        {
+          "name": "getIngredients",
+          "path": "/api/{apiVersion}/inventory/ingredients"
+        },
+        {
+          "name": "postCreateIngredient",
+          "path": "/api/{apiVersion}/inventory/ingredients"
+        },
+        {
+          "name": "getIngredientById",
+          "path": "/api/{apiVersion}/inventory/ingredients/{id}"
+        },
+        {
+          "name": "putUpdateIngredient",
+          "path": "/api/{apiVersion}/inventory/ingredients/{id}"
+        },
+        {
+          "name": "deleteIngredient",
+          "path": "/api/{apiVersion}/inventory/ingredients/{id}"
+        },
+        {
+          "name": "postAddStock",
+          "path": "/api/{apiVersion}/inventory/stock/add"
+        },
+        {
+          "name": "postDeductStock",
+          "path": "/api/{apiVersion}/inventory/stock/deduct"
+        },
+        {
+          "name": "postAdjustStock",
+          "path": "/api/{apiVersion}/inventory/stock/adjust"
+        },
+        {
+          "name": "postTransferStock",
+          "path": "/api/{apiVersion}/inventory/stock/transfer"
+        },
+        {
+          "name": "getStockTransactions",
+          "path": "/api/{apiVersion}/inventory/stock/transactions"
+        },
+        {
+          "name": "getRecipes",
+          "path": "/api/{apiVersion}/inventory/recipes"
+        },
+        {
+          "name": "postCreateRecipe",
+          "path": "/api/{apiVersion}/inventory/recipes"
+        },
+        {
+          "name": "getRecipeByFoodItemId",
+          "path": "/api/{apiVersion}/inventory/recipes/food-item/{foodItemId}"
+        },
+        {
+          "name": "deleteRecipe",
+          "path": "/api/{apiVersion}/inventory/recipes/food-item/{foodItemId}"
+        },
+        {
+          "name": "deleteAddOnRecipe",
+          "path": "/api/{apiVersion}/inventory/recipes/add-on/{addOnId}"
+        },
+        {
+          "name": "getCurrentStockReport",
+          "path": "/api/{apiVersion}/inventory/reports/current-stock"
+        },
+        {
+          "name": "getLowStockAlerts",
+          "path": "/api/{apiVersion}/inventory/reports/low-stock-alerts"
+        },
+        {
+          "name": "getStockMovementReport",
+          "path": "/api/{apiVersion}/inventory/reports/stock-movement"
+        },
+        {
+          "name": "postCreateStockTransaction",
+          "path": "/api/{apiVersion}/inventory/stock-transactions"
+        },
+        {
+          "name": "getRestaurantInfo",
+          "path": "/api/{apiVersion}/restaurant/info"
+        },
+        {
+          "name": "putUpdateRestaurantInfo",
+          "path": "/api/{apiVersion}/restaurant/info"
+        },
+        {
+          "name": "postUploadLogo",
+          "path": "/api/{apiVersion}/restaurant/info/upload-logo"
+        },
+        {
+          "name": "getBranches",
+          "path": "/api/{apiVersion}/restaurant/branches"
+        },
+        {
+          "name": "postCreateBranch",
+          "path": "/api/{apiVersion}/restaurant/branches"
+        },
+        {
+          "name": "getBranchById",
+          "path": "/api/{apiVersion}/restaurant/branches/{id}"
+        },
+        {
+          "name": "putUpdateBranch",
+          "path": "/api/{apiVersion}/restaurant/branches/{id}"
+        },
+        {
+          "name": "deleteBranch",
+          "path": "/api/{apiVersion}/restaurant/branches/{id}"
+        },
+        {
+          "name": "getCounters",
+          "path": "/api/{apiVersion}/restaurant/counters"
+        },
+        {
+          "name": "postCreateCounter",
+          "path": "/api/{apiVersion}/restaurant/counters"
+        },
+        {
+          "name": "getCounterById",
+          "path": "/api/{apiVersion}/restaurant/counters/{id}"
+        },
+        {
+          "name": "putUpdateCounter",
+          "path": "/api/{apiVersion}/restaurant/counters/{id}"
+        },
+        {
+          "name": "deleteCounter",
+          "path": "/api/{apiVersion}/restaurant/counters/{id}"
+        },
+        {
+          "name": "getTables",
+          "path": "/api/{apiVersion}/restaurant/tables"
+        },
+        {
+          "name": "postCreateTable",
+          "path": "/api/{apiVersion}/restaurant/tables"
+        },
+        {
+          "name": "getAvailableTables",
+          "path": "/api/{apiVersion}/restaurant/tables/available"
+        },
+        {
+          "name": "getTableById",
+          "path": "/api/{apiVersion}/restaurant/tables/{id}"
+        },
+        {
+          "name": "putUpdateTable",
+          "path": "/api/{apiVersion}/restaurant/tables/{id}"
+        },
+        {
+          "name": "deleteTable",
+          "path": "/api/{apiVersion}/restaurant/tables/{id}"
+        },
+        {
+          "name": "getOrders",
+          "path": "/api/{apiVersion}/orders"
+        },
+        {
+          "name": "postCreateOrder",
+          "path": "/api/{apiVersion}/orders"
+        },
+        {
+          "name": "getStreamKitchenOrders",
+          "path": "/api/{apiVersion}/orders/kitchen/stream"
+        },
+        {
+          "name": "getOrderById",
+          "path": "/api/{apiVersion}/orders/{id}"
+        },
+        {
+          "name": "putUpdateOrder",
+          "path": "/api/{apiVersion}/orders/{id}"
+        },
+        {
+          "name": "deleteOrder",
+          "path": "/api/{apiVersion}/orders/{id}"
+        },
+        {
+          "name": "putUpdateOrderStatus",
+          "path": "/api/{apiVersion}/orders/{id}/status"
+        },
+        {
+          "name": "putUpdatePaymentStatus",
+          "path": "/api/{apiVersion}/orders/{id}/payment"
+        },
+        {
+          "name": "putUpdateOrderItemStatus",
+          "path": "/api/{apiVersion}/orders/{orderId}/items/{itemId}/status"
+        },
+        {
+          "name": "postValidateCoupon",
+          "path": "/api/{apiVersion}/coupons/validate"
+        },
+        {
+          "name": "postCreateDefaultCoupon",
+          "path": "/api/{apiVersion}/coupons/create-default"
+        },
+        {
+          "name": "getCoupons",
+          "path": "/api/{apiVersion}/coupons"
+        },
+        {
+          "name": "postCreateCoupon",
+          "path": "/api/{apiVersion}/coupons"
+        },
+        {
+          "name": "getCouponById",
+          "path": "/api/{apiVersion}/coupons/{id}"
+        },
+        {
+          "name": "putUpdateCoupon",
+          "path": "/api/{apiVersion}/coupons/{id}"
+        },
+        {
+          "name": "deleteCoupon",
+          "path": "/api/{apiVersion}/coupons/{id}"
+        },
+        {
+          "name": "getTaxes",
+          "path": "/api/{apiVersion}/taxes"
+        },
+        {
+          "name": "postCreateTax",
+          "path": "/api/{apiVersion}/taxes"
+        },
+        {
+          "name": "getTaxById",
+          "path": "/api/{apiVersion}/taxes/{id}"
+        },
+        {
+          "name": "putUpdateTax",
+          "path": "/api/{apiVersion}/taxes/{id}"
+        },
+        {
+          "name": "deleteTax",
+          "path": "/api/{apiVersion}/taxes/{id}"
+        },
+        {
+          "name": "getSettings",
+          "path": "/api/{apiVersion}/settings"
+        },
+        {
+          "name": "putUpdateSettings",
+          "path": "/api/{apiVersion}/settings"
+        },
+        {
+          "name": "getSettingCategory",
+          "path": "/api/{apiVersion}/settings/{category}"
+        },
+        {
+          "name": "getDeliveryOrders",
+          "path": "/api/{apiVersion}/delivery/orders"
+        },
+        {
+          "name": "getDeliveryById",
+          "path": "/api/{apiVersion}/delivery/orders/{id}"
+        },
+        {
+          "name": "getAvailableDeliveryPersonnel",
+          "path": "/api/{apiVersion}/delivery/personnel"
+        },
+        {
+          "name": "postAssignDelivery",
+          "path": "/api/{apiVersion}/delivery/assign"
+        },
+        {
+          "name": "putUpdateDeliveryStatus",
+          "path": "/api/{apiVersion}/delivery/orders/{id}/status"
+        },
+        {
+          "name": "getEmployees",
+          "path": "/api/{apiVersion}/employees"
+        },
+        {
+          "name": "postCreateEmployee",
+          "path": "/api/{apiVersion}/employees"
+        },
+        {
+          "name": "getEmployeeById",
+          "path": "/api/{apiVersion}/employees/{id}"
+        },
+        {
+          "name": "putUpdateEmployee",
+          "path": "/api/{apiVersion}/employees/{id}"
+        },
+        {
+          "name": "deleteEmployee",
+          "path": "/api/{apiVersion}/employees/{id}"
+        },
+        {
+          "name": "getCustomers",
+          "path": "/api/{apiVersion}/customers"
+        },
+        {
+          "name": "postCreateCustomer",
+          "path": "/api/{apiVersion}/customers"
+        },
+        {
+          "name": "getCustomerById",
+          "path": "/api/{apiVersion}/customers/{id}"
+        },
+        {
+          "name": "putUpdateCustomer",
+          "path": "/api/{apiVersion}/customers/{id}"
+        },
+        {
+          "name": "postCreateCustomerAddress",
+          "path": "/api/{apiVersion}/customers/{id}/addresses"
+        },
+        {
+          "name": "getSalesReport",
+          "path": "/api/{apiVersion}/reports/sales"
+        },
+        {
+          "name": "getOrdersReport",
+          "path": "/api/{apiVersion}/reports/orders"
+        },
+        {
+          "name": "getCustomersReport",
+          "path": "/api/{apiVersion}/reports/customers"
+        },
+        {
+          "name": "getInventoryReport",
+          "path": "/api/{apiVersion}/reports/inventory"
+        },
+        {
+          "name": "getFinancialReport",
+          "path": "/api/{apiVersion}/reports/financial"
+        },
+        {
+          "name": "getTaxReport",
+          "path": "/api/{apiVersion}/reports/tax"
+        },
+        {
+          "name": "getTopItems",
+          "path": "/api/{apiVersion}/reports/top-items"
+        },
+        {
+          "name": "postPushSync",
+          "path": "/api/{apiVersion}/sync/push"
+        },
+        {
+          "name": "getPullSync",
+          "path": "/api/{apiVersion}/sync/pull"
+        },
+        {
+          "name": "getSyncStatus",
+          "path": "/api/{apiVersion}/sync/status"
+        },
+        {
+          "name": "postResolveConflicts",
+          "path": "/api/{apiVersion}/sync/resolve"
+        },
+        {
+          "name": "getDashboard",
+          "path": "/api/{apiVersion}/dashboard"
+        }
       ]
     }
   ]
 }
-

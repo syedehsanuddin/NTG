@@ -1,10 +1,18 @@
 import { defineConfig, devices } from "@playwright/test";
 import { defineBddConfig } from "playwright-bdd";
 
-// BDD config for API tests
-const apiTestDir = defineBddConfig({
+// BDD config for API tests - NTG Ticket
+const ntgTicketApiTestDir = defineBddConfig({
     steps: ["applications/ntg-ticket/api/step-definitions/**/*.ts"],
     paths: ["applications/ntg-ticket/api/features/**/*.feature"],
+    outputDir: ".features-gen/applications/ntg-ticket",
+});
+
+// BDD config for API tests - NTG RMS
+const ntgRmsApiTestDir = defineBddConfig({
+    steps: ["applications/NTG-RMS/api/step-definitions/**/*.ts"],
+    paths: ["applications/NTG-RMS/api/features/**/*.feature"],
+    outputDir: ".features-gen/applications/NTG-RMS",
 });
 
 export default defineConfig({
@@ -21,15 +29,26 @@ export default defineConfig({
         video: "retain-on-failure",
     },
     projects: [
-        // API tests (BDD)
+        // API tests - NTG Ticket (BDD)
         {
             name: "api-tests",
-            testDir: apiTestDir,
+            testDir: ntgTicketApiTestDir,
             testMatch: /.*\.spec\.(js|ts)/,
             timeout: 60000, // 1 minute timeout for API tests
             use: { 
                 ...devices["Desktop Chrome"],
                 baseURL: "http://192.168.50.50:4000",
+            },
+        },
+        // API tests - NTG RMS (BDD)
+        {
+            name: "api-tests-rms",
+            testDir: ntgRmsApiTestDir,
+            testMatch: /.*\.spec\.(js|ts)/,
+            timeout: 60000, // 1 minute timeout for API tests
+            use: { 
+                ...devices["Desktop Chrome"],
+                baseURL: "http://192.168.50.50:8001",
             },
         },
         // UI tests (Standard Playwright)

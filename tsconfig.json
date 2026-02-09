@@ -20,6 +20,7 @@
   },
   "include": [
     "applications/ntg-ticket/**/*.ts",
+    "applications/NTG-RMS/**/*.ts",
     "common/**/*.ts",
     "api-contract-validation/**/*.ts",
     "cucumber.js"

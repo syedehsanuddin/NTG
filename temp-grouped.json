@@ -1,0 +1,1674 @@
+{
+  "other": [
+    {
+      "path": "/api/v1/health",
+      "method": "GET",
+      "operationId": "HealthController_check",
+      "tags": [],
+      "summary": ""
+    }
+  ],
+  "auth": [
+    {
+      "path": "/api/v1/auth/signup",
+      "method": "POST",
+      "operationId": "AuthController_signup",
+      "tags": [
+        "auth"
+      ],
+      "summary": "Register a new user"
+    },
+    {
+      "path": "/api/v1/auth/login",
+      "method": "POST",
+      "operationId": "AuthController_login",
+      "tags": [
+        "auth"
+      ],
+      "summary": "Login user"
+    },
+    {
+      "path": "/api/v1/auth/refresh",
+      "method": "POST",
+      "operationId": "AuthController_refreshToken",
+      "tags": [
+        "auth"
+      ],
+      "summary": "Refresh access token"
+    },
+    {
+      "path": "/api/v1/auth/google",
+      "method": "GET",
+      "operationId": "AuthController_googleAuth",
+      "tags": [
+        "auth"
+      ],
+      "summary": "Initiate Google OAuth login"
+    },
+    {
+      "path": "/api/v1/auth/google/callback",
+      "method": "GET",
+      "operationId": "AuthController_googleAuthCallback",
+      "tags": [
+        "auth"
+      ],
+      "summary": "Google OAuth callback"
+    },
+    {
+      "path": "/api/v1/auth/me",
+      "method": "GET",
+      "operationId": "AuthController_getMe",
+      "tags": [
+        "auth"
+      ],
+      "summary": "Get current user profile"
+    },
+    {
+      "path": "/api/v1/auth/profile",
+      "method": "GET",
+      "operationId": "AuthController_getProfile",
+      "tags": [
+        "auth"
+      ],
+      "summary": "Get current user profile"
+    },
+    {
+      "path": "/api/v1/auth/profile",
+      "method": "PUT",
+      "operationId": "AuthController_updateProfile",
+      "tags": [
+        "auth"
+      ],
+      "summary": "Update current user profile"
+    },
+    {
+      "path": "/api/v1/auth/assigned-branches",
+      "method": "GET",
+      "operationId": "AuthController_getAssignedBranches",
+      "tags": [
+        "auth"
+      ],
+      "summary": "Get user assigned branches"
+    }
+  ],
+  "roles": [
+    {
+      "path": "/api/v1/roles",
+      "method": "GET",
+      "operationId": "RolesController_getRoles",
+      "tags": [
+        "roles"
+      ],
+      "summary": "Get all roles"
+    },
+    {
+      "path": "/api/v1/roles/permissions",
+      "method": "GET",
+      "operationId": "RolesController_getPermissions",
+      "tags": [
+        "roles"
+      ],
+      "summary": "Get all permissions"
+    },
+    {
+      "path": "/api/v1/roles/{id}",
+      "method": "GET",
+      "operationId": "RolesController_getRoleById",
+      "tags": [
+        "roles"
+      ],
+      "summary": "Get role by ID with permissions"
+    },
+    {
+      "path": "/api/v1/roles/user/{userId}",
+      "method": "GET",
+      "operationId": "RolesController_getUserRoles",
+      "tags": [
+        "roles"
+      ],
+      "summary": "Get user roles"
+    },
+    {
+      "path": "/api/v1/roles/user/{userId}/permissions",
+      "method": "GET",
+      "operationId": "RolesController_getUserPermissions",
+      "tags": [
+        "roles"
+      ],
+      "summary": "Get user permissions (aggregated from all roles)"
+    }
+  ],
+  "subscription": [
+    {
+      "path": "/api/v1/subscription",
+      "method": "GET",
+      "operationId": "SubscriptionController_getSubscription",
+      "tags": [
+        "subscription"
+      ],
+      "summary": "Get current subscription"
+    },
+    {
+      "path": "/api/v1/subscription",
+      "method": "POST",
+      "operationId": "SubscriptionController_createSubscription",
+      "tags": [
+        "subscription"
+      ],
+      "summary": "Create subscription (trial)"
+    },
+    {
+      "path": "/api/v1/subscription",
+      "method": "DELETE",
+      "operationId": "SubscriptionController_cancelSubscription",
+      "tags": [
+        "subscription"
+      ],
+      "summary": "Cancel subscription"
+    },
+    {
+      "path": "/api/v1/subscription/upgrade",
+      "method": "PUT",
+      "operationId": "SubscriptionController_upgradePlan",
+      "tags": [
+        "subscription"
+      ],
+      "summary": "Upgrade subscription plan"
+    },
+    {
+      "path": "/api/v1/subscription/downgrade",
+      "method": "PUT",
+      "operationId": "SubscriptionController_downgradePlan",
+      "tags": [
+        "subscription"
+      ],
+      "summary": "Downgrade subscription plan"
+    },
+    {
+      "path": "/api/v1/subscription/usage",
+      "method": "GET",
+      "operationId": "SubscriptionController_getUsage",
+      "tags": [
+        "subscription"
+      ],
+      "summary": "Get subscription usage metrics"
+    },
+    {
+      "path": "/api/v1/subscription/invoices",
+      "method": "GET",
+      "operationId": "SubscriptionController_getInvoices",
+      "tags": [
+        "subscription"
+      ],
+      "summary": "Get billing history (invoices)"
+    },
+    {
+      "path": "/api/v1/subscription/payment",
+      "method": "POST",
+      "operationId": "SubscriptionController_processPayment",
+      "tags": [
+        "subscription"
+      ],
+      "summary": "Process payment (dummy payment system)"
+    },
+    {
+      "path": "/api/v1/subscription/plan-limits/{planId}",
+      "method": "GET",
+      "operationId": "SubscriptionController_getPlanLimits",
+      "tags": [
+        "subscription"
+      ],
+      "summary": "Get plan limits for a specific plan"
+    }
+  ],
+  "menu": [
+    {
+      "path": "/api/v1/menu/categories",
+      "method": "GET",
+      "operationId": "MenuController_getCategories",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get all categories with subcategories"
+    },
+    {
+      "path": "/api/v1/menu/categories",
+      "method": "POST",
+      "operationId": "MenuController_createCategory",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Create a new category"
+    },
+    {
+      "path": "/api/v1/menu/categories/{id}",
+      "method": "GET",
+      "operationId": "MenuController_getCategoryById",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get category by ID"
+    },
+    {
+      "path": "/api/v1/menu/categories/{id}",
+      "method": "PUT",
+      "operationId": "MenuController_updateCategory",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Update category"
+    },
+    {
+      "path": "/api/v1/menu/categories/{id}",
+      "method": "DELETE",
+      "operationId": "MenuController_deleteCategory",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Delete category (soft delete)"
+    },
+    {
+      "path": "/api/v1/menu/categories/{id}/upload-image",
+      "method": "POST",
+      "operationId": "MenuController_uploadCategoryImage",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Upload category image to Supabase Storage"
+    },
+    {
+      "path": "/api/v1/menu/food-items",
+      "method": "GET",
+      "operationId": "MenuController_getFoodItems",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get all food items"
+    },
+    {
+      "path": "/api/v1/menu/food-items",
+      "method": "POST",
+      "operationId": "MenuController_createFoodItem",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Create a new food item"
+    },
+    {
+      "path": "/api/v1/menu/food-items/{id}",
+      "method": "GET",
+      "operationId": "MenuController_getFoodItemById",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get food item by ID"
+    },
+    {
+      "path": "/api/v1/menu/food-items/{id}",
+      "method": "PUT",
+      "operationId": "MenuController_updateFoodItem",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Update food item"
+    },
+    {
+      "path": "/api/v1/menu/food-items/{id}",
+      "method": "DELETE",
+      "operationId": "MenuController_deleteFoodItem",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Delete food item (soft delete)"
+    },
+    {
+      "path": "/api/v1/menu/food-items/{id}/upload-image",
+      "method": "POST",
+      "operationId": "MenuController_uploadFoodItemImage",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Upload food item image to Supabase Storage"
+    },
+    {
+      "path": "/api/v1/menu/add-on-groups",
+      "method": "GET",
+      "operationId": "MenuController_getAddOnGroups",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get all add-on groups"
+    },
+    {
+      "path": "/api/v1/menu/add-on-groups",
+      "method": "POST",
+      "operationId": "MenuController_createAddOnGroup",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Create a new add-on group"
+    },
+    {
+      "path": "/api/v1/menu/add-on-groups/{id}",
+      "method": "GET",
+      "operationId": "MenuController_getAddOnGroupById",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get add-on group by ID"
+    },
+    {
+      "path": "/api/v1/menu/add-on-groups/{id}",
+      "method": "PUT",
+      "operationId": "MenuController_updateAddOnGroup",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Update add-on group"
+    },
+    {
+      "path": "/api/v1/menu/add-on-groups/{id}",
+      "method": "DELETE",
+      "operationId": "MenuController_deleteAddOnGroup",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Delete add-on group (soft delete)"
+    },
+    {
+      "path": "/api/v1/menu/add-on-groups/{addOnGroupId}/add-ons",
+      "method": "GET",
+      "operationId": "MenuController_getAddOns",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get all add-ons in a group"
+    },
+    {
+      "path": "/api/v1/menu/add-on-groups/{addOnGroupId}/add-ons",
+      "method": "POST",
+      "operationId": "MenuController_createAddOn",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Create a new add-on"
+    },
+    {
+      "path": "/api/v1/menu/add-on-groups/{addOnGroupId}/add-ons/{id}",
+      "method": "GET",
+      "operationId": "MenuController_getAddOnById",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get add-on by ID"
+    },
+    {
+      "path": "/api/v1/menu/add-on-groups/{addOnGroupId}/add-ons/{id}",
+      "method": "PUT",
+      "operationId": "MenuController_updateAddOn",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Update add-on"
+    },
+    {
+      "path": "/api/v1/menu/add-on-groups/{addOnGroupId}/add-ons/{id}",
+      "method": "DELETE",
+      "operationId": "MenuController_deleteAddOn",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Delete add-on (soft delete)"
+    },
+    {
+      "path": "/api/v1/menu/menus",
+      "method": "GET",
+      "operationId": "MenuController_getMenus",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get all menus (grouped by menu type)"
+    },
+    {
+      "path": "/api/v1/menu/menus",
+      "method": "POST",
+      "operationId": "MenuController_createMenu",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Create a new menu type"
+    },
+    {
+      "path": "/api/v1/menu/menus/{menuType}/items",
+      "method": "GET",
+      "operationId": "MenuController_getMenuItems",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get food items in a menu"
+    },
+    {
+      "path": "/api/v1/menu/menus/items/batch",
+      "method": "POST",
+      "operationId": "MenuController_getMenuItemsForTypes",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get food item IDs for multiple menu types at once"
+    },
+    {
+      "path": "/api/v1/menu/menus/{menuType}/assign-items",
+      "method": "POST",
+      "operationId": "MenuController_assignItemsToMenu",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Assign food items to a menu"
+    },
+    {
+      "path": "/api/v1/menu/menus/{menuType}/activate",
+      "method": "PUT",
+      "operationId": "MenuController_activateMenu",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Activate or deactivate a menu"
+    },
+    {
+      "path": "/api/v1/menu/menus/{menuType}",
+      "method": "DELETE",
+      "operationId": "MenuController_deleteMenu",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Delete a menu type"
+    },
+    {
+      "path": "/api/v1/menu/buffets",
+      "method": "GET",
+      "operationId": "MenuController_getBuffets",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get all buffets"
+    },
+    {
+      "path": "/api/v1/menu/buffets",
+      "method": "POST",
+      "operationId": "MenuController_createBuffet",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Create a new buffet"
+    },
+    {
+      "path": "/api/v1/menu/buffets/{id}",
+      "method": "GET",
+      "operationId": "MenuController_getBuffetById",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get buffet by ID"
+    },
+    {
+      "path": "/api/v1/menu/buffets/{id}",
+      "method": "PUT",
+      "operationId": "MenuController_updateBuffet",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Update buffet"
+    },
+    {
+      "path": "/api/v1/menu/buffets/{id}",
+      "method": "DELETE",
+      "operationId": "MenuController_deleteBuffet",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Delete buffet (soft delete)"
+    },
+    {
+      "path": "/api/v1/menu/buffets/{id}/upload-image",
+      "method": "POST",
+      "operationId": "MenuController_uploadBuffetImage",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Upload buffet image to Supabase Storage"
+    },
+    {
+      "path": "/api/v1/menu/combo-meals",
+      "method": "GET",
+      "operationId": "MenuController_getComboMeals",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get all combo meals"
+    },
+    {
+      "path": "/api/v1/menu/combo-meals",
+      "method": "POST",
+      "operationId": "MenuController_createComboMeal",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Create a new combo meal"
+    },
+    {
+      "path": "/api/v1/menu/combo-meals/{id}",
+      "method": "GET",
+      "operationId": "MenuController_getComboMealById",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get combo meal by ID"
+    },
+    {
+      "path": "/api/v1/menu/combo-meals/{id}",
+      "method": "PUT",
+      "operationId": "MenuController_updateComboMeal",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Update combo meal"
+    },
+    {
+      "path": "/api/v1/menu/combo-meals/{id}",
+      "method": "DELETE",
+      "operationId": "MenuController_deleteComboMeal",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Delete combo meal (soft delete)"
+    },
+    {
+      "path": "/api/v1/menu/combo-meals/{id}/upload-image",
+      "method": "POST",
+      "operationId": "MenuController_uploadComboMealImage",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Upload combo meal image to Supabase Storage"
+    },
+    {
+      "path": "/api/v1/menu/variation-groups",
+      "method": "GET",
+      "operationId": "MenuController_getVariationGroups",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get all variation groups"
+    },
+    {
+      "path": "/api/v1/menu/variation-groups",
+      "method": "POST",
+      "operationId": "MenuController_createVariationGroup",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Create a new variation group"
+    },
+    {
+      "path": "/api/v1/menu/variation-groups/{id}",
+      "method": "GET",
+      "operationId": "MenuController_getVariationGroupById",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get variation group by ID"
+    },
+    {
+      "path": "/api/v1/menu/variation-groups/{id}",
+      "method": "PUT",
+      "operationId": "MenuController_updateVariationGroup",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Update variation group"
+    },
+    {
+      "path": "/api/v1/menu/variation-groups/{id}",
+      "method": "DELETE",
+      "operationId": "MenuController_deleteVariationGroup",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Delete variation group (soft delete)"
+    },
+    {
+      "path": "/api/v1/menu/variation-groups/{variationGroupId}/variations",
+      "method": "GET",
+      "operationId": "MenuController_getVariations",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get all variations in a group"
+    },
+    {
+      "path": "/api/v1/menu/variation-groups/{variationGroupId}/variations",
+      "method": "POST",
+      "operationId": "MenuController_createVariation",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Create a new variation"
+    },
+    {
+      "path": "/api/v1/menu/variation-groups/{variationGroupId}/variations/{id}",
+      "method": "GET",
+      "operationId": "MenuController_getVariationById",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get variation by ID"
+    },
+    {
+      "path": "/api/v1/menu/variation-groups/{variationGroupId}/variations/{id}",
+      "method": "PUT",
+      "operationId": "MenuController_updateVariation",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Update variation"
+    },
+    {
+      "path": "/api/v1/menu/variation-groups/{variationGroupId}/variations/{id}",
+      "method": "DELETE",
+      "operationId": "MenuController_deleteVariation",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Delete variation (soft delete)"
+    },
+    {
+      "path": "/api/v1/menu/variation-groups/{id}/food-items",
+      "method": "GET",
+      "operationId": "MenuController_getFoodItemsWithVariationGroup",
+      "tags": [
+        "menu"
+      ],
+      "summary": "Get food items that use this variation group"
+    }
+  ],
+  "translations": [
+    {
+      "path": "/api/v1/translations",
+      "method": "POST",
+      "operationId": "TranslationsController_createTranslations",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Create translations for an entity field"
+    },
+    {
+      "path": "/api/v1/translations",
+      "method": "PUT",
+      "operationId": "TranslationsController_updateTranslation",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Update a specific translation (manual edit)"
+    },
+    {
+      "path": "/api/v1/translations/entity/{entityType}/{entityId}",
+      "method": "GET",
+      "operationId": "TranslationsController_getEntityTranslations",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Get all translations for an entity"
+    },
+    {
+      "path": "/api/v1/translations/translate",
+      "method": "GET",
+      "operationId": "TranslationsController_getTranslation",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Get translation for a specific field in a language"
+    },
+    {
+      "path": "/api/v1/translations/languages",
+      "method": "GET",
+      "operationId": "TranslationsController_getSupportedLanguages",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Get all supported languages"
+    },
+    {
+      "path": "/api/v1/translations/languages/default",
+      "method": "GET",
+      "operationId": "TranslationsController_getDefaultLanguage",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Get default language"
+    },
+    {
+      "path": "/api/v1/translations/delete/{entityType}/{entityId}",
+      "method": "GET",
+      "operationId": "TranslationsController_deleteEntityTranslations",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Delete all translations for an entity"
+    },
+    {
+      "path": "/api/v1/translations/cache/stats",
+      "method": "GET",
+      "operationId": "TranslationsController_getCacheStats",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Get translation cache statistics"
+    },
+    {
+      "path": "/api/v1/translations/cache/clear",
+      "method": "POST",
+      "operationId": "TranslationsController_clearExpiredCache",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Clear expired translation cache entries"
+    },
+    {
+      "path": "/api/v1/translations/admin/languages",
+      "method": "POST",
+      "operationId": "TranslationsController_createLanguage",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Create a new supported language (Admin only)"
+    },
+    {
+      "path": "/api/v1/translations/admin/languages",
+      "method": "GET",
+      "operationId": "TranslationsController_getAllLanguagesAdmin",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Get all languages including inactive (Admin only)"
+    },
+    {
+      "path": "/api/v1/translations/admin/languages/{code}",
+      "method": "PUT",
+      "operationId": "TranslationsController_updateLanguage",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Update a supported language (Admin only)"
+    },
+    {
+      "path": "/api/v1/translations/admin/languages/{code}",
+      "method": "DELETE",
+      "operationId": "TranslationsController_deleteLanguage",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Delete a language (soft delete - Admin only)"
+    },
+    {
+      "path": "/api/v1/translations/admin/retranslate",
+      "method": "POST",
+      "operationId": "TranslationsController_retranslate",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Re-translate an entity using AI (Admin only)"
+    },
+    {
+      "path": "/api/v1/translations/tenant/languages",
+      "method": "GET",
+      "operationId": "TranslationsController_getTenantLanguages",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Get enabled languages for current tenant"
+    },
+    {
+      "path": "/api/v1/translations/tenant/languages/available",
+      "method": "GET",
+      "operationId": "TranslationsController_getAvailableLanguagesForTenant",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Get available languages that can be added for current tenant"
+    },
+    {
+      "path": "/api/v1/translations/tenant/languages/{code}",
+      "method": "POST",
+      "operationId": "TranslationsController_enableLanguageForTenant",
+      "tags": [
+        "translations"
+      ],
+      "summary": "Enable a language for current tenant and translate existing data"
+    }
+  ],
+  "inventory": [
+    {
+      "path": "/api/v1/inventory/ingredients",
+      "method": "GET",
+      "operationId": "InventoryController_getIngredients",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Get all ingredients"
+    },
+    {
+      "path": "/api/v1/inventory/ingredients",
+      "method": "POST",
+      "operationId": "InventoryController_createIngredient",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Create a new ingredient"
+    },
+    {
+      "path": "/api/v1/inventory/ingredients/{id}",
+      "method": "GET",
+      "operationId": "InventoryController_getIngredientById",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Get ingredient by ID"
+    },
+    {
+      "path": "/api/v1/inventory/ingredients/{id}",
+      "method": "PUT",
+      "operationId": "InventoryController_updateIngredient",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Update an ingredient"
+    },
+    {
+      "path": "/api/v1/inventory/ingredients/{id}",
+      "method": "DELETE",
+      "operationId": "InventoryController_deleteIngredient",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Delete an ingredient (soft delete)"
+    },
+    {
+      "path": "/api/v1/inventory/stock/add",
+      "method": "POST",
+      "operationId": "InventoryController_addStock",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Add stock (Purchase Entry)"
+    },
+    {
+      "path": "/api/v1/inventory/stock/deduct",
+      "method": "POST",
+      "operationId": "InventoryController_deductStock",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Deduct stock (Usage/Waste)"
+    },
+    {
+      "path": "/api/v1/inventory/stock/adjust",
+      "method": "POST",
+      "operationId": "InventoryController_adjustStock",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Adjust stock (Physical count correction)"
+    },
+    {
+      "path": "/api/v1/inventory/stock/transfer",
+      "method": "POST",
+      "operationId": "InventoryController_transferStock",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Transfer stock between branches"
+    },
+    {
+      "path": "/api/v1/inventory/stock/transactions",
+      "method": "GET",
+      "operationId": "InventoryController_getStockTransactions",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Get stock transactions"
+    },
+    {
+      "path": "/api/v1/inventory/recipes",
+      "method": "GET",
+      "operationId": "InventoryController_getRecipes",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Get all recipes"
+    },
+    {
+      "path": "/api/v1/inventory/recipes",
+      "method": "POST",
+      "operationId": "InventoryController_createRecipe",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Create or update recipe for a food item"
+    },
+    {
+      "path": "/api/v1/inventory/recipes/food-item/{foodItemId}",
+      "method": "GET",
+      "operationId": "InventoryController_getRecipeByFoodItemId",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Get recipe by food item ID"
+    },
+    {
+      "path": "/api/v1/inventory/recipes/food-item/{foodItemId}",
+      "method": "DELETE",
+      "operationId": "InventoryController_deleteRecipe",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Delete recipe for a food item"
+    },
+    {
+      "path": "/api/v1/inventory/recipes/add-on/{addOnId}",
+      "method": "DELETE",
+      "operationId": "InventoryController_deleteAddOnRecipe",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Delete recipe for an add-on"
+    },
+    {
+      "path": "/api/v1/inventory/reports/current-stock",
+      "method": "GET",
+      "operationId": "InventoryController_getCurrentStockReport",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Get current stock report"
+    },
+    {
+      "path": "/api/v1/inventory/reports/low-stock-alerts",
+      "method": "GET",
+      "operationId": "InventoryController_getLowStockAlerts",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Get low stock alerts"
+    },
+    {
+      "path": "/api/v1/inventory/reports/stock-movement",
+      "method": "GET",
+      "operationId": "InventoryController_getStockMovementReport",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Get stock movement report"
+    },
+    {
+      "path": "/api/v1/inventory/stock-transactions",
+      "method": "POST",
+      "operationId": "InventoryController_createStockTransaction",
+      "tags": [
+        "inventory"
+      ],
+      "summary": "Create a stock transaction (legacy)"
+    }
+  ],
+  "restaurant": [
+    {
+      "path": "/api/v1/restaurant/info",
+      "method": "GET",
+      "operationId": "RestaurantController_getRestaurantInfo",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Get restaurant information"
+    },
+    {
+      "path": "/api/v1/restaurant/info",
+      "method": "PUT",
+      "operationId": "RestaurantController_updateRestaurantInfo",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Update restaurant information"
+    },
+    {
+      "path": "/api/v1/restaurant/info/upload-logo",
+      "method": "POST",
+      "operationId": "RestaurantController_uploadLogo",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Upload restaurant logo to Supabase Storage"
+    },
+    {
+      "path": "/api/v1/restaurant/branches",
+      "method": "GET",
+      "operationId": "RestaurantController_getBranches",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Get all branches for the restaurant"
+    },
+    {
+      "path": "/api/v1/restaurant/branches",
+      "method": "POST",
+      "operationId": "RestaurantController_createBranch",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Create a new branch"
+    },
+    {
+      "path": "/api/v1/restaurant/branches/{id}",
+      "method": "GET",
+      "operationId": "RestaurantController_getBranchById",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Get a single branch by ID"
+    },
+    {
+      "path": "/api/v1/restaurant/branches/{id}",
+      "method": "PUT",
+      "operationId": "RestaurantController_updateBranch",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Update a branch"
+    },
+    {
+      "path": "/api/v1/restaurant/branches/{id}",
+      "method": "DELETE",
+      "operationId": "RestaurantController_deleteBranch",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Delete a branch (soft delete)"
+    },
+    {
+      "path": "/api/v1/restaurant/counters",
+      "method": "GET",
+      "operationId": "RestaurantController_getCounters",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Get all counters for the restaurant"
+    },
+    {
+      "path": "/api/v1/restaurant/counters",
+      "method": "POST",
+      "operationId": "RestaurantController_createCounter",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Create a new counter"
+    },
+    {
+      "path": "/api/v1/restaurant/counters/{id}",
+      "method": "GET",
+      "operationId": "RestaurantController_getCounterById",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Get a single counter by ID"
+    },
+    {
+      "path": "/api/v1/restaurant/counters/{id}",
+      "method": "PUT",
+      "operationId": "RestaurantController_updateCounter",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Update a counter"
+    },
+    {
+      "path": "/api/v1/restaurant/counters/{id}",
+      "method": "DELETE",
+      "operationId": "RestaurantController_deleteCounter",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Delete a counter (soft delete)"
+    },
+    {
+      "path": "/api/v1/restaurant/tables",
+      "method": "GET",
+      "operationId": "RestaurantController_getTables",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Get all tables for the restaurant"
+    },
+    {
+      "path": "/api/v1/restaurant/tables",
+      "method": "POST",
+      "operationId": "RestaurantController_createTable",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Create a new table"
+    },
+    {
+      "path": "/api/v1/restaurant/tables/available",
+      "method": "GET",
+      "operationId": "RestaurantController_getAvailableTables",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Get available tables (tables without active orders) for dine-in"
+    },
+    {
+      "path": "/api/v1/restaurant/tables/{id}",
+      "method": "GET",
+      "operationId": "RestaurantController_getTableById",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Get a single table by ID"
+    },
+    {
+      "path": "/api/v1/restaurant/tables/{id}",
+      "method": "PUT",
+      "operationId": "RestaurantController_updateTable",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Update a table"
+    },
+    {
+      "path": "/api/v1/restaurant/tables/{id}",
+      "method": "DELETE",
+      "operationId": "RestaurantController_deleteTable",
+      "tags": [
+        "restaurant"
+      ],
+      "summary": "Delete a table (soft delete)"
+    }
+  ],
+  "orders": [
+    {
+      "path": "/api/v1/orders",
+      "method": "GET",
+      "operationId": "OrdersController_getOrders",
+      "tags": [
+        "orders"
+      ],
+      "summary": "Get all orders with filters"
+    },
+    {
+      "path": "/api/v1/orders",
+      "method": "POST",
+      "operationId": "OrdersController_createOrder",
+      "tags": [
+        "orders"
+      ],
+      "summary": "Create a new order"
+    },
+    {
+      "path": "/api/v1/orders/kitchen/stream",
+      "method": "GET",
+      "operationId": "OrdersController_streamKitchenOrders",
+      "tags": [
+        "orders"
+      ],
+      "summary": "Server-Sent Events stream for kitchen display order updates"
+    },
+    {
+      "path": "/api/v1/orders/{id}",
+      "method": "GET",
+      "operationId": "OrdersController_getOrderById",
+      "tags": [
+        "orders"
+      ],
+      "summary": "Get order by ID with full details"
+    },
+    {
+      "path": "/api/v1/orders/{id}",
+      "method": "PUT",
+      "operationId": "OrdersController_updateOrder",
+      "tags": [
+        "orders"
+      ],
+      "summary": "Update/modify an existing order (only if not paid)"
+    },
+    {
+      "path": "/api/v1/orders/{id}",
+      "method": "DELETE",
+      "operationId": "OrdersController_deleteOrder",
+      "tags": [
+        "orders"
+      ],
+      "summary": "Delete order (soft delete)"
+    },
+    {
+      "path": "/api/v1/orders/{id}/status",
+      "method": "PUT",
+      "operationId": "OrdersController_updateOrderStatus",
+      "tags": [
+        "orders"
+      ],
+      "summary": "Update order status"
+    },
+    {
+      "path": "/api/v1/orders/{id}/payment",
+      "method": "PUT",
+      "operationId": "OrdersController_updatePaymentStatus",
+      "tags": [
+        "orders"
+      ],
+      "summary": "Update order payment status"
+    },
+    {
+      "path": "/api/v1/orders/{orderId}/items/{itemId}/status",
+      "method": "PUT",
+      "operationId": "OrdersController_updateOrderItemStatus",
+      "tags": [
+        "orders"
+      ],
+      "summary": "Update individual order item status (kitchen display only)"
+    }
+  ],
+  "Coupons": [
+    {
+      "path": "/api/v1/coupons/validate",
+      "method": "POST",
+      "operationId": "CouponsController_validateCoupon",
+      "tags": [
+        "Coupons"
+      ],
+      "summary": "Validate coupon code"
+    },
+    {
+      "path": "/api/v1/coupons/create-default",
+      "method": "POST",
+      "operationId": "CouponsController_createDefaultCoupon",
+      "tags": [
+        "Coupons"
+      ],
+      "summary": "Create default coupon code \"5\" with value 5 based on the tenant's default currency"
+    },
+    {
+      "path": "/api/v1/coupons",
+      "method": "GET",
+      "operationId": "CouponsController_getCoupons",
+      "tags": [
+        "Coupons"
+      ],
+      "summary": "Get all coupons"
+    },
+    {
+      "path": "/api/v1/coupons",
+      "method": "POST",
+      "operationId": "CouponsController_createCoupon",
+      "tags": [
+        "Coupons"
+      ],
+      "summary": "Create a new coupon"
+    },
+    {
+      "path": "/api/v1/coupons/{id}",
+      "method": "GET",
+      "operationId": "CouponsController_getCouponById",
+      "tags": [
+        "Coupons"
+      ],
+      "summary": "Get coupon by ID"
+    },
+    {
+      "path": "/api/v1/coupons/{id}",
+      "method": "PUT",
+      "operationId": "CouponsController_updateCoupon",
+      "tags": [
+        "Coupons"
+      ],
+      "summary": "Update coupon"
+    },
+    {
+      "path": "/api/v1/coupons/{id}",
+      "method": "DELETE",
+      "operationId": "CouponsController_deleteCoupon",
+      "tags": [
+        "Coupons"
+      ],
+      "summary": "Delete coupon (soft delete)"
+    }
+  ],
+  "taxes": [
+    {
+      "path": "/api/v1/taxes",
+      "method": "GET",
+      "operationId": "TaxesController_getTaxes",
+      "tags": [
+        "taxes"
+      ],
+      "summary": "Get all taxes"
+    },
+    {
+      "path": "/api/v1/taxes",
+      "method": "POST",
+      "operationId": "TaxesController_createTax",
+      "tags": [
+        "taxes"
+      ],
+      "summary": "Create a new tax"
+    },
+    {
+      "path": "/api/v1/taxes/{id}",
+      "method": "GET",
+      "operationId": "TaxesController_getTaxById",
+      "tags": [
+        "taxes"
+      ],
+      "summary": "Get a tax by ID"
+    },
+    {
+      "path": "/api/v1/taxes/{id}",
+      "method": "PUT",
+      "operationId": "TaxesController_updateTax",
+      "tags": [
+        "taxes"
+      ],
+      "summary": "Update a tax"
+    },
+    {
+      "path": "/api/v1/taxes/{id}",
+      "method": "DELETE",
+      "operationId": "TaxesController_deleteTax",
+      "tags": [
+        "taxes"
+      ],
+      "summary": "Delete a tax"
+    }
+  ],
+  "settings": [
+    {
+      "path": "/api/v1/settings",
+      "method": "GET",
+      "operationId": "SettingsController_getSettings",
+      "tags": [
+        "settings"
+      ],
+      "summary": "Get all settings"
+    },
+    {
+      "path": "/api/v1/settings",
+      "method": "PUT",
+      "operationId": "SettingsController_updateSettings",
+      "tags": [
+        "settings"
+      ],
+      "summary": "Update settings"
+    },
+    {
+      "path": "/api/v1/settings/{category}",
+      "method": "GET",
+      "operationId": "SettingsController_getSettingCategory",
+      "tags": [
+        "settings"
+      ],
+      "summary": "Get a specific settings category"
+    }
+  ],
+  "delivery": [
+    {
+      "path": "/api/v1/delivery/orders",
+      "method": "GET",
+      "operationId": "DeliveryController_getDeliveryOrders",
+      "tags": [
+        "delivery"
+      ],
+      "summary": "Get delivery orders"
+    },
+    {
+      "path": "/api/v1/delivery/orders/{id}",
+      "method": "GET",
+      "operationId": "DeliveryController_getDeliveryById",
+      "tags": [
+        "delivery"
+      ],
+      "summary": "Get delivery by ID"
+    },
+    {
+      "path": "/api/v1/delivery/personnel",
+      "method": "GET",
+      "operationId": "DeliveryController_getAvailableDeliveryPersonnel",
+      "tags": [
+        "delivery"
+      ],
+      "summary": "Get available delivery personnel"
+    },
+    {
+      "path": "/api/v1/delivery/assign",
+      "method": "POST",
+      "operationId": "DeliveryController_assignDelivery",
+      "tags": [
+        "delivery"
+      ],
+      "summary": "Assign delivery to personnel"
+    },
+    {
+      "path": "/api/v1/delivery/orders/{id}/status",
+      "method": "PUT",
+      "operationId": "DeliveryController_updateDeliveryStatus",
+      "tags": [
+        "delivery"
+      ],
+      "summary": "Update delivery status"
+    }
+  ],
+  "employees": [
+    {
+      "path": "/api/v1/employees",
+      "method": "GET",
+      "operationId": "EmployeesController_getEmployees",
+      "tags": [
+        "employees"
+      ],
+      "summary": "Get all employees"
+    },
+    {
+      "path": "/api/v1/employees",
+      "method": "POST",
+      "operationId": "EmployeesController_createEmployee",
+      "tags": [
+        "employees"
+      ],
+      "summary": "Create a new employee"
+    },
+    {
+      "path": "/api/v1/employees/{id}",
+      "method": "GET",
+      "operationId": "EmployeesController_getEmployeeById",
+      "tags": [
+        "employees"
+      ],
+      "summary": "Get employee by ID"
+    },
+    {
+      "path": "/api/v1/employees/{id}",
+      "method": "PUT",
+      "operationId": "EmployeesController_updateEmployee",
+      "tags": [
+        "employees"
+      ],
+      "summary": "Update an employee"
+    },
+    {
+      "path": "/api/v1/employees/{id}",
+      "method": "DELETE",
+      "operationId": "EmployeesController_deleteEmployee",
+      "tags": [
+        "employees"
+      ],
+      "summary": "Delete an employee (soft delete)"
+    }
+  ],
+  "customers": [
+    {
+      "path": "/api/v1/customers",
+      "method": "GET",
+      "operationId": "CustomersController_getCustomers",
+      "tags": [
+        "customers"
+      ],
+      "summary": "Get all customers"
+    },
+    {
+      "path": "/api/v1/customers",
+      "method": "POST",
+      "operationId": "CustomersController_createCustomer",
+      "tags": [
+        "customers"
+      ],
+      "summary": "Create a new customer"
+    },
+    {
+      "path": "/api/v1/customers/{id}",
+      "method": "GET",
+      "operationId": "CustomersController_getCustomerById",
+      "tags": [
+        "customers"
+      ],
+      "summary": "Get customer by ID with order history"
+    },
+    {
+      "path": "/api/v1/customers/{id}",
+      "method": "PUT",
+      "operationId": "CustomersController_updateCustomer",
+      "tags": [
+        "customers"
+      ],
+      "summary": "Update a customer"
+    },
+    {
+      "path": "/api/v1/customers/{id}/addresses",
+      "method": "POST",
+      "operationId": "CustomersController_createCustomerAddress",
+      "tags": [
+        "customers"
+      ],
+      "summary": "Create a customer address"
+    }
+  ],
+  "reports": [
+    {
+      "path": "/api/v1/reports/sales",
+      "method": "GET",
+      "operationId": "ReportsController_getSalesReport",
+      "tags": [
+        "reports"
+      ],
+      "summary": "Get sales report (13.1)"
+    },
+    {
+      "path": "/api/v1/reports/orders",
+      "method": "GET",
+      "operationId": "ReportsController_getOrdersReport",
+      "tags": [
+        "reports"
+      ],
+      "summary": "Get orders report (13.2)"
+    },
+    {
+      "path": "/api/v1/reports/customers",
+      "method": "GET",
+      "operationId": "ReportsController_getCustomersReport",
+      "tags": [
+        "reports"
+      ],
+      "summary": "Get customers report (13.3)"
+    },
+    {
+      "path": "/api/v1/reports/inventory",
+      "method": "GET",
+      "operationId": "ReportsController_getInventoryReport",
+      "tags": [
+        "reports"
+      ],
+      "summary": "Get inventory report (13.4)"
+    },
+    {
+      "path": "/api/v1/reports/financial",
+      "method": "GET",
+      "operationId": "ReportsController_getFinancialReport",
+      "tags": [
+        "reports"
+      ],
+      "summary": "Get financial report (13.5)"
+    },
+    {
+      "path": "/api/v1/reports/tax",
+      "method": "GET",
+      "operationId": "ReportsController_getTaxReport",
+      "tags": [
+        "reports"
+      ],
+      "summary": "Get tax report (13.6)"
+    },
+    {
+      "path": "/api/v1/reports/top-items",
+      "method": "GET",
+      "operationId": "ReportsController_getTopItems",
+      "tags": [
+        "reports"
+      ],
+      "summary": "Get top selling items"
+    }
+  ],
+  "sync": [
+    {
+      "path": "/api/v1/sync/push",
+      "method": "POST",
+      "operationId": "SyncController_pushSync",
+      "tags": [
+        "sync"
+      ],
+      "summary": "Push local changes to server"
+    },
+    {
+      "path": "/api/v1/sync/pull",
+      "method": "GET",
+      "operationId": "SyncController_pullSync",
+      "tags": [
+        "sync"
+      ],
+      "summary": "Pull latest changes from server"
+    },
+    {
+      "path": "/api/v1/sync/status",
+      "method": "GET",
+      "operationId": "SyncController_getSyncStatus",
+      "tags": [
+        "sync"
+      ],
+      "summary": "Get sync status"
+    },
+    {
+      "path": "/api/v1/sync/resolve",
+      "method": "POST",
+      "operationId": "SyncController_resolveConflicts",
+      "tags": [
+        "sync"
+      ],
+      "summary": "Resolve sync conflicts"
+    }
+  ],
+  "dashboard": [
+    {
+      "path": "/api/v1/dashboard",
+      "method": "GET",
+      "operationId": "DashboardController_getDashboard",
+      "tags": [
+        "dashboard"
+      ],
+      "summary": "Get dashboard data"
+    }
+  ]
+}
