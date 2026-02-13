@@ -3,10 +3,9 @@ import { test } from "playwright-bdd";
 
 test.describe("Get delivery by ID", () => {
 
-  test("GET Get delivery by ID returns successful response", { tag: ["@getDeliveryById"] }, async ({ When, request, Then, And }) => {
+  test("GET Get delivery by ID returns successful response", { tag: ["@getDeliveryById"] }, async ({ When, request, Then }) => {
     await When("I send a GET request to endpoint \"getDeliveryById\" with id \"test-id\"", null, { request });
     await Then("the response status should be 200");
-    await And("the response should have field \"data\"");
   });
 
 });

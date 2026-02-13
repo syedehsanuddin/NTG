@@ -1,7 +1,7 @@
 import { Environment } from "../interfaces/iEnvironment";
 
 const devEnvironment: Environment = {
-    baseUrl: "http://192.168.50.50:4000",
+    baseUrl: "https://rms-app-dkgpl.ondigitalocean.app",
     apiVersion: "v1",
     contentType: "application/json",
     userId: "",
