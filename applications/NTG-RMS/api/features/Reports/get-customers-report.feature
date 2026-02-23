@@ -1,4 +1,4 @@
-@getCustomersReport
+@getCustomersReport 
 
 Feature: Get customers report (13.3)
   Validate GET /api/v1/reports/customers endpoint

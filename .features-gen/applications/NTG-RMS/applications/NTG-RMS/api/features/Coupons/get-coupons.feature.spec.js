@@ -3,7 +3,7 @@ import { test } from "playwright-bdd";
 
 test.describe("Get all coupons", () => {
 
-  test("GET Get all coupons returns successful response", { tag: ["@getCoupons"] }, async ({ When, request, Then, And }) => {
+  test("GET Get all coupons returns successful response", { tag: ["@getCoupons", "@happyFlow"] }, async ({ When, request, Then, And }) => {
     await When("I send a GET request to endpoint \"getCoupons\"", null, { request });
     await Then("the response status should be 200");
     await And("the response should be a valid JSON array");
@@ -21,5 +21,5 @@ test.use({
 });
 
 const bddFileMeta = {
-  "GET Get all coupons returns successful response": {"pickleLocation":"6:3","tags":["@getCoupons"]},
+  "GET Get all coupons returns successful response": {"pickleLocation":"6:3","tags":["@getCoupons","@happyFlow"]},
 };

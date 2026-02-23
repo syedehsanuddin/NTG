@@ -1,4 +1,4 @@
-@getOrders
+@getOrders 
 
 Feature: Get all orders with filters
   Validate GET /api/v1/orders endpoint

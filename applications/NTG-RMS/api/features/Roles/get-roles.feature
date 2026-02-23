@@ -1,4 +1,4 @@
-@getRoles
+@getRoles 
 
 Feature: Get all roles
   Validate GET /api/v1/roles endpoint

@@ -2,7 +2,8 @@ import { expect } from "@playwright/test";
 import { createBdd, test } from "playwright-bdd";
 import { getEndpointUrl } from "../../../../common/utils/apiHelper";
 import { getAuthHeaders } from "../../../../common/utils/auth";
-import { generateUniqueCouponCode, generateUniqueCustomerEmail, generateUniqueEmail, generateUniquePhoneNumber, getTestData, storeTestData } from "../../../../common/utils/emailGenerator";
+import { generateUniqueCouponCode, generateUniqueCustomerEmail, generateUniqueEmail, generateUniqueIngredientName, generateUniquePhoneNumber, getTestData, storeTestData } from "../../../../common/utils/emailGenerator";
+import { getBranchId } from "../../../../common/utils/testConstants";
 
 const { Given, When, Then } = createBdd(test);
 
@@ -16,6 +17,7 @@ interface TestContext {
     customerId?: string;
     employeeId?: string;
     ingredientId?: string;
+    ingredientName?: string;
     categoryId?: string;
     foodItemId?: string;
     couponId?: string;
@@ -27,6 +29,109 @@ const context: TestContext = {};
 
 // Project constant for NTG-RMS
 const PROJECT = "ntg-rms";
+
+/**
+ * Replaces placeholders in a string with actual values from test constants
+ * @param input - The input string that may contain placeholders
+ * @returns The string with placeholders replaced
+ */
+function replacePlaceholders(input: string): string {
+    if (!input) return input;
+    
+    // Replace {BRANCH_ID} with actual branch ID from config
+    if (input.includes("{BRANCH_ID}")) {
+        const branchId = getBranchId(PROJECT);
+        if (!branchId) {
+            throw new Error(`Branch ID not found in test constants for project: ${PROJECT}`);
+        }
+        input = input.replace(/{BRANCH_ID}/g, branchId);
+    }
+    
+    return input;
+}
+
+/**
+ * Recursively replaces placeholders in a parsed JSON object
+ * This is a safety measure in case any placeholders weren't replaced in the string
+ * @param obj - The object to process
+ * @returns The object with placeholders replaced
+ */
+function replacePlaceholdersInObject(obj: any): any {
+    if (typeof obj === "string") {
+        if (obj === "{BRANCH_ID}") {
+            const branchId = getBranchId(PROJECT);
+            if (!branchId) {
+                throw new Error(`Branch ID not found in test constants for project: ${PROJECT}`);
+            }
+            return branchId;
+        } else if (obj === "{STORED_INGREDIENT_ID}") {
+            let ingredientId: string | undefined;
+            if (context.ingredientId) {
+                ingredientId = context.ingredientId;
+            } else {
+                ingredientId = getTestData("ingredientId");
+            }
+            if (!ingredientId) {
+                throw new Error("No ingredient ID stored. Make sure to create an ingredient and store its ID first.");
+            }
+            return ingredientId;
+        } else if (obj === "{STORED_INGREDIENT_NAME}") {
+            let ingredientName: string | undefined;
+            if (context.ingredientName) {
+                ingredientName = context.ingredientName;
+            } else {
+                ingredientName = getTestData("ingredientName");
+            }
+            if (!ingredientName) {
+                throw new Error("No ingredient name stored. Make sure to create an ingredient and store its name first.");
+            }
+            return ingredientName;
+        } else if (obj === "{STORED_COUPON_ID}" || obj === "{STORED_ID}") {
+            let couponId: string | undefined;
+            if (context.couponId) {
+                couponId = context.couponId;
+            } else {
+                couponId = getTestData("couponId");
+            }
+            if (!couponId) {
+                throw new Error("No coupon ID stored. Make sure to create a coupon and store its ID first.");
+            }
+            return couponId;
+        } else if (obj === "{STORED_CUSTOMER_ID}") {
+            let customerId: string | undefined;
+            if (context.customerId) {
+                customerId = context.customerId;
+            } else {
+                customerId = getTestData("customerId");
+            }
+            if (!customerId) {
+                throw new Error("No customer ID stored. Make sure to create a customer and store its ID first.");
+            }
+            return customerId;
+        } else if (obj === "{STORED_EMPLOYEE_ID}") {
+            let employeeId: string | undefined;
+            if (context.employeeId) {
+                employeeId = context.employeeId;
+            } else {
+                employeeId = getTestData("employeeId");
+            }
+            if (!employeeId) {
+                throw new Error("No employee ID stored. Make sure to create an employee and store its ID first.");
+            }
+            return employeeId;
+        }
+        return obj;
+    } else if (Array.isArray(obj)) {
+        return obj.map(item => replacePlaceholdersInObject(item));
+    } else if (obj && typeof obj === "object") {
+        const result: any = {};
+        for (const key in obj) {
+            result[key] = replacePlaceholdersInObject(obj[key]);
+        }
+        return result;
+    }
+    return obj;
+}
 
 When("I send a GET request to endpoint {string}", async ({ request }, endpointName: string) => {
     // @ts-ignore - getEndpointUrl accepts 3 params: endpointName, params?, project?
@@ -90,6 +195,17 @@ When("I send a GET request to endpoint {string} with id {string}", async ({ requ
             }
             actualId = storedId;
         }
+    } else if (id === "{STORED_INGREDIENT_ID}") {
+        // Support stored ingredient ID
+        if (context.ingredientId) {
+            actualId = context.ingredientId;
+        } else {
+            const storedId = getTestData("ingredientId");
+            if (!storedId) {
+                throw new Error("No ingredient ID stored. Make sure to create an ingredient and store its ID first.");
+            }
+            actualId = storedId;
+        }
     }
     
     // @ts-ignore - getEndpointUrl accepts 3 params: endpointName, params?, project?
@@ -131,6 +247,17 @@ When("I send a GET request to endpoint {string} with id {string} and headers {st
             const storedId = getTestData("employeeId");
             if (!storedId) {
                 throw new Error("No employee ID stored. Make sure to create an employee and store its ID first.");
+            }
+            actualId = storedId;
+        }
+    } else if (id === "{STORED_INGREDIENT_ID}") {
+        // Support stored ingredient ID
+        if (context.ingredientId) {
+            actualId = context.ingredientId;
+        } else {
+            const storedId = getTestData("ingredientId");
+            if (!storedId) {
+                throw new Error("No ingredient ID stored. Make sure to create an ingredient and store its ID first.");
             }
             actualId = storedId;
         }
@@ -187,6 +314,17 @@ When("I send a PUT request to endpoint {string} with id {string} and payload {st
             }
             actualId = storedId;
         }
+    } else if (id === "{STORED_INGREDIENT_ID}") {
+        // Support stored ingredient ID
+        if (context.ingredientId) {
+            actualId = context.ingredientId;
+        } else {
+            const storedId = getTestData("ingredientId");
+            if (!storedId) {
+                throw new Error("No ingredient ID stored. Make sure to create an ingredient and store its ID first.");
+            }
+            actualId = storedId;
+        }
     }
     
     // @ts-ignore - getEndpointUrl accepts 3 params: endpointName, params?, project?
@@ -211,7 +349,33 @@ When("I send a PUT request to endpoint {string} with id {string} and payload {st
             console.log(`✓ Replaced {STORED_COUPON_CODE} with: ${couponCode}`);
         }
         
+        // Replace {STORED_INGREDIENT_NAME} placeholder with stored ingredient name
+        if (processedPayloadString.includes("{STORED_INGREDIENT_NAME}")) {
+            let ingredientName: string | undefined;
+            // First try context (for same scenario)
+            if (context.ingredientName) {
+                ingredientName = context.ingredientName;
+            } else {
+                // Fall back to file storage (for cross-scenario)
+                ingredientName = getTestData("ingredientName");
+            }
+            if (!ingredientName) {
+                throw new Error("No ingredient name stored. Make sure to create an ingredient and store its name first.");
+            }
+            processedPayloadString = processedPayloadString.replace(/{STORED_INGREDIENT_NAME}/g, ingredientName);
+            console.log(`✓ Replaced {STORED_INGREDIENT_NAME} with: ${ingredientName}`);
+        }
+        
+        // Replace {BRANCH_ID} placeholder with branch ID from test constants
+        processedPayloadString = replacePlaceholders(processedPayloadString);
+        
         payload = JSON.parse(processedPayloadString);
+        
+        // Safety: Replace any remaining placeholders in the parsed object (handles nested cases)
+        payload = replacePlaceholdersInObject(payload);
+        
+        // TEMPORARY: Print payload for debugging
+        console.log("📤 PUT Payload:", JSON.stringify(payload, null, 2));
     } catch (err) {
         throw new Error(`Invalid JSON payload: ${payloadString}. Error: ${err}`);
     }
@@ -288,7 +452,16 @@ When("I send a PUT request to endpoint {string} with id {string} and payload {st
             console.log(`✓ Replaced {STORED_COUPON_CODE} with: ${couponCode}`);
         }
         
+        // Replace {BRANCH_ID} placeholder with branch ID from test constants
+        processedPayloadString = replacePlaceholders(processedPayloadString);
+        
         payload = JSON.parse(processedPayloadString);
+        
+        // Safety: Replace any remaining placeholders in the parsed object (handles nested cases)
+        payload = replacePlaceholdersInObject(payload);
+        
+        // TEMPORARY: Print payload for debugging
+        console.log("📤 PUT Payload:", JSON.stringify(payload, null, 2));
     } catch (err) {
         throw new Error(`Invalid JSON payload: ${payloadString}. Error: ${err}`);
     }
@@ -300,7 +473,12 @@ When("I send a PATCH request to endpoint {string} with id {string} and payload {
     const url = getEndpointUrl(endpointName, { id }, PROJECT);
     let payload: any;
     try {
-        payload = JSON.parse(payloadString);
+        // Replace placeholders in payload string
+        let processedPayloadString = replacePlaceholders(payloadString);
+        payload = JSON.parse(processedPayloadString);
+        
+        // Safety: Replace any remaining placeholders in the parsed object (handles nested cases)
+        payload = replacePlaceholdersInObject(payload);
     } catch (err) {
         throw new Error(`Invalid JSON payload: ${payloadString}`);
     }
@@ -334,7 +512,53 @@ When("I send a POST request to endpoint {string} with payload {string}", async (
             processedPayloadString = processedPayloadString.replace(/{GENERATE_PHONE_NUMBER}/g, generatedPhone);
         }
         
+        // Replace {GENERATE_INGREDIENT_NAME} placeholder with a generated ingredient name
+        if (processedPayloadString.includes("{GENERATE_INGREDIENT_NAME}")) {
+            const generatedName = generateUniqueIngredientName();
+            processedPayloadString = processedPayloadString.replace(/{GENERATE_INGREDIENT_NAME}/g, generatedName);
+        }
+        
+        // Replace {STORED_INGREDIENT_NAME} placeholder with stored ingredient name
+        if (processedPayloadString.includes("{STORED_INGREDIENT_NAME}")) {
+            let ingredientName: string | undefined;
+            // First try context (for same scenario)
+            if (context.ingredientName) {
+                ingredientName = context.ingredientName;
+            } else {
+                // Fall back to file storage (for cross-scenario)
+                ingredientName = getTestData("ingredientName");
+            }
+            if (!ingredientName) {
+                throw new Error("No ingredient name stored. Make sure to create an ingredient and store its name first.");
+            }
+            processedPayloadString = processedPayloadString.replace(/{STORED_INGREDIENT_NAME}/g, ingredientName);
+            console.log(`✓ Replaced {STORED_INGREDIENT_NAME} with: ${ingredientName}`);
+        }
+        
+        // Replace {STORED_INGREDIENT_ID} placeholder with stored ingredient ID
+        if (processedPayloadString.includes("{STORED_INGREDIENT_ID}")) {
+            let ingredientId: string | undefined;
+            // First try context (for same scenario)
+            if (context.ingredientId) {
+                ingredientId = context.ingredientId;
+            } else {
+                // Fall back to file storage (for cross-scenario)
+                ingredientId = getTestData("ingredientId");
+            }
+            if (!ingredientId) {
+                throw new Error("No ingredient ID stored. Make sure to create an ingredient and store its ID first.");
+            }
+            processedPayloadString = processedPayloadString.replace(/{STORED_INGREDIENT_ID}/g, ingredientId);
+            console.log(`✓ Replaced {STORED_INGREDIENT_ID} with: ${ingredientId}`);
+        }
+        
+        // Replace {BRANCH_ID} placeholder with branch ID from test constants
+        processedPayloadString = replacePlaceholders(processedPayloadString);
+        
         payload = JSON.parse(processedPayloadString);
+        
+        // Safety: Replace any remaining placeholders in the parsed object (handles nested cases)
+        payload = replacePlaceholdersInObject(payload);
         
         // Auto-generate unique coupon code if code field exists and is "AUTOMATETEDTEST"
         if (payload.code === "AUTOMATETEDTEST") {
@@ -379,6 +603,29 @@ When("I send a POST request to endpoint {string} with payload {string} and heade
             const generatedPhone = generateUniquePhoneNumber();
             processedPayloadString = processedPayloadString.replace(/{GENERATE_PHONE}/g, generatedPhone);
             processedPayloadString = processedPayloadString.replace(/{GENERATE_PHONE_NUMBER}/g, generatedPhone);
+        }
+        
+        // Replace {GENERATE_INGREDIENT_NAME} placeholder with a generated ingredient name
+        if (processedPayloadString.includes("{GENERATE_INGREDIENT_NAME}")) {
+            const generatedName = generateUniqueIngredientName();
+            processedPayloadString = processedPayloadString.replace(/{GENERATE_INGREDIENT_NAME}/g, generatedName);
+        }
+        
+        // Replace {STORED_INGREDIENT_NAME} placeholder with stored ingredient name
+        if (processedPayloadString.includes("{STORED_INGREDIENT_NAME}")) {
+            let ingredientName: string | undefined;
+            // First try context (for same scenario)
+            if (context.ingredientName) {
+                ingredientName = context.ingredientName;
+            } else {
+                // Fall back to file storage (for cross-scenario)
+                ingredientName = getTestData("ingredientName");
+            }
+            if (!ingredientName) {
+                throw new Error("No ingredient name stored. Make sure to create an ingredient and store its name first.");
+            }
+            processedPayloadString = processedPayloadString.replace(/{STORED_INGREDIENT_NAME}/g, ingredientName);
+            console.log(`✓ Replaced {STORED_INGREDIENT_NAME} with: ${ingredientName}`);
         }
         
         // Replace {STORED_COUPON_CODE} placeholder with stored coupon code
@@ -431,7 +678,13 @@ When("I send a POST request to endpoint {string} with payload {string} and heade
             console.log(`✓ Replaced {STORED_INGREDIENT_ID} with: ${ingredientId}`);
         }
         
+        // Replace {BRANCH_ID} placeholder with branch ID from test constants
+        processedPayloadString = replacePlaceholders(processedPayloadString);
+        
         payload = JSON.parse(processedPayloadString);
+        
+        // Safety: Replace any remaining placeholders in the parsed object (handles nested cases)
+        payload = replacePlaceholdersInObject(payload);
         
         // Auto-generate unique coupon code if code field exists and is "AUTOMATETEDTEST"
         if (payload.code === "AUTOMATETEDTEST") {
@@ -465,7 +718,15 @@ When("I send a PUT request to endpoint {string} with payload {string}", async ({
     const url = getEndpointUrl(endpointName, undefined, PROJECT);
     let payload: any;
     try {
-        payload = JSON.parse(payloadString);
+        // Replace placeholders in payload string
+        let processedPayloadString = replacePlaceholders(payloadString);
+        payload = JSON.parse(processedPayloadString);
+        
+        // Safety: Replace any remaining placeholders in the parsed object (handles nested cases)
+        payload = replacePlaceholdersInObject(payload);
+        
+        // TEMPORARY: Print payload for debugging
+        console.log("📤 PUT Payload:", JSON.stringify(payload, null, 2));
     } catch (err) {
         throw new Error(`Invalid JSON payload: ${payloadString}`);
     }
@@ -477,7 +738,12 @@ When("I send a PATCH request to endpoint {string} with payload {string}", async 
     const url = getEndpointUrl(endpointName, undefined, PROJECT);
     let payload: any;
     try {
-        payload = JSON.parse(payloadString);
+        // Replace placeholders in payload string
+        let processedPayloadString = replacePlaceholders(payloadString);
+        payload = JSON.parse(processedPayloadString);
+        
+        // Safety: Replace any remaining placeholders in the parsed object (handles nested cases)
+        payload = replacePlaceholdersInObject(payload);
     } catch (err) {
         throw new Error(`Invalid JSON payload: ${payloadString}`);
     }
@@ -521,6 +787,17 @@ When("I send a DELETE request to endpoint {string} with id {string}", async ({ r
             }
             actualId = storedId;
         }
+    } else if (id === "{STORED_INGREDIENT_ID}") {
+        // Support stored ingredient ID
+        if (context.ingredientId) {
+            actualId = context.ingredientId;
+        } else {
+            const storedId = getTestData("ingredientId");
+            if (!storedId) {
+                throw new Error("No ingredient ID stored. Make sure to create an ingredient and store its ID first.");
+            }
+            actualId = storedId;
+        }
     }
     
     // @ts-ignore - getEndpointUrl accepts 3 params: endpointName, params?, project?
@@ -532,6 +809,9 @@ function parseKeyValueHeaderString(input: string): { queryParams: Record<string,
     const queryParams: Record<string, string> = {};
     const headers: Record<string, string> = {};
     if (!input) return { queryParams, headers };
+    
+    // Replace placeholders first
+    input = replacePlaceholders(input);
     
     // Query parameter keys that should go in URL, not as HTTP headers
     const queryParamKeys = ["limit", "page", "search", "role", "isActive", "priority", "dateFrom", "dateTo", "branchId", "categoryId", "language", "status", "orderType", "paymentStatus", "startDate", "endDate"];
@@ -858,10 +1138,40 @@ async function makeDeleteRequest(request: any, url: string) {
     Object.assign(context, savedIds);
 }
 
+/**
+ * Helper function to print response details when an assertion fails
+ */
+function printResponseOnFailure(error: Error, assertionName: string): never {
+    if (context.response) {
+        console.error("\n❌ Test Assertion Failed:", assertionName);
+        console.error("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        console.error("Response Status:", context.response.status);
+        console.error("Response Headers:", JSON.stringify(context.response.headers, null, 2));
+        console.error("Response Body:", JSON.stringify(context.response.data, null, 2));
+        console.error("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    }
+    throw error;
+}
+
+/**
+ * Wrapper for expect that prints response on failure
+ */
+function expectWithResponse<T>(actual: T, matcher: (actual: T) => void, assertionName: string): void {
+    try {
+        matcher(actual);
+    } catch (error) {
+        printResponseOnFailure(error as Error, assertionName);
+    }
+}
+
 // Response validation steps (reused from ntg-ticket)
 Then("the response status should be {int}", async ({}, expectedStatus: number) => {
     if (!context.response) throw new Error("Response is not available in context");
-    expect(context.response.status).toBe(expectedStatus);
+    expectWithResponse(
+        context.response.status,
+        (status) => expect(status).toBe(expectedStatus),
+        `Expected status ${expectedStatus} but got ${context.response.status}`
+    );
 });
 
 Then("I store the response id as customer id", async ({}) => {
@@ -986,6 +1296,14 @@ Then("I store the response id as ingredient id", async ({}) => {
         context.ingredientId = ingredientId;
         storeTestData("ingredientId", ingredientId); // Also store in file for cross-scenario access
         console.log(`✓ Stored ingredient ID: ${ingredientId}`);
+        
+        // Also store the ingredient name if available
+        if ("name" in data) {
+            const ingredientName = String(data.name);
+            context.ingredientName = ingredientName;
+            storeTestData("ingredientName", ingredientName);
+            console.log(`✓ Stored ingredient name: ${ingredientName}`);
+        }
         return;
     }
     
@@ -1006,6 +1324,14 @@ Then("I store the response id as ingredient id", async ({}) => {
     context.ingredientId = ingredientId;
     storeTestData("ingredientId", ingredientId); // Also store in file for cross-scenario access
     console.log(`✓ Stored ingredient ID: ${ingredientId}`);
+    
+    // Also store the ingredient name if available
+    if ("name" in data) {
+        const ingredientName = String(data.name);
+        context.ingredientName = ingredientName;
+        storeTestData("ingredientName", ingredientName);
+        console.log(`✓ Stored ingredient name: ${ingredientName}`);
+    }
 });
 
 Then("the response should have field {string}", async ({}, fieldName: string) => {
@@ -1014,7 +1340,11 @@ Then("the response should have field {string}", async ({}, fieldName: string) =>
     
     // First check if field exists at root level (for fields like "message", "data", etc.)
     if (data && typeof data === "object" && fieldName in data) {
-        expect(data).toHaveProperty(fieldName);
+        expectWithResponse(
+            data,
+            (d) => expect(d).toHaveProperty(fieldName),
+            `Expected response to have field "${fieldName}"`
+        );
         return;
     }
     
@@ -1028,12 +1358,24 @@ Then("the response should have field {string}", async ({}, fieldName: string) =>
     }
     
     if (Array.isArray(data)) {
-        expect(data.length).toBeGreaterThan(0);
+        expectWithResponse(
+            data.length,
+            (len) => expect(len).toBeGreaterThan(0),
+            `Expected response array to have at least 1 item`
+        );
         const first = data[0] as Record<string, unknown>;
-        expect(first).toHaveProperty(fieldName);
+        expectWithResponse(
+            first,
+            (f) => expect(f).toHaveProperty(fieldName),
+            `Expected response array items to have field "${fieldName}"`
+        );
     } else {
         const body = data as Record<string, unknown>;
-        expect(body).toHaveProperty(fieldName);
+        expectWithResponse(
+            body,
+            (b) => expect(b).toHaveProperty(fieldName),
+            `Expected response to have field "${fieldName}"`
+        );
     }
 });
 
@@ -1045,7 +1387,11 @@ Then("the response should be a valid JSON array", async ({}) => {
         data = data.data;
     }
     
-    expect(Array.isArray(data)).toBe(true);
+    expectWithResponse(
+        Array.isArray(data),
+        (isArray) => expect(isArray).toBe(true),
+        `Expected response to be an array but got ${typeof data}`
+    );
 });
 
 Then("the response array should contain at least {int} item", async ({}, minItems: number) => {
@@ -1056,8 +1402,16 @@ Then("the response array should contain at least {int} item", async ({}, minItem
         data = data.data;
     }
     
-    expect(Array.isArray(data)).toBe(true);
-    expect(data.length).toBeGreaterThanOrEqual(minItems);
+    expectWithResponse(
+        Array.isArray(data),
+        (isArray) => expect(isArray).toBe(true),
+        `Expected response to be an array but got ${typeof data}`
+    );
+    expectWithResponse(
+        data.length,
+        (len) => expect(len).toBeGreaterThanOrEqual(minItems),
+        `Expected array to have at least ${minItems} items but got ${data.length}`
+    );
 });
 
 Then("the response field {string} array should contain at least {int} item", async ({}, fieldName: string, minItems: number) => {
@@ -1070,7 +1424,11 @@ Then("the response field {string} array should contain at least {int} item", asy
         if (!Array.isArray(fieldValue)) {
             throw new Error(`Field "${fieldName}" is not an array`);
         }
-        expect(fieldValue.length).toBeGreaterThanOrEqual(minItems);
+        expectWithResponse(
+            fieldValue.length,
+            (len) => expect(len).toBeGreaterThanOrEqual(minItems),
+            `Expected field "${fieldName}" array to have at least ${minItems} items but got ${fieldValue.length}`
+        );
         return;
     }
     
@@ -1083,14 +1441,22 @@ Then("the response field {string} array should contain at least {int} item", asy
         throw new Error("Response data is not an object");
     }
     
-    expect(data).toHaveProperty(fieldName);
+    expectWithResponse(
+        data,
+        (d) => expect(d).toHaveProperty(fieldName),
+        `Expected response to have field "${fieldName}"`
+    );
     const fieldValue = data[fieldName];
     
     if (!Array.isArray(fieldValue)) {
         throw new Error(`Field "${fieldName}" is not an array`);
     }
     
-    expect(fieldValue.length).toBeGreaterThanOrEqual(minItems);
+    expectWithResponse(
+        fieldValue.length,
+        (len) => expect(len).toBeGreaterThanOrEqual(minItems),
+        `Expected field "${fieldName}" array to have at least ${minItems} items but got ${fieldValue.length}`
+    );
 });
 
 Then("all items in the response should have required fields: {string}", async ({}, fieldsList: string) => {
@@ -1107,9 +1473,17 @@ Then("all items in the response should have required fields: {string}", async ({
     
     const fields = fieldsList.split(",").map((f: string) => f.trim());
     
-    for (const item of data) {
+    for (let i = 0; i < data.length; i++) {
+        const item = data[i];
         for (const field of fields) {
+            try {
             expect(item).toHaveProperty(field);
+            } catch (error) {
+                printResponseOnFailure(
+                    error as Error,
+                    `Expected item at index ${i} to have field "${field}"`
+                );
+            }
         }
     }
 });
@@ -1126,7 +1500,9 @@ Then("all items should have field {string} of type {string}", async ({}, fieldNa
         throw new Error("Response is not an array");
     }
     
-    for (const item of data) {
+    for (let i = 0; i < data.length; i++) {
+        const item = data[i];
+        try {
         expect(item).toHaveProperty(fieldName);
         const value = item[fieldName];
         
@@ -1145,6 +1521,12 @@ Then("all items should have field {string} of type {string}", async ({}, fieldNa
             throw new Error(`Expected field "${fieldName}" to be ${expectedType} but got ${actualType}`);
         } else if (expectedType === "object" && (actualType !== "object" || Array.isArray(value))) {
             throw new Error(`Expected field "${fieldName}" to be ${expectedType} but got ${actualType}`);
+            }
+        } catch (error) {
+            printResponseOnFailure(
+                error as Error,
+                `Expected item at index ${i} to have field "${fieldName}" of type "${expectedType}"`
+            );
         }
     }
 });
@@ -1155,7 +1537,11 @@ Then("the response content type should be {string}", async ({}, expectedContentT
     }
     
     const contentType = context.response.headers["content-type"] || "";
-    expect(contentType.toLowerCase()).toContain(expectedContentType.toLowerCase());
+    expectWithResponse(
+        contentType.toLowerCase(),
+        (ct) => expect(ct).toContain(expectedContentType.toLowerCase()),
+        `Expected content type to contain "${expectedContentType}" but got "${contentType}"`
+    );
 });
 
 Then("the response array should have exactly {int} items", async ({}, exactCount: number) => {
@@ -1165,7 +1551,11 @@ Then("the response array should have exactly {int} items", async ({}, exactCount
         data = data.data;
     }
     if (!Array.isArray(data)) throw new Error("Response is not an array");
-    expect(data.length).toBe(exactCount);
+    expectWithResponse(
+        data.length,
+        (len) => expect(len).toBe(exactCount),
+        `Expected array to have exactly ${exactCount} items but got ${data.length}`
+    );
 });
 
 Then("all items should have field {string} equal to {string}", async ({}, fieldName: string, expectedValue: string) => {
@@ -1175,7 +1565,9 @@ Then("all items should have field {string} equal to {string}", async ({}, fieldN
         data = data.data;
     }
     if (!Array.isArray(data)) throw new Error("Response is not an array");
-    for (const item of data) {
+    for (let i = 0; i < data.length; i++) {
+        const item = data[i];
+        try {
         expect(item).toHaveProperty(fieldName);
         const actual = item[fieldName];
         
@@ -1186,6 +1578,12 @@ Then("all items should have field {string} equal to {string}", async ({}, fieldN
         } else {
             // Compare as strings to handle booleans/numbers passed as strings in feature
             expect(String(actual)).toBe(expectedValue);
+            }
+        } catch (error) {
+            printResponseOnFailure(
+                error as Error,
+                `Expected item at index ${i} to have field "${fieldName}" equal to "${expectedValue}"`
+            );
         }
     }
 });
@@ -1198,10 +1596,18 @@ Then("all items should contain {string} in field {string}", async ({}, needle: s
     }
     if (!Array.isArray(data)) throw new Error("Response is not an array");
     const lowerNeedle = needle.toLowerCase();
-    for (const item of data) {
+    for (let i = 0; i < data.length; i++) {
+        const item = data[i];
+        try {
         expect(item).toHaveProperty(fieldName);
         const value = String(item[fieldName] ?? "");
         expect(value.toLowerCase()).toContain(lowerNeedle);
+        } catch (error) {
+            printResponseOnFailure(
+                error as Error,
+                `Expected item at index ${i} to contain "${needle}" in field "${fieldName}"`
+            );
+        }
     }
 });
 
@@ -1217,7 +1623,11 @@ Then("the response data should have field {string}", async ({}, fieldName: strin
         throw new Error("Response data is not an object");
     }
     
-    expect(data).toHaveProperty(fieldName);
+    expectWithResponse(
+        data,
+        (d) => expect(d).toHaveProperty(fieldName),
+        `Expected response data to have field "${fieldName}"`
+    );
 });
 
 Then("the response data should have field {string} equal to {string}", async ({}, fieldName: string, expectedValue: string) => {
@@ -1232,6 +1642,7 @@ Then("the response data should have field {string} equal to {string}", async ({}
         throw new Error("Response data is not an object");
     }
     
+    try {
     expect(data).toHaveProperty(fieldName);
     const actual = data[fieldName];
     
@@ -1246,6 +1657,12 @@ Then("the response data should have field {string} equal to {string}", async ({}
     } else {
         // Field is a primitive value (string, number, etc.)
         expect(String(actual)).toBe(expectedValue);
+        }
+    } catch (error) {
+        printResponseOnFailure(
+            error as Error,
+            `Expected response data field "${fieldName}" to equal "${expectedValue}"`
+        );
     }
 });
 
@@ -1268,16 +1685,28 @@ Then("the response should equal {string}", async ({}, expectedJsonString: string
     }
     
     // Compare the actual response with expected
+    try {
     expect(data).toEqual(expectedData);
+    } catch (error) {
+        printResponseOnFailure(
+            error as Error,
+            `Expected response to equal ${expectedJsonString}`
+        );
+    }
 });
 
 Then("the response field {string} should be an array", async ({}, fieldName: string) => {
     if (!context.response) throw new Error("Response is not available in context");
     let data = context.response.data as any;
     
+    try {
     // Check root level first
     if (data && typeof data === "object" && fieldName in data) {
-        expect(Array.isArray(data[fieldName])).toBe(true);
+            expectWithResponse(
+                Array.isArray(data[fieldName]),
+                (isArray) => expect(isArray).toBe(true),
+                `Expected field "${fieldName}" to be an array`
+            );
         return;
     }
     
@@ -1290,14 +1719,29 @@ Then("the response field {string} should be an array", async ({}, fieldName: str
         throw new Error("Response data is not an object");
     }
     
-    expect(data).toHaveProperty(fieldName);
-    expect(Array.isArray(data[fieldName])).toBe(true);
+        expectWithResponse(
+            data,
+            (d) => expect(d).toHaveProperty(fieldName),
+            `Expected response to have field "${fieldName}"`
+        );
+        expectWithResponse(
+            Array.isArray(data[fieldName]),
+            (isArray) => expect(isArray).toBe(true),
+            `Expected field "${fieldName}" to be an array`
+        );
+    } catch (error) {
+        printResponseOnFailure(
+            error as Error,
+            `Expected response field "${fieldName}" to be an array`
+        );
+    }
 });
 
 Then("the response should have field {string} of type {string}", async ({}, fieldName: string, expectedType: string) => {
     if (!context.response) throw new Error("Response is not available in context");
     let data = context.response.data as any;
     
+    try {
     // Check root level first
     if (data && typeof data === "object" && fieldName in data) {
         const value = data[fieldName];
@@ -1368,6 +1812,12 @@ Then("the response should have field {string} of type {string}", async ({}, fiel
         throw new Error(`Expected field "${fieldName}" to be ${expectedType} but got ${actualType}`);
     } else if (expectedType === "object" && (actualType !== "object" || Array.isArray(value))) {
         throw new Error(`Expected field "${fieldName}" to be ${expectedType} but got ${actualType}`);
+        }
+    } catch (error) {
+        printResponseOnFailure(
+            error as Error,
+            `Expected response field "${fieldName}" to be of type "${expectedType}"`
+        );
     }
 });
 
@@ -1375,6 +1825,7 @@ Then("all items in the response field {string} should have required fields: {str
     if (!context.response) throw new Error("Response is not available in context");
     let data = context.response.data as any;
     
+    try {
     // Check root level first
     if (data && typeof data === "object" && fieldName in data) {
         const fieldValue = data[fieldName];
@@ -1383,9 +1834,17 @@ Then("all items in the response field {string} should have required fields: {str
         }
         
         const fields = fieldsList.split(",").map((f: string) => f.trim());
-        for (const item of fieldValue) {
+            for (let i = 0; i < fieldValue.length; i++) {
+                const item = fieldValue[i];
             for (const field of fields) {
+                    try {
                 expect(item).toHaveProperty(field);
+                    } catch (error) {
+                        printResponseOnFailure(
+                            error as Error,
+                            `Expected item at index ${i} in field "${fieldName}" to have field "${field}"`
+                        );
+                    }
             }
         }
         return;
@@ -1400,7 +1859,11 @@ Then("all items in the response field {string} should have required fields: {str
         throw new Error("Response data is not an object");
     }
     
-    expect(data).toHaveProperty(fieldName);
+        expectWithResponse(
+            data,
+            (d) => expect(d).toHaveProperty(fieldName),
+            `Expected response to have field "${fieldName}"`
+        );
     const fieldValue = data[fieldName];
     
     if (!Array.isArray(fieldValue)) {
@@ -1408,10 +1871,24 @@ Then("all items in the response field {string} should have required fields: {str
     }
     
     const fields = fieldsList.split(",").map((f: string) => f.trim());
-    for (const item of fieldValue) {
+        for (let i = 0; i < fieldValue.length; i++) {
+            const item = fieldValue[i];
         for (const field of fields) {
+                try {
             expect(item).toHaveProperty(field);
+                } catch (error) {
+                    printResponseOnFailure(
+                        error as Error,
+                        `Expected item at index ${i} in field "${fieldName}" to have field "${field}"`
+                    );
+                }
+            }
         }
+    } catch (error) {
+        printResponseOnFailure(
+            error as Error,
+            `Expected all items in response field "${fieldName}" to have required fields: ${fieldsList}`
+        );
     }
 });
 
@@ -1419,18 +1896,31 @@ Then("the response field {string} should be a valid ISO date string", async ({},
     if (!context.response) throw new Error("Response is not available in context");
     let data = context.response.data as any;
     
+    try {
     // Check root level first
     if (data && typeof data === "object" && fieldName in data) {
         const dateString = data[fieldName];
-        expect(typeof dateString).toBe("string");
+            expectWithResponse(
+                typeof dateString,
+                (type) => expect(type).toBe("string"),
+                `Expected field "${fieldName}" to be a string`
+            );
         
         // ISO 8601 date format validation (more flexible to handle +00:00 timezone)
         const isoDateRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?([+-]\d{2}:\d{2}|Z)$/;
-        expect(isoDateRegex.test(dateString)).toBe(true);
+            expectWithResponse(
+                isoDateRegex.test(dateString),
+                (isValid) => expect(isValid).toBe(true),
+                `Expected field "${fieldName}" to be a valid ISO date string`
+            );
         
         // Also verify it's a valid date
         const date = new Date(dateString);
-        expect(isNaN(date.getTime())).toBe(false);
+            expectWithResponse(
+                isNaN(date.getTime()),
+                (isNaN) => expect(isNaN).toBe(false),
+                `Expected field "${fieldName}" to be a valid date`
+            );
         return;
     }
     
@@ -1443,23 +1933,46 @@ Then("the response field {string} should be a valid ISO date string", async ({},
         throw new Error("Response data is not an object");
     }
     
-    expect(data).toHaveProperty(fieldName);
+        expectWithResponse(
+            data,
+            (d) => expect(d).toHaveProperty(fieldName),
+            `Expected response to have field "${fieldName}"`
+        );
     const dateString = data[fieldName];
-    expect(typeof dateString).toBe("string");
+        expectWithResponse(
+            typeof dateString,
+            (type) => expect(type).toBe("string"),
+            `Expected field "${fieldName}" to be a string`
+        );
     
     // ISO 8601 date format validation (more flexible to handle +00:00 timezone)
     const isoDateRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?([+-]\d{2}:\d{2}|Z)$/;
-    expect(isoDateRegex.test(dateString)).toBe(true);
+        expectWithResponse(
+            isoDateRegex.test(dateString),
+            (isValid) => expect(isValid).toBe(true),
+            `Expected field "${fieldName}" to be a valid ISO date string`
+        );
     
     // Also verify it's a valid date
     const date = new Date(dateString);
-    expect(isNaN(date.getTime())).toBe(false);
+        expectWithResponse(
+            isNaN(date.getTime()),
+            (isNaN) => expect(isNaN).toBe(false),
+            `Expected field "${fieldName}" to be a valid date`
+        );
+    } catch (error) {
+        printResponseOnFailure(
+            error as Error,
+            `Expected response field "${fieldName}" to be a valid ISO date string`
+        );
+    }
 });
 
 Then("the response data should have field {string} of type {string}", async ({}, fieldName: string, expectedType: string) => {
     if (!context.response) throw new Error("Response is not available in context");
     let data = context.response.data as any;
     
+    try {
     if (data && typeof data === "object" && "data" in data) {
         data = data.data;
     }
@@ -1498,6 +2011,12 @@ Then("the response data should have field {string} of type {string}", async ({},
         throw new Error(`Expected field "${fieldName}" to be ${expectedType} but got ${actualType}`);
     } else if (expectedType === "object" && (actualType !== "object" || Array.isArray(value))) {
         throw new Error(`Expected field "${fieldName}" to be ${expectedType} but got ${actualType}`);
+        }
+    } catch (error) {
+        printResponseOnFailure(
+            error as Error,
+            `Expected response data field "${fieldName}" to be of type "${expectedType}"`
+        );
     }
 });
 

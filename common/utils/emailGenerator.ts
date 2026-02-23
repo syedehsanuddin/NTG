@@ -143,3 +143,14 @@ export function generateUniquePhoneNumber(): string {
     return `+923${phoneDigits}`;
 }
 
+/**
+ * Generates a unique ingredient name
+ * @param baseName - Base name to append GUID to (default: "Automatest Test Ingredient")
+ * @returns A unique ingredient name in format: {BASE_NAME}_{GUID}
+ */
+export function generateUniqueIngredientName(baseName: string = "Automatest Test Ingredient"): string {
+    // Generate a UUID and remove hyphens, take first 8 characters for shorter name
+    const guid = randomUUID().replace(/-/g, "").substring(0, 8).toUpperCase();
+    return `${baseName}_${guid}`;
+}
+

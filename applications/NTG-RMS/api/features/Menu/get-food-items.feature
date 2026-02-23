@@ -1,4 +1,4 @@
-@getFoodItems
+@getFoodItems 
 
 Feature: Get all food items
   Validate GET /api/v1/menu/food-items endpoint

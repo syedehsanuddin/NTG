@@ -1,4 +1,4 @@
-@getCustomersExplicit
+@getCustomersExplicit @happyFlow
 
 Feature: Get all customers
   Validate GET /api/v1/customers endpoint

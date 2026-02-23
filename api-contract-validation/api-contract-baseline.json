@@ -1,99 +1,22 @@
 {
-  "timestamp": "2025-12-16T09:14:01.134Z",
-  "swaggerUrl": "http://192.168.50.50:4000/api/docs-json",
-  "totalEndpoints": 97,
+  "timestamp": "2026-02-16T05:24:59.836Z",
+  "swaggerUrl": "https://rms-app-dkgpl.ondigitalocean.app/api/docs-json",
+  "totalEndpoints": 150,
   "endpoints": [
     {
-      "path": "/api/v1/admin/config",
-      "methods": [
-        "GET",
-        "PATCH"
-      ]
-    },
-    {
-      "path": "/api/v1/admin/field-config",
-      "methods": [
-        "GET",
-        "PATCH"
-      ]
-    },
-    {
-      "path": "/api/v1/admin/health",
+      "path": "/api/v1/auth/assigned-branches",
       "methods": [
         "GET"
       ]
     },
     {
-      "path": "/api/v1/admin/public-config",
+      "path": "/api/v1/auth/google",
       "methods": [
         "GET"
       ]
     },
     {
-      "path": "/api/v1/admin/public-theme-settings",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/admin/stats",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/admin/theme-settings",
-      "methods": [
-        "GET",
-        "PATCH"
-      ]
-    },
-    {
-      "path": "/api/v1/attachments/{id}",
-      "methods": [
-        "DELETE",
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/attachments/{id}/download",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/attachments/ticket/{ticketId}",
-      "methods": [
-        "GET",
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/audit-logs",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/audit-logs/stats",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/audit-logs/system",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/audit-logs/ticket/{ticketId}",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/audit-logs/user/{userId}/activity",
+      "path": "/api/v1/auth/google/callback",
       "methods": [
         "GET"
       ]
@@ -105,15 +28,16 @@
       ]
     },
     {
-      "path": "/api/v1/auth/logout",
-      "methods": [
-        "POST"
-      ]
-    },
-    {
       "path": "/api/v1/auth/me",
       "methods": [
         "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/auth/profile",
+      "methods": [
+        "GET",
+        "PUT"
       ]
     },
     {
@@ -129,115 +53,14 @@
       ]
     },
     {
-      "path": "/api/v1/auth/supabase/me",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/auth/supabase/refresh",
-      "methods": [
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/auth/supabase/reset-password",
-      "methods": [
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/auth/supabase/signin",
-      "methods": [
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/auth/supabase/signout",
-      "methods": [
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/auth/supabase/signup",
-      "methods": [
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/auth/switch-role",
-      "methods": [
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/auth/users/{userId}/role",
-      "methods": [
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/categories",
+      "path": "/api/v1/coupons",
       "methods": [
         "GET",
         "POST"
       ]
     },
     {
-      "path": "/api/v1/categories/{id}",
-      "methods": [
-        "DELETE",
-        "GET",
-        "PATCH"
-      ]
-    },
-    {
-      "path": "/api/v1/categories/active",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/categories/dynamic-fields/{categoryName}",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/categories/subcategories/{categoryName}",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/comments",
-      "methods": [
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/comments/{id}",
-      "methods": [
-        "DELETE",
-        "GET",
-        "PATCH"
-      ]
-    },
-    {
-      "path": "/api/v1/comments/ticket/{ticketId}",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/custom-fields",
-      "methods": [
-        "GET",
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/custom-fields/{id}",
+      "path": "/api/v1/coupons/{id}",
       "methods": [
         "DELETE",
         "GET",
@@ -245,71 +68,20 @@
       ]
     },
     {
-      "path": "/api/v1/elasticsearch/aggregations",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/elasticsearch/health",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/elasticsearch/reindex",
+      "path": "/api/v1/coupons/validate",
       "methods": [
         "POST"
       ]
     },
     {
-      "path": "/api/v1/elasticsearch/search",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/elasticsearch/suggestions",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/email-templates",
+      "path": "/api/v1/customers",
       "methods": [
         "GET",
         "POST"
       ]
     },
     {
-      "path": "/api/v1/email-templates/{id}",
-      "methods": [
-        "DELETE",
-        "GET",
-        "PATCH"
-      ]
-    },
-    {
-      "path": "/api/v1/email-templates/{id}/preview",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/email-templates/defaults",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/integrations",
-      "methods": [
-        "GET",
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/integrations/{id}",
+      "path": "/api/v1/customers/{id}",
       "methods": [
         "DELETE",
         "GET",
@@ -317,305 +89,881 @@
       ]
     },
     {
-      "path": "/api/v1/integrations/{id}/test",
+      "path": "/api/v1/customers/{id}/addresses",
       "methods": [
         "POST"
       ]
     },
     {
-      "path": "/api/v1/integrations/{id}/webhook",
+      "path": "/api/v1/customers/bulk-import",
       "methods": [
         "POST"
       ]
     },
     {
-      "path": "/api/v1/notifications",
+      "path": "/api/v1/customers/bulk-import/sample",
       "methods": [
         "GET"
       ]
     },
     {
-      "path": "/api/v1/notifications/{id}",
+      "path": "/api/v1/customers/export",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/dashboard",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/delivery/assign",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/delivery/orders",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/delivery/orders/{id}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/delivery/orders/{id}/status",
+      "methods": [
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/delivery/personnel",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/employees",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/employees/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/employees/{id}/tenant-owner",
+      "methods": [
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/employees/bulk-import",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/employees/bulk-import/sample",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/employees/export",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/health",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/inventory/ingredients",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/inventory/ingredients/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/inventory/recipes",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/inventory/recipes/add-on/{addOnId}",
       "methods": [
         "DELETE"
       ]
     },
     {
-      "path": "/api/v1/notifications/{id}/read",
+      "path": "/api/v1/inventory/recipes/food-item/{foodItemId}",
       "methods": [
-        "PATCH"
+        "DELETE",
+        "GET"
       ]
     },
     {
-      "path": "/api/v1/notifications/bulk",
+      "path": "/api/v1/inventory/reports/current-stock",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/inventory/reports/low-stock-alerts",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/inventory/reports/stock-movement",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/inventory/stock-transactions",
       "methods": [
         "POST"
       ]
     },
     {
-      "path": "/api/v1/notifications/read-all",
-      "methods": [
-        "PATCH"
-      ]
-    },
-    {
-      "path": "/api/v1/permissions/all",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/permissions/check/{resource}/{action}",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/permissions/role/{role}",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/permissions/ticket/{ticketId}/{action}",
+      "path": "/api/v1/inventory/stock/add",
       "methods": [
         "POST"
       ]
     },
     {
-      "path": "/api/v1/permissions/user/{userId}/{action}",
+      "path": "/api/v1/inventory/stock/adjust",
       "methods": [
         "POST"
       ]
     },
     {
-      "path": "/api/v1/reports/export/{type}",
+      "path": "/api/v1/inventory/stock/deduct",
       "methods": [
         "POST"
       ]
     },
     {
-      "path": "/api/v1/reports/sla",
+      "path": "/api/v1/inventory/stock/transactions",
       "methods": [
         "GET"
       ]
     },
     {
-      "path": "/api/v1/reports/system-metrics",
+      "path": "/api/v1/inventory/stock/transfer",
       "methods": [
-        "GET"
+        "POST"
       ]
     },
     {
-      "path": "/api/v1/reports/tickets",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/reports/user-distribution",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/saved-searches",
+      "path": "/api/v1/menu/add-on-groups",
       "methods": [
         "GET",
         "POST"
       ]
     },
     {
-      "path": "/api/v1/saved-searches/{id}",
+      "path": "/api/v1/menu/add-on-groups/{addOnGroupId}/add-ons",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/add-on-groups/{addOnGroupId}/add-ons/{id}",
       "methods": [
         "DELETE",
         "GET",
-        "PATCH"
+        "PUT"
       ]
     },
     {
-      "path": "/api/v1/saved-searches/{id}/duplicate",
-      "methods": [
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/saved-searches/{id}/execute",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/saved-searches/popular",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/tenants",
-      "methods": [
-        "GET",
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/tenants/{id}",
+      "path": "/api/v1/menu/add-on-groups/{id}",
       "methods": [
         "DELETE",
         "GET",
-        "PATCH"
+        "PUT"
       ]
     },
     {
-      "path": "/api/v1/tenants/invitations",
+      "path": "/api/v1/menu/buffets",
       "methods": [
         "GET",
         "POST"
       ]
     },
     {
-      "path": "/api/v1/tenants/invitations/{id}",
+      "path": "/api/v1/menu/buffets/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/buffets/{id}/upload-image",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/bulk-import/{entityType}/sample",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/bulk-import/add-on-groups",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/bulk-import/add-on-groups-and-add-ons",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/bulk-import/add-ons",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/bulk-import/buffets",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/bulk-import/categories",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/bulk-import/combo-meals",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/bulk-import/food-items",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/bulk-import/menus",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/bulk-import/variation-groups",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/bulk-import/variation-groups-and-variations",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/bulk-import/variations",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/categories",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/categories/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/categories/{id}/upload-image",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/combo-meals",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/combo-meals/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/combo-meals/{id}/upload-image",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/export/{entityType}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/food-items",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/food-items/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/food-items/{id}/upload-image",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/menus",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/menus/{menuType}",
       "methods": [
         "DELETE"
       ]
     },
     {
-      "path": "/api/v1/tenants/invitations/{id}/resend",
+      "path": "/api/v1/menu/menus/{menuType}/activate",
+      "methods": [
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/menus/{menuType}/assign-items",
       "methods": [
         "POST"
       ]
     },
     {
-      "path": "/api/v1/tenants/invitations/accept",
-      "methods": [
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/tenants/invitations/validate/{token}",
+      "path": "/api/v1/menu/menus/{menuType}/items",
       "methods": [
         "GET"
       ]
     },
     {
-      "path": "/api/v1/tickets",
+      "path": "/api/v1/menu/menus/items/batch",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/menu/variation-groups",
       "methods": [
         "GET",
         "POST"
       ]
     },
     {
-      "path": "/api/v1/tickets/{id}",
+      "path": "/api/v1/menu/variation-groups/{id}",
       "methods": [
         "DELETE",
         "GET",
-        "PATCH"
+        "PUT"
       ]
     },
     {
-      "path": "/api/v1/tickets/{id}/assign",
+      "path": "/api/v1/menu/variation-groups/{id}/food-items",
       "methods": [
-        "PATCH"
+        "GET"
       ]
     },
     {
-      "path": "/api/v1/tickets/{id}/status",
-      "methods": [
-        "PATCH"
-      ]
-    },
-    {
-      "path": "/api/v1/tickets/bulk-delete",
-      "methods": [
-        "POST"
-      ]
-    },
-    {
-      "path": "/api/v1/users",
+      "path": "/api/v1/menu/variation-groups/{variationGroupId}/variations",
       "methods": [
         "GET",
         "POST"
       ]
     },
     {
-      "path": "/api/v1/users/{id}",
+      "path": "/api/v1/menu/variation-groups/{variationGroupId}/variations/{id}",
       "methods": [
         "DELETE",
         "GET",
-        "PATCH"
+        "PUT"
       ]
     },
     {
-      "path": "/api/v1/users/support-staff",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/workflows",
+      "path": "/api/v1/orders",
       "methods": [
         "GET",
         "POST"
       ]
     },
     {
-      "path": "/api/v1/workflows/{id}",
+      "path": "/api/v1/orders/{id}",
       "methods": [
         "DELETE",
         "GET",
-        "PATCH"
+        "PUT"
       ]
     },
     {
-      "path": "/api/v1/workflows/{id}/activate",
+      "path": "/api/v1/orders/{id}/bill-split",
       "methods": [
-        "PATCH"
+        "DELETE",
+        "GET",
+        "POST"
       ]
     },
     {
-      "path": "/api/v1/workflows/{id}/deactivate",
+      "path": "/api/v1/orders/{id}/payment",
       "methods": [
-        "PATCH"
+        "PUT"
       ]
     },
     {
-      "path": "/api/v1/workflows/{id}/set-default",
+      "path": "/api/v1/orders/{id}/status",
       "methods": [
-        "PATCH"
+        "PUT"
       ]
     },
     {
-      "path": "/api/v1/workflows/{id}/status-categorization",
+      "path": "/api/v1/orders/{orderId}/bill-split/{splitPaymentId}/pay",
       "methods": [
-        "GET"
+        "POST"
       ]
     },
     {
-      "path": "/api/v1/workflows/{id}/statuses",
+      "path": "/api/v1/orders/{orderId}/items/{itemId}/status",
       "methods": [
-        "GET"
+        "PUT"
       ]
     },
     {
-      "path": "/api/v1/workflows/all-statuses",
-      "methods": [
-        "GET"
-      ]
-    },
-    {
-      "path": "/api/v1/workflows/dashboard-stats",
+      "path": "/api/v1/orders/kitchen/stream",
       "methods": [
         "GET"
       ]
     },
     {
-      "path": "/api/v1/workflows/default",
+      "path": "/api/v1/reports/customers",
       "methods": [
         "GET"
       ]
     },
     {
-      "path": "/api/v1/workflows/staff-performance",
+      "path": "/api/v1/reports/financial",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/reports/inventory",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/reports/orders",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/reports/sales",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/reports/tax",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/reports/top-items",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/restaurant/branches",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/restaurant/branches/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/restaurant/counters",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/restaurant/counters/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/restaurant/info",
+      "methods": [
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/restaurant/info/upload-logo",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/restaurant/tables",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/restaurant/tables/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/restaurant/tables/available",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/roles",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/roles/{id}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/roles/permissions",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/roles/user/{userId}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/roles/user/{userId}/permissions",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/settings",
+      "methods": [
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/settings/{category}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/settings/role-access",
+      "methods": [
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/settings/role-access/{roleName}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/settings/role-access/bulk",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/subscription",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/subscription/can-use-language/{language}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/subscription/checkout",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/subscription/downgrade",
+      "methods": [
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/subscription/has-feature/{feature}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/subscription/has-reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/subscription/invoices",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/subscription/payment",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/subscription/plan-limits/{planId}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/subscription/upgrade",
+      "methods": [
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/subscription/usage",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/subscription/webhook",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/sync/pull",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/sync/push",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/sync/resolve",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/sync/status",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/taxes",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/taxes/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/translations",
+      "methods": [
+        "POST",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/translations/admin/languages",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/translations/admin/languages/{code}",
+      "methods": [
+        "DELETE",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/v1/translations/admin/retranslate",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/translations/cache/clear",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/translations/cache/stats",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/translations/delete/{entityType}/{entityId}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/translations/entity/{entityType}/{entityId}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/translations/languages",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/translations/languages/default",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/translations/tenant/languages",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/translations/tenant/languages/{code}",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/v1/translations/tenant/languages/available",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/v1/translations/translate",
       "methods": [
         "GET"
       ]

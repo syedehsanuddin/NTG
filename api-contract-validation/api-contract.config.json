@@ -1,5 +1,5 @@
 {
-  "swaggerUrl": "http://192.168.50.50:4000/api/docs-json",
+  "swaggerUrl": "https://rms-app-dkgpl.ondigitalocean.app/api/docs-json",
   "description": "API Contract Validation Configuration",
   "options": {
     "updateBaselineOnMatch": false,
