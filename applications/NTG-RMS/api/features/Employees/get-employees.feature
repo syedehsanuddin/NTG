@@ -1,4 +1,4 @@
-@getEmployees @happyFlow
+@getEmployees 
 
 Feature: Get all employees
   Validate GET /api/v1/employees endpoint

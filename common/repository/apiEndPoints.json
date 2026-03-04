@@ -87,7 +87,7 @@
     {
       "project": "ntg-rms",
       "apiName": "ntgRmsApi",
-      "baseUrl": "https://rms-app-dkgpl.ondigitalocean.app",
+      "baseUrl": "https://rms.ntgapps.com",
       "apiVersion": "v1",
       "resources": [
         {
