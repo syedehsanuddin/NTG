@@ -1,4 +1,4 @@
-@deleteEmployee @happyFlow
+@deleteEmployee 
 
 Feature: Delete an employee (soft delete)
   Validate DELETE /api/v1/employees/{id} endpoint

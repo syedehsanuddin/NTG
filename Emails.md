@@ -103,3 +103,5 @@ This file contains all email addresses generated during test execution.
 - 77EF1B9A@mailinator.com (Generated: 2026-03-05T04:01:12.280Z)
 - DA5F12C1@mailinator.com (Generated: 2026-03-05T04:02:14.267Z)
 - 15EB26AC@mailinator.com (Generated: 2026-03-05T04:02:39.310Z)
+- 8B35A41B@mailinator.com [customer] (Generated: 2026-03-24T03:49:23.480Z)
+- FDBDD268@mailinator.com (Generated: 2026-03-24T03:49:29.225Z)
