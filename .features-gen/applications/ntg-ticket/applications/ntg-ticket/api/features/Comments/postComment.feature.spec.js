@@ -3,7 +3,7 @@ import { test } from "playwright-bdd";
 
 test.describe("Create Comment API Validation", () => {
 
-  test("POST Comment for a newly created ticket returns successful response", { tag: ["@postComment", "@happyflow", "@regression", "@ahsan123"] }, async ({ When, request, Then, And }) => {
+  test("POST Comment for a newly created ticket returns successful response", { tag: ["@ahsan123"] }, async ({ When, request, Then, And }) => {
     await When("user creates a ticket with followin payload:", {"docString":{"content":"{\n  \"title\": \"NTA - Automated Test Ticket - Comment Flow\",\n  \"description\": \"<p>This ticket is created to test automated comment creation and will be removed afterwards.</p>\",\n  \"category\": \"ba47e8b4-f669-4535-b3ef-3478f1d844e2\",\n  \"subcategory\": \"bc999191-e258-4b39-b41d-9019460f79c3\",\n  \"priority\": \"LOW\",\n  \"impact\": \"MINOR\",\n  \"customFields\": {}\n}"}}, { request });
     await Then("the response status should be 201");
     await And("the response data should have field \"id\"");
@@ -26,5 +26,5 @@ test.use({
 });
 
 const bddFileMeta = {
-  "POST Comment for a newly created ticket returns successful response": {"pickleLocation":"5:3","tags":["@postComment","@happyflow","@regression","@ahsan123"],"ownTags":["@ahsan123"]},
+  "POST Comment for a newly created ticket returns successful response": {"pickleLocation":"5:3","tags":["@ahsan123"],"ownTags":["@ahsan123"]},
 };

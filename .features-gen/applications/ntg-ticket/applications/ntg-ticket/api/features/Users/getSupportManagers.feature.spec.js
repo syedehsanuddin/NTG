@@ -3,7 +3,7 @@ import { test } from "playwright-bdd";
 
 test.describe("Support Managers API Validation", () => {
 
-  test("GET Support Managers returns successful response with required fields", { tag: ["@getSupportManagers", "@happyflow", "@usersHappyFlow", "@regression"] }, async ({ When, request, Then, And }) => {
+  test("GET Support Managers returns successful response with required fields", async ({ When, request, Then, And }) => {
     await When("I send a GET request to endpoint \"getSupportManagers\"", null, { request });
     await Then("the response status should be 200");
     await And("the response should be a valid JSON array");
@@ -14,7 +14,7 @@ test.describe("Support Managers API Validation", () => {
     await And("all items should have field \"name\" of type \"string\"");
   });
 
-  test("GET Support Managers response has valid data structure", { tag: ["@getSupportManagers", "@happyflow", "@usersHappyFlow", "@regression"] }, async ({ When, request, Then, And }) => {
+  test("GET Support Managers response has valid data structure", async ({ When, request, Then, And }) => {
     await When("I send a GET request to endpoint \"getSupportManagers\"", null, { request });
     await Then("the response status should be 200");
     await And("the response content type should be \"application/json\"");
@@ -24,7 +24,7 @@ test.describe("Support Managers API Validation", () => {
     await And("each item in the array should have field \"name\"");
   });
 
-  test("GET Support Managers response fields have non-empty values", { tag: ["@getSupportManagers", "@happyflow", "@usersHappyFlow", "@regression"] }, async ({ When, request, Then, And }) => {
+  test("GET Support Managers response fields have non-empty values", async ({ When, request, Then, And }) => {
     await When("I send a GET request to endpoint \"getSupportManagers\"", null, { request });
     await Then("the response status should be 200");
     await And("all items should have non-empty field \"id\"");
@@ -32,7 +32,7 @@ test.describe("Support Managers API Validation", () => {
     await And("all items should have non-empty field \"name\"");
   });
 
-  test("GET Support Managers response has valid email format", { tag: ["@getSupportManagers", "@happyflow", "@usersHappyFlow", "@regression"] }, async ({ When, request, Then, And }) => {
+  test("GET Support Managers response has valid email format", async ({ When, request, Then, And }) => {
     await When("I send a GET request to endpoint \"getSupportManagers\"", null, { request });
     await Then("the response status should be 200");
     await And("all items should have valid email format in field \"email\"");
@@ -49,8 +49,8 @@ test.use({
 });
 
 const bddFileMeta = {
-  "GET Support Managers returns successful response with required fields": {"pickleLocation":"5:3","tags":["@getSupportManagers","@happyflow","@usersHappyFlow","@regression"]},
-  "GET Support Managers response has valid data structure": {"pickleLocation":"15:3","tags":["@getSupportManagers","@happyflow","@usersHappyFlow","@regression"]},
-  "GET Support Managers response fields have non-empty values": {"pickleLocation":"24:3","tags":["@getSupportManagers","@happyflow","@usersHappyFlow","@regression"]},
-  "GET Support Managers response has valid email format": {"pickleLocation":"31:3","tags":["@getSupportManagers","@happyflow","@usersHappyFlow","@regression"]},
+  "GET Support Managers returns successful response with required fields": {"pickleLocation":"5:3"},
+  "GET Support Managers response has valid data structure": {"pickleLocation":"15:3"},
+  "GET Support Managers response fields have non-empty values": {"pickleLocation":"24:3"},
+  "GET Support Managers response has valid email format": {"pickleLocation":"31:3"},
 };

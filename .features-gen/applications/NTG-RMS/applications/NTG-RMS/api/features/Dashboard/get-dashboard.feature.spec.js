@@ -3,7 +3,7 @@ import { test } from "playwright-bdd";
 
 test.describe("Get dashboard data", () => {
 
-  test("GET Get dashboard data returns successful response", { tag: ["@getDashboard", "@happyFlow"] }, async ({ When, request, Then }) => {
+  test("GET Get dashboard data returns successful response", { tag: ["@getDashboard"] }, async ({ When, request, Then }) => {
     await When("I send a GET request to endpoint \"getDashboard\" with headers \"branchId={BRANCH_ID}\"", null, { request });
     await Then("the response status should be 200");
   });
@@ -19,5 +19,5 @@ test.use({
 });
 
 const bddFileMeta = {
-  "GET Get dashboard data returns successful response": {"pickleLocation":"6:3","tags":["@getDashboard","@happyFlow"]},
+  "GET Get dashboard data returns successful response": {"pickleLocation":"6:3","tags":["@getDashboard"]},
 };

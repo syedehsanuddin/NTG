@@ -1,4 +1,4 @@
-# @getDashboard @happyFlow
+@getDashboard 
 
 Feature: Get dashboard data
   Validate GET /api/v1/dashboard endpoint

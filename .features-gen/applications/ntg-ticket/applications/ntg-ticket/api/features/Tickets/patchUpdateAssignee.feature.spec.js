@@ -3,7 +3,7 @@ import { test } from "playwright-bdd";
 
 test.describe("Update Ticket Assignee API Validation", () => {
 
-  test("PATCH Ticket assignee after creation", { tag: ["@patchUpdateAssignee", "@happyflow", "@regression"] }, async ({ When, request, Then, And }) => {
+  test("PATCH Ticket assignee after creation", async ({ When, request, Then, And }) => {
     await When("user creates a ticket with followin payload:", {"docString":{"content":"{\n  \"title\": \"NTA - Automated Test Ticket - Assignee Update\",\n  \"description\": \"<p>This ticket is created for automated assignee update testing and will be removed afterwards.</p>\",\n  \"category\": \"fb1ef4eb-1c99-4fe3-9dce-398ca993e763\",\n  \"subcategory\": \"bff9c5d7-ad4b-46be-81c4-7103ee2b5825\",\n  \"priority\": \"LOW\",\n  \"impact\": \"MINOR\",\n  \"urgency\": \"LOW\",\n  \"customFields\": {}\n}"}}, { request });
     await Then("the response status should be 201");
     await And("the response data should have field \"id\"");
@@ -25,5 +25,5 @@ test.use({
 });
 
 const bddFileMeta = {
-  "PATCH Ticket assignee after creation": {"pickleLocation":"5:3","tags":["@patchUpdateAssignee","@happyflow","@regression"]},
+  "PATCH Ticket assignee after creation": {"pickleLocation":"5:3"},
 };

@@ -3,7 +3,7 @@ import { test } from "playwright-bdd";
 
 test.describe("Get all customers", () => {
 
-  test("GET Get all customers returns successful response", { tag: ["@getCustomersExplicit", "@happyFlow"] }, async ({ When, request, Then, And }) => {
+  test("GET Get all customers returns successful response", async ({ When, request, Then, And }) => {
     await When("I send a GET request to endpoint \"getCustomers\"", null, { request });
     await Then("the response status should be 200");
     await And("the response should be a valid JSON array");
@@ -21,5 +21,5 @@ test.use({
 });
 
 const bddFileMeta = {
-  "GET Get all customers returns successful response": {"pickleLocation":"6:3","tags":["@getCustomersExplicit","@happyFlow"]},
+  "GET Get all customers returns successful response": {"pickleLocation":"6:3"},
 };
