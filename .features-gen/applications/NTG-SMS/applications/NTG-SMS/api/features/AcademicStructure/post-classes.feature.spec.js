@@ -1,0 +1,23 @@
+/** Generated from: applications\NTG-SMS\api\features\AcademicStructure\post-classes.feature */
+import { test } from "playwright-bdd";
+
+test.describe("Post Create Classe", () => {
+
+  test("POST Post Create Classe returns successful response", { tag: ["@postCreateClasse"] }, async ({ When, request, Then }) => {
+    await When("I send a POST request to endpoint \"postCreateClasse\" with payload '{\"name\":\"Automated Test\"}'", null, { request });
+    await Then("the response status should be 201");
+  });
+
+});
+
+// == technical section ==
+
+test.use({
+  $test: ({}, use) => use(test),
+  $uri: ({}, use) => use("applications\\NTG-SMS\\api\\features\\AcademicStructure\\post-classes.feature"),
+  $bddFileMeta: ({}, use) => use(bddFileMeta),
+});
+
+const bddFileMeta = {
+  "POST Post Create Classe returns successful response": {"pickleLocation":"6:3","tags":["@postCreateClasse"]},
+};

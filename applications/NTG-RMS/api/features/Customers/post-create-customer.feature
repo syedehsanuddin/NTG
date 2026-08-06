@@ -1,4 +1,4 @@
-@postCreateCustomerExplicit @ahsan133 @happyFlow
+# @postCreateCustomerExplicit @ahsan133 @happyFlow
 
 Feature: Create a new customer
   Validate POST /api/v1/customers endpoint

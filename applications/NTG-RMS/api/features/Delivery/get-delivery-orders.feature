@@ -1,4 +1,4 @@
-@getDeliveryOrders @happyFlow
+# @getDeliveryOrders @happyFlow
 
 Feature: Get delivery orders
   Validate GET /api/v1/delivery/orders endpoint

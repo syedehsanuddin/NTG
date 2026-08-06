@@ -2,6 +2,14 @@ import devEnvironment from "../environments/dev-env";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const apiEndPoints = require("../repository/apiEndPoints.json");
 
+let ntgSmsGenerated: { project: string; resources: ApiResource[] } | null = null;
+try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    ntgSmsGenerated = require("../repository/ntgSmsEndpoints.generated.json");
+} catch {
+    ntgSmsGenerated = null;
+}
+
 interface ApiResource {
     name: string;
     path: string;
@@ -15,6 +23,19 @@ interface ApiApplication {
     resources: ApiResource[];
 }
 
+function findResource(
+    application: ApiApplication,
+    endpointName: string,
+    project?: string
+): ApiResource | undefined {
+    const fromJson = application.resources.find((r) => r.name === endpointName);
+    if (fromJson) return fromJson;
+    if (project === "ntg-sms" && ntgSmsGenerated?.resources) {
+        return ntgSmsGenerated.resources.find((r) => r.name === endpointName);
+    }
+    return undefined;
+}
+
 export function getEndpointUrl(endpointName: string, params?: Record<string, string>, project?: string): string {
     const env = devEnvironment;
     const apiEndpoints = apiEndPoints as { applications: ApiApplication[] };
@@ -26,7 +47,7 @@ export function getEndpointUrl(endpointName: string, params?: Record<string, str
             continue;
         }
 
-        const resource = application.resources.find((r) => r.name === endpointName);
+        const resource = findResource(application, endpointName, project);
         if (resource) {
             let url = resource.path;
 
@@ -55,4 +76,3 @@ export function getEndpointUrl(endpointName: string, params?: Record<string, str
     const projectMsg = project ? ` for project '${project}'` : "";
     throw new Error(`Endpoint '${endpointName}'${projectMsg} not found in apiEndPoints.json`);
 }
-

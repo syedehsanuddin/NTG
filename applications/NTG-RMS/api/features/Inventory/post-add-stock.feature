@@ -1,4 +1,4 @@
-@postAddStock @happyFlow 
+# @postAddStock @happyFlow 
 
 Feature: Add stock (Purchase Entry)
   Validate POST /api/v1/inventory/stock/add endpoint

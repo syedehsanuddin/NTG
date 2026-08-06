@@ -11,6 +11,8 @@
     "show-report:port": "playwright show-report --port 9324",
     "lint": "eslint applications --ext .ts",
     "generate": "npx playwright-bdd generate",
+    "build:sms-endpoints": "node scripts/build-ntg-sms-endpoints.mjs",
+    "test:sms": "npx playwright-bdd generate && playwright test --project=api-tests-sms",
     "validate-api": "ts-node api-contract-validation/validateApiContract.ts",
     "validate-api:update": "ts-node api-contract-validation/validateApiContract.ts --update"
   },

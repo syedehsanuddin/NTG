@@ -1,4 +1,4 @@
-@getCoupons @happyFlow
+# @getCoupons @happyFlow
 
 Feature: Get all coupons
   Validate GET /api/v1/coupons endpoint

@@ -27,8 +27,53 @@ interface TestContext {
 
 const context: TestContext = {};
 
-// Project constant for NTG-RMS
-const PROJECT = "ntg-rms";
+// Project for API routing (RMS default; NTG-SMS shim sets NTG_API_TEST_PROJECT before loading this file)
+const PROJECT = process.env.NTG_API_TEST_PROJECT || "ntg-rms";
+
+function labelToContextIdKey(label: string): string {
+    const parts = label
+        .trim()
+        .split(/\s+/)
+        .map((p) => p.toLowerCase())
+        .filter(Boolean);
+    const camel = parts[0] + parts.slice(1).map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join("");
+    return camel + "Id";
+}
+
+function storedPlaceholderToContextIdKey(token: string): string | null {
+    const m = token.match(/^\{STORED_([A-Z0-9_]+)_ID\}$/);
+    if (!m) return null;
+    const parts = m[1].split("_").filter(Boolean);
+    const lower = parts.map((p) => p.toLowerCase());
+    const camel = lower[0] + lower.slice(1).map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join("");
+    return camel + "Id";
+}
+
+function resolveStoredEntityIdToken(token: string): string | undefined {
+    if (token === "{STORED_ID}") {
+        if (context.couponId) return String(context.couponId);
+        return getTestData("couponId");
+    }
+    const key = storedPlaceholderToContextIdKey(token);
+    if (!key) return undefined;
+    const fromCtx = (context as any)[key];
+    if (fromCtx) return String(fromCtx);
+    return getTestData(key);
+}
+
+function extractCreatedEntityWithId(responseData: any): { id: string; entity: Record<string, unknown> } | null {
+    let data = responseData;
+    if (data && typeof data === "object" && !Array.isArray(data) && "id" in data) {
+        if (!("data" in data)) {
+            return { id: String((data as any).id), entity: data as Record<string, unknown> };
+        }
+        const inner = (data as any).data;
+        if (inner && typeof inner === "object" && !Array.isArray(inner) && "id" in inner) {
+            return { id: String(inner.id), entity: inner as Record<string, unknown> };
+        }
+    }
+    return null;
+}
 
 /**
  * Replaces placeholders in a string with actual values from test constants
@@ -119,8 +164,11 @@ function replacePlaceholdersInObject(obj: any): any {
                 throw new Error("No employee ID stored. Make sure to create an employee and store its ID first.");
             }
             return employeeId;
+        } else {
+            const genericStored = resolveStoredEntityIdToken(obj);
+            if (genericStored) return genericStored;
+            return obj;
         }
-        return obj;
     } else if (Array.isArray(obj)) {
         return obj.map(item => replacePlaceholdersInObject(item));
     } else if (obj && typeof obj === "object") {
@@ -160,7 +208,7 @@ When("I send a GET request to endpoint {string} with headers {string}", async ({
 
 When("I send a GET request to endpoint {string} with id {string}", async ({ request }, endpointName: string, id: string) => {
     // Support using stored IDs from context or file
-    let actualId = id;
+    let actualId = resolveStoredEntityIdToken(id) ?? id;
     if (id === "{STORED_COUPON_ID}" || id === "{STORED_ID}") {
         // First try context (for same scenario)
         if (context.couponId) {
@@ -215,7 +263,7 @@ When("I send a GET request to endpoint {string} with id {string}", async ({ requ
 
 When("I send a GET request to endpoint {string} with id {string} and headers {string}", async ({ request }, endpointName: string, id: string, headerString: string) => {
     // Support using stored IDs from context or file
-    let actualId = id;
+    let actualId = resolveStoredEntityIdToken(id) ?? id;
     if (id === "{STORED_COUPON_ID}" || id === "{STORED_ID}") {
         // First try context (for same scenario)
         if (context.couponId) {
@@ -279,7 +327,7 @@ When("I send a GET request to endpoint {string} with id {string} and headers {st
 
 When("I send a PUT request to endpoint {string} with id {string} and payload {string}", async ({ request }, endpointName: string, id: string, payloadString: string) => {
     // Support using stored IDs from context or file
-    let actualId = id;
+    let actualId = resolveStoredEntityIdToken(id) ?? id;
     if (id === "{STORED_COUPON_ID}" || id === "{STORED_ID}") {
         // First try context (for same scenario)
         if (context.couponId) {
@@ -384,7 +432,7 @@ When("I send a PUT request to endpoint {string} with id {string} and payload {st
 
 When("I send a PUT request to endpoint {string} with id {string} and payload {string} and headers {string}", async ({ request }, endpointName: string, id: string, payloadString: string, headerString: string) => {
     // Support using stored IDs from context or file
-    let actualId = id;
+    let actualId = resolveStoredEntityIdToken(id) ?? id;
     if (id === "{STORED_COUPON_ID}" || id === "{STORED_ID}") {
         // First try context (for same scenario)
         if (context.couponId) {
@@ -750,9 +798,93 @@ When("I send a PATCH request to endpoint {string} with payload {string}", async 
     await makePatchRequest(request, url, payload);
 });
 
+When("I send a POST request to endpoint {string} with id {string} and payload {string}", async ({ request }, endpointName: string, id: string, payloadString: string) => {
+    let actualId = resolveStoredEntityIdToken(id) ?? id;
+    if (id === "{STORED_COUPON_ID}" || id === "{STORED_ID}") {
+        if (context.couponId) {
+            actualId = context.couponId;
+        } else {
+            const storedId = getTestData("couponId");
+            if (!storedId) {
+                throw new Error("No coupon ID stored. Make sure to create a coupon and store its ID first.");
+            }
+            actualId = storedId;
+        }
+    } else if (id === "{STORED_CUSTOMER_ID}") {
+        if (context.customerId) {
+            actualId = context.customerId;
+        } else {
+            const storedId = getTestData("customerId");
+            if (!storedId) {
+                throw new Error("No customer ID stored. Make sure to create a customer and store its ID first.");
+            }
+            actualId = storedId;
+        }
+    } else if (id === "{STORED_EMPLOYEE_ID}") {
+        if (context.employeeId) {
+            actualId = context.employeeId;
+        } else {
+            const storedId = getTestData("employeeId");
+            if (!storedId) {
+                throw new Error("No employee ID stored. Make sure to create an employee and store its ID first.");
+            }
+            actualId = storedId;
+        }
+    } else if (id === "{STORED_INGREDIENT_ID}") {
+        if (context.ingredientId) {
+            actualId = context.ingredientId;
+        } else {
+            const storedId = getTestData("ingredientId");
+            if (!storedId) {
+                throw new Error("No ingredient ID stored. Make sure to create an ingredient and store its ID first.");
+            }
+            actualId = storedId;
+        }
+    }
+
+    // @ts-ignore - getEndpointUrl accepts 3 params: endpointName, params?, project?
+    const url = getEndpointUrl(endpointName, { id: actualId }, PROJECT);
+    let payload: any;
+    try {
+        let processedPayloadString = payloadString;
+        if (processedPayloadString.includes("{GENERATE_EMAIL}")) {
+            const generatedEmail = generateUniqueEmail();
+            processedPayloadString = processedPayloadString.replace(/{GENERATE_EMAIL}/g, generatedEmail);
+        }
+        if (processedPayloadString.includes("{GENERATE_CUSTOMER_EMAIL}")) {
+            const generatedEmail = generateUniqueCustomerEmail();
+            processedPayloadString = processedPayloadString.replace(/{GENERATE_CUSTOMER_EMAIL}/g, generatedEmail);
+        }
+        if (processedPayloadString.includes("{GENERATE_PHONE}") || processedPayloadString.includes("{GENERATE_PHONE_NUMBER}")) {
+            const generatedPhone = generateUniquePhoneNumber();
+            processedPayloadString = processedPayloadString.replace(/{GENERATE_PHONE}/g, generatedPhone);
+            processedPayloadString = processedPayloadString.replace(/{GENERATE_PHONE_NUMBER}/g, generatedPhone);
+        }
+        if (processedPayloadString.includes("{GENERATE_INGREDIENT_NAME}")) {
+            const generatedName = generateUniqueIngredientName();
+            processedPayloadString = processedPayloadString.replace(/{GENERATE_INGREDIENT_NAME}/g, generatedName);
+        }
+        processedPayloadString = replacePlaceholders(processedPayloadString);
+        payload = JSON.parse(processedPayloadString);
+        payload = replacePlaceholdersInObject(payload);
+        if (payload && typeof payload === "object" && payload.code === "AUTOMATETEDTEST") {
+            payload.code = generateUniqueCouponCode();
+        }
+    } catch (err) {
+        throw new Error(`Invalid JSON payload: ${payloadString}. Error: ${err}`);
+    }
+    await makePostRequest(request, url, payload);
+});
+
+When("I send a DELETE request to endpoint {string}", async ({ request }, endpointName: string) => {
+    // @ts-ignore - getEndpointUrl accepts 3 params: endpointName, params?, project?
+    const url = getEndpointUrl(endpointName, undefined, PROJECT);
+    await makeDeleteRequest(request, url);
+});
+
 When("I send a DELETE request to endpoint {string} with id {string}", async ({ request }, endpointName: string, id: string) => {
     // Support using stored IDs from context or file
-    let actualId = id;
+    let actualId = resolveStoredEntityIdToken(id) ?? id;
     if (id === "{STORED_COUPON_ID}" || id === "{STORED_ID}") {
         // First try context (for same scenario)
         if (context.couponId) {
@@ -1174,160 +1306,29 @@ Then("the response status should be {int}", async ({}, expectedStatus: number) =
     );
 });
 
-Then("I store the response id as customer id", async ({}) => {
+Then(/^I store the response id as (.+) id$/, async ({}, label: string) => {
     if (!context.response) throw new Error("Response is not available in context");
-    let data = context.response.data as any;
-    
-    // Check root level first (for direct object responses like customer creation)
-    if (data && typeof data === "object" && !Array.isArray(data) && "id" in data) {
-        const customerId = String(data.id);
-        context.customerId = customerId;
-        storeTestData("customerId", customerId); // Also store in file for cross-scenario access
-        console.log(`✓ Stored customer ID: ${customerId}`);
-        return;
+    const extracted = extractCreatedEntityWithId(context.response.data);
+    if (!extracted) {
+        throw new Error(
+            `Response does not contain an id to store. Label: "${label}". Body: ${JSON.stringify(context.response.data)}`
+        );
     }
-    
-    // If wrapped in data field
-    if (data && typeof data === "object" && "data" in data) {
-        data = data.data;
-    }
-    
-    if (!data || typeof data !== "object" || Array.isArray(data)) {
-        throw new Error(`Response data is not an object. Got: ${typeof data}, value: ${JSON.stringify(data)}`);
-    }
-    
-    if (!("id" in data)) {
-        throw new Error(`Response does not contain an 'id' field. Available fields: ${Object.keys(data).join(", ")}`);
-    }
-    
-    const customerId = String(data.id);
-    context.customerId = customerId;
-    storeTestData("customerId", customerId); // Also store in file for cross-scenario access
-    console.log(`✓ Stored customer ID: ${customerId}`);
-});
+    const { id: idVal, entity } = extracted;
+    const key = labelToContextIdKey(label);
+    (context as any)[key] = idVal;
+    storeTestData(key, idVal);
+    console.log(`✓ Stored ${key}: ${idVal}`);
 
-Then("I store the response id as coupon id", async ({}) => {
-    if (!context.response) throw new Error("Response is not available in context");
-    let data = context.response.data as any;
-    
-    // Check root level first (for direct object responses like coupon creation)
-    if (data && typeof data === "object" && !Array.isArray(data) && "id" in data) {
-        const couponId = String(data.id);
-        context.couponId = couponId;
-        storeTestData("couponId", couponId); // Also store in file for cross-scenario access
-        console.log(`✓ Stored coupon ID: ${couponId}`);
-        
-        // Also store coupon code if available
-        if ("code" in data) {
-            const couponCode = String(data.code);
-            context.couponCode = couponCode;
-            storeTestData("couponCode", couponCode);
-            console.log(`✓ Stored coupon code: ${couponCode}`);
-        }
-        return;
-    }
-    
-    // If wrapped in data field
-    if (data && typeof data === "object" && "data" in data) {
-        data = data.data;
-    }
-    
-    if (!data || typeof data !== "object" || Array.isArray(data)) {
-        throw new Error(`Response data is not an object. Got: ${typeof data}, value: ${JSON.stringify(data)}`);
-    }
-    
-    if (!("id" in data)) {
-        throw new Error(`Response does not contain an 'id' field. Available fields: ${Object.keys(data).join(", ")}`);
-    }
-    
-    const couponId = String(data.id);
-    context.couponId = couponId;
-    storeTestData("couponId", couponId); // Also store in file for cross-scenario access
-    console.log(`✓ Stored coupon ID: ${couponId}`);
-    
-    // Also store coupon code if available
-    if ("code" in data) {
-        const couponCode = String(data.code);
+    const low = label.trim().toLowerCase();
+    if (low === "coupon" && "code" in entity) {
+        const couponCode = String(entity.code);
         context.couponCode = couponCode;
         storeTestData("couponCode", couponCode);
         console.log(`✓ Stored coupon code: ${couponCode}`);
     }
-});
-
-Then("I store the response id as employee id", async ({}) => {
-    if (!context.response) throw new Error("Response is not available in context");
-    let data = context.response.data as any;
-    
-    // Check root level first (for direct object responses like employee creation)
-    if (data && typeof data === "object" && !Array.isArray(data) && "id" in data) {
-        const employeeId = String(data.id);
-        context.employeeId = employeeId;
-        storeTestData("employeeId", employeeId); // Also store in file for cross-scenario access
-        console.log(`✓ Stored employee ID: ${employeeId}`);
-        return;
-    }
-    
-    // If wrapped in data field
-    if (data && typeof data === "object" && "data" in data) {
-        data = data.data;
-    }
-    
-    if (!data || typeof data !== "object" || Array.isArray(data)) {
-        throw new Error(`Response data is not an object. Got: ${typeof data}, value: ${JSON.stringify(data)}`);
-    }
-    
-    if (!("id" in data)) {
-        throw new Error(`Response does not contain an 'id' field. Available fields: ${Object.keys(data).join(", ")}`);
-    }
-    
-    const employeeId = String(data.id);
-    context.employeeId = employeeId;
-    storeTestData("employeeId", employeeId); // Also store in file for cross-scenario access
-    console.log(`✓ Stored employee ID: ${employeeId}`);
-});
-
-Then("I store the response id as ingredient id", async ({}) => {
-    if (!context.response) throw new Error("Response is not available in context");
-    let data = context.response.data as any;
-    
-    // Check root level first (for direct object responses like ingredient creation)
-    if (data && typeof data === "object" && !Array.isArray(data) && "id" in data) {
-        const ingredientId = String(data.id);
-        context.ingredientId = ingredientId;
-        storeTestData("ingredientId", ingredientId); // Also store in file for cross-scenario access
-        console.log(`✓ Stored ingredient ID: ${ingredientId}`);
-        
-        // Also store the ingredient name if available
-        if ("name" in data) {
-            const ingredientName = String(data.name);
-            context.ingredientName = ingredientName;
-            storeTestData("ingredientName", ingredientName);
-            console.log(`✓ Stored ingredient name: ${ingredientName}`);
-        }
-        return;
-    }
-    
-    // If wrapped in data field
-    if (data && typeof data === "object" && "data" in data) {
-        data = data.data;
-    }
-    
-    if (!data || typeof data !== "object" || Array.isArray(data)) {
-        throw new Error(`Response data is not an object. Got: ${typeof data}, value: ${JSON.stringify(data)}`);
-    }
-    
-    if (!("id" in data)) {
-        throw new Error(`Response does not contain an 'id' field. Available fields: ${Object.keys(data).join(", ")}`);
-    }
-    
-    const ingredientId = String(data.id);
-    context.ingredientId = ingredientId;
-    storeTestData("ingredientId", ingredientId); // Also store in file for cross-scenario access
-    console.log(`✓ Stored ingredient ID: ${ingredientId}`);
-    
-    // Also store the ingredient name if available
-    if ("name" in data) {
-        const ingredientName = String(data.name);
+    if (low === "ingredient" && "name" in entity) {
+        const ingredientName = String(entity.name);
         context.ingredientName = ingredientName;
         storeTestData("ingredientName", ingredientName);
         console.log(`✓ Stored ingredient name: ${ingredientName}`);

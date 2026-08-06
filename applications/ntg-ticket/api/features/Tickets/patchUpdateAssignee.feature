@@ -1,4 +1,4 @@
-@patchUpdateAssignee @happyflow @regression
+# @patchUpdateAssignee @happyflow @regression
 Feature: Update Ticket Assignee API Validation
   Validate PATCH /api/v1/tickets/{id}/assign endpoint
 

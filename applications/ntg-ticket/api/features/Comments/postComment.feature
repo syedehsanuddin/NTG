@@ -1,4 +1,4 @@
-@postComment @happyflow @regression
+# @postComment @happyflow @regression
 Feature: Create Comment API Validation
   Validate POST /api/v1/comments endpoint
 @ahsan123

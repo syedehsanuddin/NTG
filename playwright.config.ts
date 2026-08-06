@@ -15,6 +15,13 @@ const ntgRmsApiTestDir = defineBddConfig({
     outputDir: ".features-gen/applications/NTG-RMS",
 });
 
+// BDD config for API tests - NTG SMS
+const ntgSmsApiTestDir = defineBddConfig({
+    steps: ["applications/NTG-SMS/api/step-definitions/**/*.ts"],
+    paths: ["applications/NTG-SMS/api/features/**/*.feature"],
+    outputDir: ".features-gen/applications/NTG-SMS",
+});
+
 export default defineConfig({
     // Ensure specs are (re)generated before every run, even with `npx playwright test`
     globalSetup: require.resolve("./global-setup"),
@@ -49,6 +56,17 @@ export default defineConfig({
             use: { 
                 ...devices["Desktop Chrome"],
                 baseURL: "http://192.168.50.50:8001",
+            },
+        },
+        // API tests - NTG SMS (BDD)
+        {
+            name: "api-tests-sms",
+            testDir: ntgSmsApiTestDir,
+            testMatch: /.*\.spec\.(js|ts)/,
+            timeout: 60000,
+            use: {
+                ...devices["Desktop Chrome"],
+                baseURL: "https://alma.ntgapps.com",
             },
         },
         // UI tests (Standard Playwright)

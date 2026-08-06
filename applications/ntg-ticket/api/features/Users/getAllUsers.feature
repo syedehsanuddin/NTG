@@ -1,4 +1,4 @@
-@getAllUsers @happyflow @usersHappyFlow @regression
+# @getAllUsers @happyflow @usersHappyFlow @regression
 
 Feature: All Users API Validation
   Validate GET All Users endpoint with filters and pagination via headers

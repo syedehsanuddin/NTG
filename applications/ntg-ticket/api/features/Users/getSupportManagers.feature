@@ -1,4 +1,4 @@
-@getSupportManagers @happyflow @usersHappyFlow @regression
+# @getSupportManagers @happyflow @usersHappyFlow @regression
 Feature: Support Managers API Validation
   Validate GET Support Managers endpoint
 

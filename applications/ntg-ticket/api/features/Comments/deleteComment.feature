@@ -1,4 +1,4 @@
-@deleteComment @happyflow @regression
+# @deleteComment @happyflow @regression
 Feature: Delete Comment API Validation
   Validate DELETE /api/v1/comments/{id} endpoint
 

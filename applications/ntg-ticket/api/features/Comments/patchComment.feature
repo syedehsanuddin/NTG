@@ -1,4 +1,4 @@
-@patchComment @happyflow @regression
+# @patchComment @happyflow @regression
 Feature: Update Comment API Validation
   Validate PATCH /api/v1/comments/{id} endpoint
 

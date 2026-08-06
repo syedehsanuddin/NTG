@@ -1,0 +1,1525 @@
+{
+  "project": "ntg-sms",
+  "resources": [
+    {
+      "name": "deleteAssessment",
+      "path": "/api/{apiVersion}/assessments/{id}"
+    },
+    {
+      "name": "deleteAttachmentAssessment",
+      "path": "/api/{apiVersion}/assessments/attachments/{id}"
+    },
+    {
+      "name": "deleteChildrenParent",
+      "path": "/api/{apiVersion}/parents/{id}/children/{studentId}"
+    },
+    {
+      "name": "deleteClasse",
+      "path": "/api/{apiVersion}/classes/{id}"
+    },
+    {
+      "name": "deleteClassSection",
+      "path": "/api/{apiVersion}/class-sections/{id}"
+    },
+    {
+      "name": "deleteConversation",
+      "path": "/api/{apiVersion}/conversations/{id}"
+    },
+    {
+      "name": "deleteDraftFileAssessment",
+      "path": "/api/{apiVersion}/assessments/draft/{draftId}/files/{fileId}"
+    },
+    {
+      "name": "deleteEvent",
+      "path": "/api/{apiVersion}/events/{id}"
+    },
+    {
+      "name": "deleteFileStorage",
+      "path": "/api/{apiVersion}/storage/files/{id}"
+    },
+    {
+      "name": "deleteGrade",
+      "path": "/api/{apiVersion}/grades/{id}"
+    },
+    {
+      "name": "deleteGradeTemplate",
+      "path": "/api/{apiVersion}/grade-templates/{id}"
+    },
+    {
+      "name": "deleteLevel",
+      "path": "/api/{apiVersion}/levels/{id}"
+    },
+    {
+      "name": "deleteLibrary",
+      "path": "/api/{apiVersion}/library/{id}"
+    },
+    {
+      "name": "deleteMessageConversation",
+      "path": "/api/{apiVersion}/conversations/{id}/messages"
+    },
+    {
+      "name": "deletePublicHoliday",
+      "path": "/api/{apiVersion}/public-holidays/{id}"
+    },
+    {
+      "name": "deleteSection",
+      "path": "/api/{apiVersion}/sections/{id}"
+    },
+    {
+      "name": "deleteSlotTimetable",
+      "path": "/api/{apiVersion}/timetable/slots/{id}"
+    },
+    {
+      "name": "deleteStudentSubjectTemplate",
+      "path": "/api/{apiVersion}/subject-templates/students/{id}"
+    },
+    {
+      "name": "deleteSubject",
+      "path": "/api/{apiVersion}/subjects/{id}"
+    },
+    {
+      "name": "deleteSubjectTemplate",
+      "path": "/api/{apiVersion}/subject-templates/{id}"
+    },
+    {
+      "name": "deleteSubscribePush",
+      "path": "/api/{apiVersion}/push/subscribe"
+    },
+    {
+      "name": "deleteTeacherAssignment",
+      "path": "/api/{apiVersion}/teacher-assignments/{id}"
+    },
+    {
+      "name": "deleteUniform",
+      "path": "/api/{apiVersion}/uniforms/{id}"
+    },
+    {
+      "name": "deleteUser",
+      "path": "/api/{apiVersion}/users/{id}"
+    },
+    {
+      "name": "deleteVacation",
+      "path": "/api/{apiVersion}/vacations/{id}"
+    },
+    {
+      "name": "getAcademicClasReport",
+      "path": "/api/{apiVersion}/reports/academic/class/{id}"
+    },
+    {
+      "name": "getAcademicComparisonReport",
+      "path": "/api/{apiVersion}/reports/academic/comparison"
+    },
+    {
+      "name": "getAcademicExportReport",
+      "path": "/api/{apiVersion}/reports/academic/export"
+    },
+    {
+      "name": "getAcademicSubjectReport",
+      "path": "/api/{apiVersion}/reports/academic/subject/{id}"
+    },
+    {
+      "name": "getAcademicYears",
+      "path": "/api/{apiVersion}/academic-years"
+    },
+    {
+      "name": "getActiveAcademicYear",
+      "path": "/api/{apiVersion}/academic-years/active"
+    },
+    {
+      "name": "getAdminByTenantAcademicYear",
+      "path": "/api/{apiVersion}/academic-years/admin/by-tenant"
+    },
+    {
+      "name": "getAdminByTenantBranche",
+      "path": "/api/{apiVersion}/branches/admin/by-tenant/{id}"
+    },
+    {
+      "name": "getAlertStorage",
+      "path": "/api/{apiVersion}/storage/alerts"
+    },
+    {
+      "name": "getAllTenant",
+      "path": "/api/{apiVersion}/tenants/all"
+    },
+    {
+      "name": "getAssessmentById",
+      "path": "/api/{apiVersion}/assessments/{id}"
+    },
+    {
+      "name": "getAssessmentExaminationScheduleExportPdfStudent",
+      "path": "/api/{apiVersion}/student/assessments/examination-schedule/export/pdf"
+    },
+    {
+      "name": "getAssessmentExaminationScheduleStudent",
+      "path": "/api/{apiVersion}/student/assessments/examination-schedule"
+    },
+    {
+      "name": "getAssessmentGrade",
+      "path": "/api/{apiVersion}/grades/assessment/{id}"
+    },
+    {
+      "name": "getAssessments",
+      "path": "/api/{apiVersion}/assessments"
+    },
+    {
+      "name": "getAssessmentsByClasssectionid",
+      "path": "/api/{apiVersion}/assessments/class/{id}/statistics"
+    },
+    {
+      "name": "getAssessmentsByStudentid",
+      "path": "/api/{apiVersion}/assessments/student/{id}/performance"
+    },
+    {
+      "name": "getAssessmentsBySubjectid",
+      "path": "/api/{apiVersion}/assessments/subject/{id}/statistics"
+    },
+    {
+      "name": "getAssessmentStudent",
+      "path": "/api/{apiVersion}/student/assessments"
+    },
+    {
+      "name": "getAssessmentTypes",
+      "path": "/api/{apiVersion}/assessment-types"
+    },
+    {
+      "name": "getAssignmentGradeTemplate",
+      "path": "/api/{apiVersion}/grade-templates/assignments"
+    },
+    {
+      "name": "getAssignmentStaffById",
+      "path": "/api/{apiVersion}/staff/{id}/assignments"
+    },
+    {
+      "name": "getAssociationParent",
+      "path": "/api/{apiVersion}/parents/associations"
+    },
+    {
+      "name": "getAttachmentAssessmentById",
+      "path": "/api/{apiVersion}/assessments/{id}/attachments"
+    },
+    {
+      "name": "getAttendance",
+      "path": "/api/{apiVersion}/attendance"
+    },
+    {
+      "name": "getAttendanceByClasssectionid",
+      "path": "/api/{apiVersion}/attendance/summary/class/{id}"
+    },
+    {
+      "name": "getAttendanceByStudentid",
+      "path": "/api/{apiVersion}/attendance/summary/student/{id}"
+    },
+    {
+      "name": "getAttendanceClasReport",
+      "path": "/api/{apiVersion}/reports/attendance/class/{id}"
+    },
+    {
+      "name": "getAttendanceExportReport",
+      "path": "/api/{apiVersion}/reports/attendance/export"
+    },
+    {
+      "name": "getAttendanceLowAttendanceReport",
+      "path": "/api/{apiVersion}/reports/attendance/low-attendance"
+    },
+    {
+      "name": "getAttendanceSummaryReport",
+      "path": "/api/{apiVersion}/reports/attendance/summary"
+    },
+    {
+      "name": "getAuditLogById",
+      "path": "/api/{apiVersion}/audit-logs/{id}"
+    },
+    {
+      "name": "getAuditLogs",
+      "path": "/api/{apiVersion}/audit-logs"
+    },
+    {
+      "name": "getBatchTimetable",
+      "path": "/api/{apiVersion}/timetable/batch"
+    },
+    {
+      "name": "getBehavioralByClasssectionid",
+      "path": "/api/{apiVersion}/behavioral/matrix/{id}"
+    },
+    {
+      "name": "getBehavioralByStudentid",
+      "path": "/api/{apiVersion}/behavioral/student/{id}"
+    },
+    {
+      "name": "getBrancheById",
+      "path": "/api/{apiVersion}/branches/{id}"
+    },
+    {
+      "name": "getBranches",
+      "path": "/api/{apiVersion}/branches"
+    },
+    {
+      "name": "getBranchesByTenantid",
+      "path": "/api/{apiVersion}/branches/admin/by-tenant/{id}"
+    },
+    {
+      "name": "getBranchesWithSettingSettingsStatu",
+      "path": "/api/{apiVersion}/settings-status/branches-with-settings"
+    },
+    {
+      "name": "getBreakdownStorage",
+      "path": "/api/{apiVersion}/storage/breakdown"
+    },
+    {
+      "name": "getByClasTeacherAssignment",
+      "path": "/api/{apiVersion}/teacher-assignments/by-class/{id}"
+    },
+    {
+      "name": "getByTeacherTeacherAssignment",
+      "path": "/api/{apiVersion}/teacher-assignments/by-teacher/{id}"
+    },
+    {
+      "name": "getByTenantBranche",
+      "path": "/api/{apiVersion}/branches/by-tenant"
+    },
+    {
+      "name": "getCategoryLibrary",
+      "path": "/api/{apiVersion}/library/categories"
+    },
+    {
+      "name": "getCheckConflictEarlyDeparture",
+      "path": "/api/{apiVersion}/early-departures/check-conflict"
+    },
+    {
+      "name": "getChildrenParentById",
+      "path": "/api/{apiVersion}/parents/{id}/children"
+    },
+    {
+      "name": "getClasDateAttendance",
+      "path": "/api/{apiVersion}/attendance/class/{classSectionId}/date/{date}"
+    },
+    {
+      "name": "getClasExportExcelReport",
+      "path": "/api/{apiVersion}/reports/class/{id}/export/excel"
+    },
+    {
+      "name": "getClasReport",
+      "path": "/api/{apiVersion}/reports/class/{id}"
+    },
+    {
+      "name": "getClasses",
+      "path": "/api/{apiVersion}/classes"
+    },
+    {
+      "name": "getClassesWithTemplateSubjectTemplate",
+      "path": "/api/{apiVersion}/subject-templates/classes-with-templates"
+    },
+    {
+      "name": "getClassSectionBulkPdfResult",
+      "path": "/api/{apiVersion}/results/class-section/{id}/bulk-pdf"
+    },
+    {
+      "name": "getClassSectionById",
+      "path": "/api/{apiVersion}/class-sections/{id}"
+    },
+    {
+      "name": "getClassSectionCardResult",
+      "path": "/api/{apiVersion}/results/class-section/{id}/cards"
+    },
+    {
+      "name": "getClassSectionResult",
+      "path": "/api/{apiVersion}/results/class-section/{id}"
+    },
+    {
+      "name": "getClassSections",
+      "path": "/api/{apiVersion}/class-sections"
+    },
+    {
+      "name": "getClasStatisticAssessment",
+      "path": "/api/{apiVersion}/assessments/class/{id}/statistics"
+    },
+    {
+      "name": "getClasSubjectTemplate",
+      "path": "/api/{apiVersion}/subject-templates/class/{id}"
+    },
+    {
+      "name": "getClasTemplateInfoTimetable",
+      "path": "/api/{apiVersion}/timetable/class/{id}/template-info"
+    },
+    {
+      "name": "getClasTimetable",
+      "path": "/api/{apiVersion}/timetable/class/{id}"
+    },
+    {
+      "name": "getConflictEvent",
+      "path": "/api/{apiVersion}/events/conflicts"
+    },
+    {
+      "name": "getConflictEventById",
+      "path": "/api/{apiVersion}/events/{id}/conflicts"
+    },
+    {
+      "name": "getConflictTimetable",
+      "path": "/api/{apiVersion}/timetable/conflicts"
+    },
+    {
+      "name": "getConsentEventById",
+      "path": "/api/{apiVersion}/events/{id}/consents"
+    },
+    {
+      "name": "getConversationById",
+      "path": "/api/{apiVersion}/conversations/{id}"
+    },
+    {
+      "name": "getConversations",
+      "path": "/api/{apiVersion}/conversations"
+    },
+    {
+      "name": "getCurrentBranchAuth",
+      "path": "/api/{apiVersion}/auth/current-branch"
+    },
+    {
+      "name": "getCurrentChildAuth",
+      "path": "/api/{apiVersion}/auth/current-child"
+    },
+    {
+      "name": "getDashboard",
+      "path": "/api/{apiVersion}/dashboard"
+    },
+    {
+      "name": "getDeletionCheckClasseById",
+      "path": "/api/{apiVersion}/classes/{id}/deletion-check"
+    },
+    {
+      "name": "getDeletionCheckLevelById",
+      "path": "/api/{apiVersion}/levels/{id}/deletion-check"
+    },
+    {
+      "name": "getDeletionCheckSectionById",
+      "path": "/api/{apiVersion}/sections/{id}/deletion-check"
+    },
+    {
+      "name": "getDeletionCheckSubjectById",
+      "path": "/api/{apiVersion}/subjects/{id}/deletion-check"
+    },
+    {
+      "name": "getEarlyDepartures",
+      "path": "/api/{apiVersion}/early-departures"
+    },
+    {
+      "name": "getEventById",
+      "path": "/api/{apiVersion}/events/{id}"
+    },
+    {
+      "name": "getEvents",
+      "path": "/api/{apiVersion}/events"
+    },
+    {
+      "name": "getExaminationScheduleAssessment",
+      "path": "/api/{apiVersion}/assessments/examination-schedule"
+    },
+    {
+      "name": "getExaminationScheduleExportPdfAssessment",
+      "path": "/api/{apiVersion}/assessments/examination-schedule/export/pdf"
+    },
+    {
+      "name": "getFaviconIco",
+      "path": "/favicon.ico"
+    },
+    {
+      "name": "getFeatures",
+      "path": "/api/{apiVersion}/features"
+    },
+    {
+      "name": "getFileStorage",
+      "path": "/api/{apiVersion}/storage/files"
+    },
+    {
+      "name": "getGoogleAuth",
+      "path": "/api/{apiVersion}/auth/google"
+    },
+    {
+      "name": "getGrades",
+      "path": "/api/{apiVersion}/grades"
+    },
+    {
+      "name": "getGradesByAssessmentid",
+      "path": "/api/{apiVersion}/grades/assessment/{id}"
+    },
+    {
+      "name": "getGradesByStudentid",
+      "path": "/api/{apiVersion}/grades/student/{id}"
+    },
+    {
+      "name": "getGradeTemplates",
+      "path": "/api/{apiVersion}/grade-templates"
+    },
+    {
+      "name": "getHealth",
+      "path": "/health"
+    },
+    {
+      "name": "getInvitationsByToken",
+      "path": "/api/{apiVersion}/invitations/setup/{id}"
+    },
+    {
+      "name": "getLeaveQuotaSetting",
+      "path": "/api/{apiVersion}/settings/leave-quota"
+    },
+    {
+      "name": "getLeaveRequestById",
+      "path": "/api/{apiVersion}/leave-requests/{id}"
+    },
+    {
+      "name": "getLeaveRequests",
+      "path": "/api/{apiVersion}/leave-requests"
+    },
+    {
+      "name": "getLeaveRequestsByStudentid",
+      "path": "/api/{apiVersion}/leave-requests/stats/{id}"
+    },
+    {
+      "name": "getLevels",
+      "path": "/api/{apiVersion}/levels"
+    },
+    {
+      "name": "getLevelSubjectTemplate",
+      "path": "/api/{apiVersion}/subject-templates/level/{id}"
+    },
+    {
+      "name": "getLibrary",
+      "path": "/api/{apiVersion}/library"
+    },
+    {
+      "name": "getLibraryById",
+      "path": "/api/{apiVersion}/library/{id}"
+    },
+    {
+      "name": "getLowStockUniform",
+      "path": "/api/{apiVersion}/uniforms/low-stock"
+    },
+    {
+      "name": "getMatrixBehavioral",
+      "path": "/api/{apiVersion}/behavioral/matrix/{id}"
+    },
+    {
+      "name": "getMeAuth",
+      "path": "/api/{apiVersion}/auth/me"
+    },
+    {
+      "name": "getMessageConversationById",
+      "path": "/api/{apiVersion}/conversations/{id}/messages"
+    },
+    {
+      "name": "getMeStaff",
+      "path": "/api/{apiVersion}/staff/me"
+    },
+    {
+      "name": "getMeStudent",
+      "path": "/api/{apiVersion}/student/me"
+    },
+    {
+      "name": "getMeTenant",
+      "path": "/api/{apiVersion}/tenants/me"
+    },
+    {
+      "name": "getMyAssessment",
+      "path": "/api/{apiVersion}/assessments/my"
+    },
+    {
+      "name": "getMyBrancheAuth",
+      "path": "/api/{apiVersion}/auth/my-branches"
+    },
+    {
+      "name": "getMyChildrenAuth",
+      "path": "/api/{apiVersion}/auth/my-children"
+    },
+    {
+      "name": "getMyEventEvent",
+      "path": "/api/{apiVersion}/events/my-events"
+    },
+    {
+      "name": "getMyExaminationScheduleAssessment",
+      "path": "/api/{apiVersion}/assessments/my/examination-schedule"
+    },
+    {
+      "name": "getMyExaminationScheduleExportPdfAssessment",
+      "path": "/api/{apiVersion}/assessments/my/examination-schedule/export/pdf"
+    },
+    {
+      "name": "getNotificationById",
+      "path": "/api/{apiVersion}/notifications/{id}"
+    },
+    {
+      "name": "getNotifications",
+      "path": "/api/{apiVersion}/notifications"
+    },
+    {
+      "name": "getParentsByStudentid",
+      "path": "/api/{apiVersion}/parents/students/{id}/guardians"
+    },
+    {
+      "name": "getPendingBehavioral",
+      "path": "/api/{apiVersion}/behavioral/pending"
+    },
+    {
+      "name": "getPermissions",
+      "path": "/api/{apiVersion}/permissions"
+    },
+    {
+      "name": "getPreferenceDashboard",
+      "path": "/api/{apiVersion}/dashboard/preferences"
+    },
+    {
+      "name": "getProfileAuth",
+      "path": "/api/{apiVersion}/auth/profile"
+    },
+    {
+      "name": "getPublicByBranchcode",
+      "path": "/api/{apiVersion}/public/statistics/{id}"
+    },
+    {
+      "name": "getPublicClasCountReport",
+      "path": "/api/{apiVersion}/reports/public/class/{id}/counts"
+    },
+    {
+      "name": "getPublicClassCountReport",
+      "path": "/api/{apiVersion}/reports/public/class-counts"
+    },
+    {
+      "name": "getPublicHolidays",
+      "path": "/api/{apiVersion}/public-holidays"
+    },
+    {
+      "name": "getQuotaLeaveRequest",
+      "path": "/api/{apiVersion}/leave-requests/quota/{id}"
+    },
+    {
+      "name": "getRankingReport",
+      "path": "/api/{apiVersion}/reports/rankings/{classSectionId}/{subjectId}"
+    },
+    {
+      "name": "getReadinesAcademicYearById",
+      "path": "/api/{apiVersion}/academic-years/{id}/readiness"
+    },
+    {
+      "name": "getRecordAuditLog",
+      "path": "/api/{apiVersion}/audit-logs/record/{tableName}/{recordId}"
+    },
+    {
+      "name": "getReportAttendance",
+      "path": "/api/{apiVersion}/attendance/report"
+    },
+    {
+      "name": "getReportsByClasssectionid",
+      "path": "/api/{apiVersion}/reports/public/class/{id}/counts"
+    },
+    {
+      "name": "getReportsBySubjectid",
+      "path": "/api/{apiVersion}/reports/academic/subject/{id}"
+    },
+    {
+      "name": "getReportUniformIssuance",
+      "path": "/api/{apiVersion}/uniform-issuances/report"
+    },
+    {
+      "name": "getResource",
+      "path": "/"
+    },
+    {
+      "name": "getResultsByClasssectionid",
+      "path": "/api/{apiVersion}/results/class-section/{id}"
+    },
+    {
+      "name": "getResultsByStudentid",
+      "path": "/api/{apiVersion}/results/student/{id}/cards"
+    },
+    {
+      "name": "getRoles",
+      "path": "/api/{apiVersion}/roles"
+    },
+    {
+      "name": "getScheduleStaffById",
+      "path": "/api/{apiVersion}/staff/{id}/schedule"
+    },
+    {
+      "name": "getSchoolDaySetting",
+      "path": "/api/{apiVersion}/settings/school-days"
+    },
+    {
+      "name": "getSearchLibrary",
+      "path": "/api/{apiVersion}/library/search"
+    },
+    {
+      "name": "getSections",
+      "path": "/api/{apiVersion}/sections"
+    },
+    {
+      "name": "getSettings",
+      "path": "/api/{apiVersion}/settings"
+    },
+    {
+      "name": "getSettingsByKey",
+      "path": "/api/{apiVersion}/settings/{id}"
+    },
+    {
+      "name": "getSetupInvitation",
+      "path": "/api/{apiVersion}/invitations/setup/{id}"
+    },
+    {
+      "name": "getStaff",
+      "path": "/api/{apiVersion}/staff"
+    },
+    {
+      "name": "getStaffById",
+      "path": "/api/{apiVersion}/staff/{id}"
+    },
+    {
+      "name": "getStatisticAssessmentById",
+      "path": "/api/{apiVersion}/assessments/{id}/statistics"
+    },
+    {
+      "name": "getStatisticEarlyDeparture",
+      "path": "/api/{apiVersion}/early-departures/statistics"
+    },
+    {
+      "name": "getStatisticPublic",
+      "path": "/api/{apiVersion}/public/statistics/{id}"
+    },
+    {
+      "name": "getStatisticTenant",
+      "path": "/api/{apiVersion}/tenants/statistics"
+    },
+    {
+      "name": "getStatLeaveRequest",
+      "path": "/api/{apiVersion}/leave-requests/stats/{id}"
+    },
+    {
+      "name": "getStatuSettingsStatu",
+      "path": "/api/{apiVersion}/settings-status/status"
+    },
+    {
+      "name": "getStorage",
+      "path": "/api/{apiVersion}/storage"
+    },
+    {
+      "name": "getStorageBrancheById",
+      "path": "/api/{apiVersion}/branches/{id}/storage"
+    },
+    {
+      "name": "getStudentAcademicReportById",
+      "path": "/api/{apiVersion}/reports/student/{id}/academic"
+    },
+    {
+      "name": "getStudentAttendance",
+      "path": "/api/{apiVersion}/attendance/student/{id}"
+    },
+    {
+      "name": "getStudentAttendanceReportById",
+      "path": "/api/{apiVersion}/reports/student/{id}/attendance"
+    },
+    {
+      "name": "getStudentBehavioral",
+      "path": "/api/{apiVersion}/behavioral/student/{id}"
+    },
+    {
+      "name": "getStudentBehavioralReportPdfResult",
+      "path": "/api/{apiVersion}/results/student/{id}/behavioral-report/pdf"
+    },
+    {
+      "name": "getStudentById",
+      "path": "/api/{apiVersion}/students/{id}"
+    },
+    {
+      "name": "getStudentCardResult",
+      "path": "/api/{apiVersion}/results/student/{id}/cards"
+    },
+    {
+      "name": "getStudentClassSectionById",
+      "path": "/api/{apiVersion}/class-sections/{id}/students"
+    },
+    {
+      "name": "getStudentExportExcelReportById",
+      "path": "/api/{apiVersion}/reports/student/{id}/export/excel"
+    },
+    {
+      "name": "getStudentExportPdfReportById",
+      "path": "/api/{apiVersion}/reports/student/{id}/export/pdf"
+    },
+    {
+      "name": "getStudentGrade",
+      "path": "/api/{apiVersion}/grades/student/{id}"
+    },
+    {
+      "name": "getStudentGuardianParent",
+      "path": "/api/{apiVersion}/parents/students/{id}/guardians"
+    },
+    {
+      "name": "getStudentPerformanceAssessment",
+      "path": "/api/{apiVersion}/assessments/student/{id}/performance"
+    },
+    {
+      "name": "getStudentPromotionPlacement",
+      "path": "/api/{apiVersion}/promotion-placement/students"
+    },
+    {
+      "name": "getStudentReportById",
+      "path": "/api/{apiVersion}/reports/student/{id}"
+    },
+    {
+      "name": "getStudentResult",
+      "path": "/api/{apiVersion}/results/student/{id}"
+    },
+    {
+      "name": "getStudentResultCardPdfResult",
+      "path": "/api/{apiVersion}/results/student/{id}/result-card/pdf"
+    },
+    {
+      "name": "getStudents",
+      "path": "/api/{apiVersion}/students"
+    },
+    {
+      "name": "getStudentStatuAssessmentById",
+      "path": "/api/{apiVersion}/assessments/{id}/student-status"
+    },
+    {
+      "name": "getStudentSubjectTemplate",
+      "path": "/api/{apiVersion}/subject-templates/students/{id}"
+    },
+    {
+      "name": "getStudentTimetable",
+      "path": "/api/{apiVersion}/timetable/student/{id}"
+    },
+    {
+      "name": "getStudentUniformIssuance",
+      "path": "/api/{apiVersion}/uniform-issuances/student/{id}"
+    },
+    {
+      "name": "getSubjects",
+      "path": "/api/{apiVersion}/subjects"
+    },
+    {
+      "name": "getSubjectStatisticAssessment",
+      "path": "/api/{apiVersion}/assessments/subject/{id}/statistics"
+    },
+    {
+      "name": "getSubjectTemplateById",
+      "path": "/api/{apiVersion}/subject-templates/{id}"
+    },
+    {
+      "name": "getSubjectTemplates",
+      "path": "/api/{apiVersion}/subject-templates"
+    },
+    {
+      "name": "getSubjectTemplatesByClassid",
+      "path": "/api/{apiVersion}/subject-templates/class/{id}"
+    },
+    {
+      "name": "getSubjectTemplatesByLevelid",
+      "path": "/api/{apiVersion}/subject-templates/level/{id}"
+    },
+    {
+      "name": "getSubjectTemplatesByStudentid",
+      "path": "/api/{apiVersion}/subject-templates/students/{id}"
+    },
+    {
+      "name": "getSummaryClasAttendance",
+      "path": "/api/{apiVersion}/attendance/summary/class/{id}"
+    },
+    {
+      "name": "getSummaryStudentAttendance",
+      "path": "/api/{apiVersion}/attendance/summary/student/{id}"
+    },
+    {
+      "name": "getSwJs",
+      "path": "/sw.js"
+    },
+    {
+      "name": "getTeacherAssignmentById",
+      "path": "/api/{apiVersion}/teacher-assignments/{id}"
+    },
+    {
+      "name": "getTeacherAssignments",
+      "path": "/api/{apiVersion}/teacher-assignments"
+    },
+    {
+      "name": "getTeacherAssignmentsByClasssectionid",
+      "path": "/api/{apiVersion}/teacher-assignments/by-class/{id}"
+    },
+    {
+      "name": "getTeacherAssignmentsByStaffid",
+      "path": "/api/{apiVersion}/teacher-assignments/by-teacher/{id}"
+    },
+    {
+      "name": "getTeacherMeTimetable",
+      "path": "/api/{apiVersion}/timetable/teacher/me"
+    },
+    {
+      "name": "getTeacherTimetable",
+      "path": "/api/{apiVersion}/timetable/teacher/{id}"
+    },
+    {
+      "name": "getTemplateSettingsImport",
+      "path": "/api/{apiVersion}/settings-import/template"
+    },
+    {
+      "name": "getTimetableByClasssectionid",
+      "path": "/api/{apiVersion}/timetable/class/{id}/template-info"
+    },
+    {
+      "name": "getTimetableByStaffid",
+      "path": "/api/{apiVersion}/timetable/teacher/{id}"
+    },
+    {
+      "name": "getTimetableByStudentid",
+      "path": "/api/{apiVersion}/timetable/student/{id}"
+    },
+    {
+      "name": "getTimingTemplates",
+      "path": "/api/{apiVersion}/timing-templates"
+    },
+    {
+      "name": "getUniformById",
+      "path": "/api/{apiVersion}/uniforms/{id}"
+    },
+    {
+      "name": "getUniformIssuancesByStudentid",
+      "path": "/api/{apiVersion}/uniform-issuances/student/{id}"
+    },
+    {
+      "name": "getUniformRequestById",
+      "path": "/api/{apiVersion}/uniform-requests/{id}"
+    },
+    {
+      "name": "getUniformRequests",
+      "path": "/api/{apiVersion}/uniform-requests"
+    },
+    {
+      "name": "getUniforms",
+      "path": "/api/{apiVersion}/uniforms"
+    },
+    {
+      "name": "getUnreadCountNotification",
+      "path": "/api/{apiVersion}/notifications/unread-count"
+    },
+    {
+      "name": "getUpcomingConflictCountEvent",
+      "path": "/api/{apiVersion}/events/upcoming-conflict-count"
+    },
+    {
+      "name": "getUserById",
+      "path": "/api/{apiVersion}/users/{id}"
+    },
+    {
+      "name": "getUsers",
+      "path": "/api/{apiVersion}/users"
+    },
+    {
+      "name": "getVacations",
+      "path": "/api/{apiVersion}/vacations"
+    },
+    {
+      "name": "getValidateTimetable",
+      "path": "/api/{apiVersion}/timetable/validate"
+    },
+    {
+      "name": "getVapidPublicKeyPush",
+      "path": "/api/{apiVersion}/push/vapid-public-key"
+    },
+    {
+      "name": "getWidgetDashboard",
+      "path": "/api/{apiVersion}/dashboard/widgets"
+    },
+    {
+      "name": "patchActivateAcademicYear",
+      "path": "/api/{apiVersion}/academic-years/{id}/activate"
+    },
+    {
+      "name": "patchActivationTenant",
+      "path": "/api/{apiVersion}/tenants/{id}/activation"
+    },
+    {
+      "name": "patchAdminUnlockAcademicYear",
+      "path": "/api/{apiVersion}/academic-years/admin/{id}/unlock"
+    },
+    {
+      "name": "patchCommentResult",
+      "path": "/api/{apiVersion}/results/{id}/comment"
+    },
+    {
+      "name": "patchLockAcademicYear",
+      "path": "/api/{apiVersion}/academic-years/{id}/lock"
+    },
+    {
+      "name": "patchMePreferenceUser",
+      "path": "/api/{apiVersion}/users/me/preferences"
+    },
+    {
+      "name": "patchMeTenant",
+      "path": "/api/{apiVersion}/tenants/me"
+    },
+    {
+      "name": "patchStatuResult",
+      "path": "/api/{apiVersion}/results/{id}/status"
+    },
+    {
+      "name": "patchUpdateAssessmentType",
+      "path": "/api/{apiVersion}/assessment-types/{id}"
+    },
+    {
+      "name": "patchUpdateClasse",
+      "path": "/api/{apiVersion}/classes/{id}"
+    },
+    {
+      "name": "patchUpdateLevel",
+      "path": "/api/{apiVersion}/levels/{id}"
+    },
+    {
+      "name": "patchUpdateSection",
+      "path": "/api/{apiVersion}/sections/{id}"
+    },
+    {
+      "name": "patchUpdateSubject",
+      "path": "/api/{apiVersion}/subjects/{id}"
+    },
+    {
+      "name": "postApplySettingsImport",
+      "path": "/api/{apiVersion}/settings-import/apply"
+    },
+    {
+      "name": "postAssessmentStatuStudent",
+      "path": "/api/{apiVersion}/student/assessments/{id}/status"
+    },
+    {
+      "name": "postAssignClasseSubjectTemplate",
+      "path": "/api/{apiVersion}/subject-templates/{id}/assign-classes"
+    },
+    {
+      "name": "postAssignLevelSubjectTemplate",
+      "path": "/api/{apiVersion}/subject-templates/{id}/assign-levels"
+    },
+    {
+      "name": "postAssignToTenantBranche",
+      "path": "/api/{apiVersion}/branches/assign-to-tenant"
+    },
+    {
+      "name": "postAttachmentAssessment",
+      "path": "/api/{apiVersion}/assessments/{id}/attachments"
+    },
+    {
+      "name": "postAuthorizeEarlyDeparture",
+      "path": "/api/{apiVersion}/early-departures/authorize"
+    },
+    {
+      "name": "postBootstrapGoogleAuth",
+      "path": "/api/{apiVersion}/auth/bootstrap-google"
+    },
+    {
+      "name": "postBreakdownRefreshStorage",
+      "path": "/api/{apiVersion}/storage/breakdown/refresh"
+    },
+    {
+      "name": "postBulkAttendance",
+      "path": "/api/{apiVersion}/attendance/bulk"
+    },
+    {
+      "name": "postBulkGrade",
+      "path": "/api/{apiVersion}/grades/bulk"
+    },
+    {
+      "name": "postBulkImportStudent",
+      "path": "/api/{apiVersion}/students/bulk-import"
+    },
+    {
+      "name": "postChildrenParent",
+      "path": "/api/{apiVersion}/parents/{id}/children"
+    },
+    {
+      "name": "postCommitSetupWizard",
+      "path": "/api/{apiVersion}/setup-wizard/commit"
+    },
+    {
+      "name": "postConsentEvent",
+      "path": "/api/{apiVersion}/events/{id}/consent"
+    },
+    {
+      "name": "postCopyFromBranchSettingsStatu",
+      "path": "/api/{apiVersion}/settings-status/copy-from-branch"
+    },
+    {
+      "name": "postCreateAcademicYear",
+      "path": "/api/{apiVersion}/academic-years"
+    },
+    {
+      "name": "postCreateAssessment",
+      "path": "/api/{apiVersion}/assessments"
+    },
+    {
+      "name": "postCreateAssessmentType",
+      "path": "/api/{apiVersion}/assessment-types"
+    },
+    {
+      "name": "postCreateBehavioral",
+      "path": "/api/{apiVersion}/behavioral"
+    },
+    {
+      "name": "postCreateBranche",
+      "path": "/api/{apiVersion}/branches"
+    },
+    {
+      "name": "postCreateClasse",
+      "path": "/api/{apiVersion}/classes"
+    },
+    {
+      "name": "postCreateClassSection",
+      "path": "/api/{apiVersion}/class-sections"
+    },
+    {
+      "name": "postCreateConversation",
+      "path": "/api/{apiVersion}/conversations"
+    },
+    {
+      "name": "postCreateEarlyDeparture",
+      "path": "/api/{apiVersion}/early-departures"
+    },
+    {
+      "name": "postCreateEvent",
+      "path": "/api/{apiVersion}/events"
+    },
+    {
+      "name": "postCreateGrade",
+      "path": "/api/{apiVersion}/grades"
+    },
+    {
+      "name": "postCreateGradeTemplate",
+      "path": "/api/{apiVersion}/grade-templates"
+    },
+    {
+      "name": "postCreateLeaveRequest",
+      "path": "/api/{apiVersion}/leave-requests"
+    },
+    {
+      "name": "postCreateLevel",
+      "path": "/api/{apiVersion}/levels"
+    },
+    {
+      "name": "postCreateLibrary",
+      "path": "/api/{apiVersion}/library"
+    },
+    {
+      "name": "postCreatePublicHoliday",
+      "path": "/api/{apiVersion}/public-holidays"
+    },
+    {
+      "name": "postCreateSection",
+      "path": "/api/{apiVersion}/sections"
+    },
+    {
+      "name": "postCreateStaff",
+      "path": "/api/{apiVersion}/staff"
+    },
+    {
+      "name": "postCreateStudent",
+      "path": "/api/{apiVersion}/students"
+    },
+    {
+      "name": "postCreateSubject",
+      "path": "/api/{apiVersion}/subjects"
+    },
+    {
+      "name": "postCreateSubjectTemplate",
+      "path": "/api/{apiVersion}/subject-templates"
+    },
+    {
+      "name": "postCreateTeacherAssignment",
+      "path": "/api/{apiVersion}/teacher-assignments"
+    },
+    {
+      "name": "postCreateTimingTemplate",
+      "path": "/api/{apiVersion}/timing-templates"
+    },
+    {
+      "name": "postCreateUniform",
+      "path": "/api/{apiVersion}/uniforms"
+    },
+    {
+      "name": "postCreateUniformIssuance",
+      "path": "/api/{apiVersion}/uniform-issuances"
+    },
+    {
+      "name": "postCreateUniformRequest",
+      "path": "/api/{apiVersion}/uniform-requests"
+    },
+    {
+      "name": "postCreateUser",
+      "path": "/api/{apiVersion}/users"
+    },
+    {
+      "name": "postCreateVacation",
+      "path": "/api/{apiVersion}/vacations"
+    },
+    {
+      "name": "postDeactivateStaff",
+      "path": "/api/{apiVersion}/staff/{id}/deactivate"
+    },
+    {
+      "name": "postDecisionPromotionPlacement",
+      "path": "/api/{apiVersion}/promotion-placement/decisions"
+    },
+    {
+      "name": "postDeletionCancelTenant",
+      "path": "/api/{apiVersion}/tenants/{id}/deletion-cancel"
+    },
+    {
+      "name": "postDeletionRequestTenant",
+      "path": "/api/{apiVersion}/tenants/{id}/deletion-request"
+    },
+    {
+      "name": "postDownloadLibrary",
+      "path": "/api/{apiVersion}/library/{id}/download"
+    },
+    {
+      "name": "postDraftFileCompresAssessment",
+      "path": "/api/{apiVersion}/assessments/draft/{draftId}/files/{fileId}/compress"
+    },
+    {
+      "name": "postDraftUploadAssessment",
+      "path": "/api/{apiVersion}/assessments/draft/upload"
+    },
+    {
+      "name": "postGenerateResult",
+      "path": "/api/{apiVersion}/results/generate"
+    },
+    {
+      "name": "postGenerateTimetable",
+      "path": "/api/{apiVersion}/timetable/generate"
+    },
+    {
+      "name": "postGoogleSignupAuth",
+      "path": "/api/{apiVersion}/auth/google-signup"
+    },
+    {
+      "name": "postLoginStatuPublic",
+      "path": "/api/{apiVersion}/public/login-status"
+    },
+    {
+      "name": "postLogoTenant",
+      "path": "/api/{apiVersion}/tenants/logo"
+    },
+    {
+      "name": "postMessageConversation",
+      "path": "/api/{apiVersion}/conversations/{id}/messages"
+    },
+    {
+      "name": "postMyStatuAssessment",
+      "path": "/api/{apiVersion}/assessments/{id}/my-status"
+    },
+    {
+      "name": "postPublishAssessment",
+      "path": "/api/{apiVersion}/assessments/{id}/publish"
+    },
+    {
+      "name": "postRegisterAuth",
+      "path": "/api/{apiVersion}/auth/register"
+    },
+    {
+      "name": "postReinviteInvitationStudent",
+      "path": "/api/{apiVersion}/students/{id}/reinvite-invitation"
+    },
+    {
+      "name": "postReplicateAcrossSectionTimetable",
+      "path": "/api/{apiVersion}/timetable/replicate-across-sections"
+    },
+    {
+      "name": "postReplicateDayTimetable",
+      "path": "/api/{apiVersion}/timetable/replicate-day"
+    },
+    {
+      "name": "postReplicateFromSectionTimetable",
+      "path": "/api/{apiVersion}/timetable/replicate-from-section"
+    },
+    {
+      "name": "postRequestPasswordResetPublic",
+      "path": "/api/{apiVersion}/public/request-password-reset"
+    },
+    {
+      "name": "postResendForUserInvitation",
+      "path": "/api/{apiVersion}/invitations/resend-for-user"
+    },
+    {
+      "name": "postResendInvitation",
+      "path": "/api/{apiVersion}/invitations/resend"
+    },
+    {
+      "name": "postResolveStudentRollPublic",
+      "path": "/api/{apiVersion}/public/resolve-student-roll"
+    },
+    {
+      "name": "postRolloverAcademicYear",
+      "path": "/api/{apiVersion}/academic-years/{id}/rollover"
+    },
+    {
+      "name": "postSelectBranchAuth",
+      "path": "/api/{apiVersion}/auth/select-branch"
+    },
+    {
+      "name": "postSelectChildAuth",
+      "path": "/api/{apiVersion}/auth/select-child"
+    },
+    {
+      "name": "postSetupInvitation",
+      "path": "/api/{apiVersion}/invitations/setup/{id}"
+    },
+    {
+      "name": "postSlotTimetable",
+      "path": "/api/{apiVersion}/timetable/slots"
+    },
+    {
+      "name": "postStatisticVerifyPublic",
+      "path": "/api/{apiVersion}/public/statistics/{id}/verify"
+    },
+    {
+      "name": "postStockUniform",
+      "path": "/api/{apiVersion}/uniforms/{id}/stock"
+    },
+    {
+      "name": "postStudentAssignSubjectTemplate",
+      "path": "/api/{apiVersion}/subject-templates/students/{id}/assign"
+    },
+    {
+      "name": "postStudentImportBulkImport",
+      "path": "/api/{apiVersion}/bulk-import/students/import"
+    },
+    {
+      "name": "postStudentPreviewBulkImport",
+      "path": "/api/{apiVersion}/bulk-import/students/preview"
+    },
+    {
+      "name": "postStudentSubjectTemplateHelpBulkImport",
+      "path": "/api/{apiVersion}/bulk-import/students/subject-template-help"
+    },
+    {
+      "name": "postStudentTemplateBulkImport",
+      "path": "/api/{apiVersion}/bulk-import/students/template"
+    },
+    {
+      "name": "postStudentValidateBulkImport",
+      "path": "/api/{apiVersion}/bulk-import/students/validate"
+    },
+    {
+      "name": "postSubscribePush",
+      "path": "/api/{apiVersion}/push/subscribe"
+    },
+    {
+      "name": "postSwitchChildAuth",
+      "path": "/api/{apiVersion}/auth/switch-child"
+    },
+    {
+      "name": "postUploadAssessment",
+      "path": "/api/{apiVersion}/assessments/{id}/upload"
+    },
+    {
+      "name": "postUploadImageUniform",
+      "path": "/api/{apiVersion}/uniforms/upload-image"
+    },
+    {
+      "name": "postUploadLibrary",
+      "path": "/api/{apiVersion}/library/upload"
+    },
+    {
+      "name": "postValidateAuth",
+      "path": "/api/{apiVersion}/auth/validate"
+    },
+    {
+      "name": "postValidateSettingsImport",
+      "path": "/api/{apiVersion}/settings-import/validate"
+    },
+    {
+      "name": "postVerifyChildEmailAuth",
+      "path": "/api/{apiVersion}/auth/verify-child-email"
+    },
+    {
+      "name": "postViewLibrary",
+      "path": "/api/{apiVersion}/library/{id}/view"
+    },
+    {
+      "name": "postWithInvitationStudent",
+      "path": "/api/{apiVersion}/students/with-invitation"
+    },
+    {
+      "name": "putAlertAcknowledgeStorage",
+      "path": "/api/{apiVersion}/storage/alerts/{id}/acknowledge"
+    },
+    {
+      "name": "putApproveEarlyDeparture",
+      "path": "/api/{apiVersion}/early-departures/{id}/approve"
+    },
+    {
+      "name": "putApproveLeaveRequest",
+      "path": "/api/{apiVersion}/leave-requests/{id}/approve"
+    },
+    {
+      "name": "putApproveUniformRequest",
+      "path": "/api/{apiVersion}/uniform-requests/{id}/approve"
+    },
+    {
+      "name": "putAssignClasseGradeTemplate",
+      "path": "/api/{apiVersion}/grade-templates/{id}/assign-classes"
+    },
+    {
+      "name": "putAssignClasseTimingTemplate",
+      "path": "/api/{apiVersion}/timing-templates/{id}/assign-classes"
+    },
+    {
+      "name": "putCancelEarlyDeparture",
+      "path": "/api/{apiVersion}/early-departures/{id}/cancel"
+    },
+    {
+      "name": "putCancelLeaveRequest",
+      "path": "/api/{apiVersion}/leave-requests/{id}/cancel"
+    },
+    {
+      "name": "putCancelUniformRequest",
+      "path": "/api/{apiVersion}/uniform-requests/{id}/cancel"
+    },
+    {
+      "name": "putChildrenParent",
+      "path": "/api/{apiVersion}/parents/{id}/children/{studentId}"
+    },
+    {
+      "name": "putClassTeacherClassSection",
+      "path": "/api/{apiVersion}/class-sections/{id}/class-teacher"
+    },
+    {
+      "name": "putIssueUniformRequest",
+      "path": "/api/{apiVersion}/uniform-requests/{id}/issue"
+    },
+    {
+      "name": "putLeaveQuotaSetting",
+      "path": "/api/{apiVersion}/settings/leave-quota"
+    },
+    {
+      "name": "putPreferenceDashboard",
+      "path": "/api/{apiVersion}/dashboard/preferences"
+    },
+    {
+      "name": "putProfileAuth",
+      "path": "/api/{apiVersion}/auth/profile"
+    },
+    {
+      "name": "putPublicStatBranche",
+      "path": "/api/{apiVersion}/branches/{id}/public-stats"
+    },
+    {
+      "name": "putReadAllNotification",
+      "path": "/api/{apiVersion}/notifications/read-all"
+    },
+    {
+      "name": "putReadConversation",
+      "path": "/api/{apiVersion}/conversations/{id}/read"
+    },
+    {
+      "name": "putReadMessage",
+      "path": "/api/{apiVersion}/messages/{id}/read"
+    },
+    {
+      "name": "putReadNotification",
+      "path": "/api/{apiVersion}/notifications/{id}/read"
+    },
+    {
+      "name": "putRejectEarlyDeparture",
+      "path": "/api/{apiVersion}/early-departures/{id}/reject"
+    },
+    {
+      "name": "putRejectLeaveRequest",
+      "path": "/api/{apiVersion}/leave-requests/{id}/reject"
+    },
+    {
+      "name": "putRejectUniformRequest",
+      "path": "/api/{apiVersion}/uniform-requests/{id}/reject"
+    },
+    {
+      "name": "putRoleUser",
+      "path": "/api/{apiVersion}/users/{id}/roles"
+    },
+    {
+      "name": "putSchoolDaySetting",
+      "path": "/api/{apiVersion}/settings/school-days"
+    },
+    {
+      "name": "putStockUniform",
+      "path": "/api/{apiVersion}/uniforms/stock/{id}"
+    },
+    {
+      "name": "putUpdateAssessment",
+      "path": "/api/{apiVersion}/assessments/{id}"
+    },
+    {
+      "name": "putUpdateAttendance",
+      "path": "/api/{apiVersion}/attendance/{id}"
+    },
+    {
+      "name": "putUpdateBehavioral",
+      "path": "/api/{apiVersion}/behavioral/{id}"
+    },
+    {
+      "name": "putUpdateBranche",
+      "path": "/api/{apiVersion}/branches/{id}"
+    },
+    {
+      "name": "putUpdateClassSection",
+      "path": "/api/{apiVersion}/class-sections/{id}"
+    },
+    {
+      "name": "putUpdateEvent",
+      "path": "/api/{apiVersion}/events/{id}"
+    },
+    {
+      "name": "putUpdateGrade",
+      "path": "/api/{apiVersion}/grades/{id}"
+    },
+    {
+      "name": "putUpdateGradeTemplate",
+      "path": "/api/{apiVersion}/grade-templates/{id}"
+    },
+    {
+      "name": "putUpdateLibrary",
+      "path": "/api/{apiVersion}/library/{id}"
+    },
+    {
+      "name": "putUpdatePermission",
+      "path": "/api/{apiVersion}/permissions"
+    },
+    {
+      "name": "putUpdatePublicHoliday",
+      "path": "/api/{apiVersion}/public-holidays/{id}"
+    },
+    {
+      "name": "putUpdateSetting",
+      "path": "/api/{apiVersion}/settings/{id}"
+    },
+    {
+      "name": "putUpdateStaff",
+      "path": "/api/{apiVersion}/staff/{id}"
+    },
+    {
+      "name": "putUpdateStudent",
+      "path": "/api/{apiVersion}/students/{id}"
+    },
+    {
+      "name": "putUpdateSubjectTemplate",
+      "path": "/api/{apiVersion}/subject-templates/{id}"
+    },
+    {
+      "name": "putUpdateTeacherAssignment",
+      "path": "/api/{apiVersion}/teacher-assignments/{id}"
+    },
+    {
+      "name": "putUpdateUniform",
+      "path": "/api/{apiVersion}/uniforms/{id}"
+    },
+    {
+      "name": "putUpdateUser",
+      "path": "/api/{apiVersion}/users/{id}"
+    },
+    {
+      "name": "putUpdateVacation",
+      "path": "/api/{apiVersion}/vacations/{id}"
+    }
+  ]
+}

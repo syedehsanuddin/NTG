@@ -54,9 +54,9 @@ export async function getAuthToken(project?: string): Promise<string> {
 
     let setCookieHeader: string | undefined;
     try {
-        // NTG-RMS doesn't use activeRole, NTG-Ticket does
+        // NTG-RMS and NTG-SMS don't use activeRole; NTG-Ticket does
         const loginPayload: any = { email, password };
-        if (project !== "ntg-rms") {
+        if (project !== "ntg-rms" && project !== "ntg-sms") {
             loginPayload.activeRole = "ADMIN";
         }
         

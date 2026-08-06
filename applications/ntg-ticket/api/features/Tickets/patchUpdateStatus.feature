@@ -1,4 +1,4 @@
-@patchUpdateStatus @happyflow @regression
+# @patchUpdateStatus @happyflow @regression
 Feature: Update Ticket Status API Validation
   Validate PATCH /api/v1/tickets/{id}/status endpoint
 

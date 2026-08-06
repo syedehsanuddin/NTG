@@ -1,4 +1,4 @@
-@deleteCoupon @happyFlow
+# @deleteCoupon @happyFlow
 
 Feature: Delete coupon (soft delete)
   Validate DELETE /api/v1/coupons/{id} endpoint

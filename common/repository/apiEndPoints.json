@@ -819,6 +819,13 @@
           "path": "/api/{apiVersion}/dashboard"
         }
       ]
+    },
+    {
+      "project": "ntg-sms",
+      "apiName": "ntgSmsApi",
+      "baseUrl": "https://alma.ntgapps.com",
+      "apiVersion": "v1",
+      "resources": []
     }
   ]
 }
